@@ -8,12 +8,20 @@ This repository makes use of stow to manage the dot files.
 
 ```bash
 sudo apt-get install stow
+git clone https://github.com/AlexKornitzer/dotfiles.git ~/Dotfiles
+cd ~/Dotfiles
+git submodule init
+git submodule update
 ```
 
 ### MacOS
 
 ```bash
 brew install stow
+git clone https://github.com/AlexKornitzer/dotfiles.git ~/Dotfiles
+cd ~/Dotfiles
+git submodule init
+git submodule update
 ```
 
 ## Stows
