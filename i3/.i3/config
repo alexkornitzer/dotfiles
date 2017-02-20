@@ -38,6 +38,7 @@ set $darkwhite   #d5d5d5
 
 set $background  #151515
 set $lightbg     #262626
+set $darkfg      #4f5b66
 set $foreground  #fefefe
 
 # Override 'incorrect' colours
@@ -56,7 +57,7 @@ font pango: DejaVu Sans Mono 8, FontAwesome 8
 #class                  border      backgr.     text        indicator   child_border
 client.focused          $blue       $blue       $foreground $blue       $blue
 client.focused_inactive $lightbg    $lightbg    $foreground $lightbg    $background
-client.unfocused        $background $background $foreground $background $background
+client.unfocused        $background $background $darkfg     $background $background
 client.urgent           $red        $red        $foreground $red        $red
 client.placeholder      $background $background $foreground $background $background
 
