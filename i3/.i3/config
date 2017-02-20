@@ -2,7 +2,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+# Set the modifier
+#set $mod Mod1   # Left Alt
+set $mod Mod4   # Left Super (Windows Key)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Locals
