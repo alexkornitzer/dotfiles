@@ -1,0 +1,9 @@
+# Things to ignore 
+tmux/.tmux-statusline-colors.conf
+vim/.vim/autoload/plug.vim
+vim/.vim/autoload/plug.vim.old
+vim/.vim/plugged/
+vim/.vim/view/
+vim/.vim/.netrwhist
+vim/.vim/ycm_extra_conf.pyc
+.DS_Store

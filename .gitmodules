@@ -1,0 +1,9 @@
+[submodule "tmux/.tmux-gitbar"]
+	path = tmux/.tmux-gitbar
+	url = https://github.com/aurelien-rainone/tmux-gitbar.git
+[submodule "bash/.bash-git-prompt"]
+	path = bash/.bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule "zsh/.oh-my-zsh"]
+	path = zsh/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
