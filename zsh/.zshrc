@@ -52,6 +52,8 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# TODO: Using a manual PR of #4880 of git-prompt as it doesnt look like it will
+# be merged anytime soon
 plugins=(brew git git-prompt tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
@@ -84,6 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+eval $(thefuck --alias)
 
 export HISTCONTROL=ignoredups
 
