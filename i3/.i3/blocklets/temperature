@@ -1,10 +1,11 @@
 #!/bin/bash
 
 TEMP_DEVICE="${BLOCK_INSTANCE:-Core}"
-TEMP_OUTPUT=$(sensors | grep "Adapter\|${TEMP_DEVICE}")
+TEMP_OUTPUT=$(sensors | grep "${TEMP_DEVICE}")
+#TEMP_OUTPUT=$(sensors | grep "Adapter\|${TEMP_DEVICE}")
 
 # Check for vmware, crude but efficient?!
-if [[ "$(ps -ef | grep vmware-guestd)" ]]; then
+if [[ "$(lsmod | grep vmwgfx)" ]]; then
   echo " N/A<span font_weight='ultraheavy'>°</span> "
   echo " N/A<span font_weight='ultraheavy'>°</span> "
   echo ""
