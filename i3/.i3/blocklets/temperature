@@ -3,21 +3,29 @@
 TEMP_DEVICE="${BLOCK_INSTANCE:-Core}"
 TEMP_OUTPUT=$(sensors | grep "Adapter\|${TEMP_DEVICE}")
 
+# Check for vmware, crude but efficient?!
+if [[ "$(ps -ef | grep vmware-guestd)" ]]; then
+  echo " N/A<span font_weight='ultraheavy'>°</span> "
+  echo " N/A<span font_weight='ultraheavy'>°</span> "
+  echo ""
+  exit
+fi
+
 IS_URGENT=0
 
 TOTAL_TEMP=0
 TOTAL_COUNT=0
 while read RESULT_LINE; do
-  # N/A for ISA adapter, otherwise everything is 100 all of the time!
-  if [[ "${RESULT_LINE}" == "Adapter: ISA adapter" ]]; then
-    while read RESULT_LINE; do
-      if [[ "${RESULT_LINE}" == "Adpater:*" ]]; then
-        break
-      fi
-    done
-    read
-    continue
-  fi
+  ## N/A for certain adapters
+  #if [[ "${RESULT_LINE}" == "Adapter: ISA adapter" ]]; then
+  #  while read RESULT_LINE; do
+  #    if [[ "${RESULT_LINE}" == "Adpater:*" ]]; then
+  #      break
+  #    fi
+  #  done
+  #  read
+  #  continue
+  #fi
 
   TOTAL_COUNT=$((TOTAL_COUNT +1))
   CURRENT_TEMP=$(echo "${RESULT_LINE}" | grep -o -E "[\+\-]?[0-9]*.[0-9]*°C" | sed -n '1p' | tr -d '+°C')
