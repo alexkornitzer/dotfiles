@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Check if already locked
 if [[  $(pgrep -cx i3lock) -gt 0 ]] ; then
   printf "%s\n" "i3lock is already running." >&2
