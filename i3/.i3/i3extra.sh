@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Executions that need some if statements!
 #
