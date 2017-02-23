@@ -4,7 +4,7 @@
 #
 
 # Exit if a we are a virtual machine
-if [[  $(pgrep -cx vmgfx) -gt 0 ]] ; then
+if [[  $(lsmod | grep ^vmwgfx | wc -l) -gt 0 ]] ; then
   vmware-user-suid-wrapper &
   exit
 fi
