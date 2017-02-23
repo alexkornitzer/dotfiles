@@ -219,9 +219,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m \
 # lock i3 (using i3lock in a wrapper)
 bindsym $mod+Shift+x exec --no-startup-id $locker
 
-# lock i3 (using i3lock in a wrapper) after 1 min of inactivity
-exec_always --no-startup-id xautolock -time 1 -notify 5 -notifier \
-  "notify-send 'Locking'" -corners 0-00 -locker $locker
+# TODO: Now in i3extra.sh
+## lock i3 (using i3lock in a wrapper) after 1 min of inactivity
+#exec_always --no-startup-id xautolock -time 1 -notify 5 -notifier \
+#  "notify-send 'Locking'" -corners 0-00 -locker $locker
 
 # show system options
 set $mode_system System (l) lock, (e) logout, (s) suspend, \
@@ -292,7 +293,6 @@ bindsym $mod+r mode "resize"
 
 # Applets
 exec --no-startup-id nm-applet # network manager
-exec --no-startup-id redshift-gtk # redshift
 exec --no-startup-id dunst # notifications
 exec --no-startup-id udiskie --smart-tray # usb storage automounter
 
@@ -302,8 +302,10 @@ exec --no-startup-id compton -b #--config ~/.compton.conf
 # Use XFCE4 for power management
 exec_always --no-startup-id xfce4-power-manager
 
-# Fix VMWare issues
-exec --no-startup-id vmware-user-suid-wrapper
+# i3extra.sh
+#exec --no-startup-id vmware-user-suid-wrapper
+#exec --no-startup-id redshift-gtk # redshift
+exec_always --no-startup-id ~/.i3/i3extra.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Miscellaneous
