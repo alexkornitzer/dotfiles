@@ -26,7 +26,7 @@ antigen bundle python
 antigen bundle virtualenv
 
 # OS X
-if [ "$OSTYPE"="darwin11.0" ]; then
+if [ "$OSTYPE" = "darwin11.0" ]; then
   antigen bundle brew
   antigen bundle osx
 fi
