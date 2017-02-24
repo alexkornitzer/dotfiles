@@ -10,6 +10,7 @@ zplug "plugins/command-not-found",   from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh
 zplug "plugins/vi-mode",   from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "~/.zsh/plugins/git-prompt", from:local
 
@@ -60,6 +61,9 @@ eval $(thefuck --alias)
 
 # Vi mode
 bindkey -v
+
+# zsh-autosuggestions
+bindkey '^ ' autosuggest-accept
 
 # Set beginning search as default
 autoload -Uz up-line-or-beginning-search
