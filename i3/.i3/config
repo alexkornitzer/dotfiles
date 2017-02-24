@@ -292,8 +292,9 @@ exec --no-startup-id udiskie --smart-tray # usb storage automounter
 # Compositor
 exec --no-startup-id compton -b #--config ~/.compton.conf
 
-# Use XFCE4 for power management
-exec_always --no-startup-id xfce4-power-manager
+# TODO: Using TLP now
+## Use XFCE4 for power management
+#exec_always --no-startup-id xfce4-power-manager
 
 # i3extra.sh
 #exec --no-startup-id vmware-user-suid-wrapper
