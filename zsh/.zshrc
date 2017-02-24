@@ -102,7 +102,9 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey '\e[A' up-line-or-beginning-search
 bindkey '\eOA' up-line-or-beginning-search
+bindkey '^p' up-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
 bindkey -M vicmd 'k' up-line-or-beginning-search
 bindkey -M vicmd 'j' down-line-or-beginning-search
