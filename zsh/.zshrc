@@ -10,7 +10,7 @@ zplug "plugins/command-not-found",   from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh
 zplug "plugins/vi-mode",   from:oh-my-zsh
-#zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "~/.zsh/plugins/git-prompt", from:local
 
@@ -52,8 +52,47 @@ HYPHEN_INSENSITIVE="true"
 # Ignore duplicates in history
 HISTCONTROL=ignoredups
 
+# Enable tab highlighting
+zstyle ':completion:*' menu select
+
+# Enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+elif [[ "`uname`" == 'Darwin' ]]; then
+  export LSCOLORS=exfxcxdxcxExDxabagacad
+  alias ls='ls -G'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # Enable thefuck
-eval $(thefuck --alias)
+if [ `command -v 'thefuck'` ]; then
+  eval "$(thefuck --alias)"
+fi
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Aliases
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ls
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -lF'
+
+# radare2
+alias r2='radare2'
+
+# tmux
+alias t='tmux -2'
+alias ta='tmux -2 attach'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Bindings
@@ -63,7 +102,7 @@ eval $(thefuck --alias)
 bindkey -v
 
 # zsh-autosuggestions
-#bindkey '^ ' autosuggest-accept
+bindkey '^ ' autosuggest-accept
 
 # Set beginning search as default
 autoload -Uz up-line-or-beginning-search
