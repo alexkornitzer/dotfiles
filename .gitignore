@@ -6,5 +6,5 @@ vim/.vim/plugged/
 vim/.vim/view/
 vim/.vim/.netrwhist
 vim/.vim/ycm_extra_conf.pyc
-zsh/.antigen/repos
+zsh/.zplug/repos
 .DS_Store

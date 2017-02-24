@@ -1,45 +1,48 @@
 #-------------------------------------------------------------------------------
-# Antigen
+# ZPlug
 #-------------------------------------------------------------------------------
 
 # Source in the package manager
-source $HOME/.antigen/antigen.zsh
-
-# Set Oh-My-Zsh as default
-antigen use oh-my-zsh
-
-# Load in raw Oh-My-Zsh cause we need it!?!?!
-antigen bundle robbyrussell/oh-my-zsh ~/.oh-my-zsh
+source ~/.zplug/init.zsh
 
 # General
-antigen bundle command-not-found
-antigen bundle git
-#antigen bundle git-prompt
-antigen bundle tmux
-antigen bundle vi-mode
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle $HOME/.zsh/plugins/git-prompt --no-local-clone
+zplug "plugins/command-not-found",   from:oh-my-zsh
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/tmux",   from:oh-my-zsh
+zplug "plugins/vi-mode",   from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "~/.zsh/plugins/git-prompt", from:local
 
 # Python Plugins
-antigen bundle pip
-antigen bundle python
-antigen bundle virtualenv
+zplug "plugins/pip",   from:oh-my-zsh
+zplug "plugins/python",   from:oh-my-zsh
+zplug "plugins/virtualenv",   from:oh-my-zsh
 
 # OS X
 if [ "$OSTYPE" = "darwin11.0" ]; then
-  antigen bundle brew
-  antigen bundle osx
+  zplug "plugins/brew",   from:oh-my-zsh
+  zplug "plugins/osx",   from:oh-my-zsh
+fi
+
+# Load local themes
+zplug '~/.zsh/themes', from:local, as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
 fi
 
 # Apply changes
-antigen apply
+zplug load
 
 #-------------------------------------------------------------------------------
 # General ZSH Settings
 #-------------------------------------------------------------------------------
 
-# Set the theme
-source $HOME/.zsh/themes/jellybeans.zsh-theme
+# Set theme
 ZSH_THEME="jellybeans"
 
 # Allow _ and - interchangeability
