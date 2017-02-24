@@ -3,8 +3,6 @@
 #-------------------------------------------------------------------------------
 
 # Source in the package manager
-# ZSHA_BASE=$HOME/.zsh-antigen
-# source $ZSHA_BASE/antigen/antigen.zsh
 source $HOME/.antigen/antigen.zsh
 
 # Set Oh-My-Zsh as default
@@ -16,11 +14,16 @@ antigen bundle robbyrussell/oh-my-zsh ~/.oh-my-zsh
 # General
 antigen bundle command-not-found
 antigen bundle git
-antigen bundle git-prompt
-antigen bundle pip
+#antigen bundle git-prompt
 antigen bundle tmux
 antigen bundle vi-mode
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle $HOME/.zsh/plugins/git-prompt --no-local-clone
+
+# Python Plugins
+antigen bundle pip
+antigen bundle python
+antigen bundle virtualenv
 
 # OS X
 if [ "$OSTYPE"="darwin11.0" ]; then
