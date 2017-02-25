@@ -22,4 +22,4 @@ function vi_mode_prompt_info() {
 
 # Prompt
 PROMPT="${user} ${pwd}$ "
-RPROMPT="${return_status}"'$(vi_mode_prompt_info)$(git_super_status)'
+RPROMPT="${return_status}"'$(vi_mode_prompt_info)$(virtualenv_prompt_info)$(git_super_status)'
