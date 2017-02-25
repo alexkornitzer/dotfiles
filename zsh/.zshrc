@@ -67,11 +67,6 @@ fi
 # Aliases
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# ls
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -lF'
-
 # radare2
 alias r2='radare2'
 
@@ -102,3 +97,8 @@ bindkey '\eOB' down-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey -M vicmd 'k' up-line-or-beginning-search
 bindkey -M vicmd 'j' down-line-or-beginning-search
+
+# Reset, gets overridden
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
+fi
