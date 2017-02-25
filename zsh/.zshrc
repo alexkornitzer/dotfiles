@@ -5,6 +5,9 @@
 # Source in the package manager
 source ~/.zplug/init.zsh
 
+# Load Oh-My-Zsh Libraries
+zplug "lib/*",   from:oh-my-zsh
+
 # General
 zplug "plugins/command-not-found",   from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
@@ -20,7 +23,7 @@ zplug "plugins/python",   from:oh-my-zsh
 zplug "plugins/virtualenv",   from:oh-my-zsh
 
 # OS X
-if [ "$OSTYPE" = "darwin11.0" ]; then
+if [[ $OSTYPE =~ "darwin*" ]]; then
   zplug "plugins/brew",   from:oh-my-zsh
   zplug "plugins/osx",   from:oh-my-zsh
 fi
@@ -51,24 +54,6 @@ HYPHEN_INSENSITIVE="true"
 
 # Ignore duplicates in history
 HISTCONTROL=ignoredups
-
-# Enable tab highlighting
-zstyle ':completion:*' menu select
-
-# Enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-elif [[ "`uname`" == 'Darwin' ]]; then
-  export LSCOLORS=exfxcxdxcxExDxabagacad
-  alias ls='ls -G'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
