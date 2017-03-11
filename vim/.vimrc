@@ -74,10 +74,6 @@ Plug 'wincent/command-t', { 'do': function('BuildCommandT') }
 " TODO: Will probably remove in favour of command-t
 Plug 'ctrlpvim/ctrlp.vim'
 
-" GitGutter: A Vim plugin which shows a git diff in the gutter (sign column)
-" and stages/undoes hunks
-Plug 'airblade/vim-gitgutter'
-
 " IndentLine: A vim plugin to display the indention levels with thin vertical
 " lines
 Plug 'Yggdroot/indentLine'
