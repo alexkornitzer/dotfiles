@@ -5,8 +5,15 @@
 # Source in the package manager
 source ~/.zplug/init.zsh
 
-# Load Oh-My-Zsh Libraries
-zplug "lib/*",   from:oh-my-zsh
+# Load Oh-My-Zsh Libraries but only the ones we want
+zplug "lib/completion",   from:oh-my-zsh
+zplug "lib/correction",   from:oh-my-zsh
+zplug "lib/git",   from:oh-my-zsh
+zplug "lib/grep",   from:oh-my-zsh
+zplug "lib/history",   from:oh-my-zsh
+zplug "lib/key-bindings",   from:oh-my-zsh
+zplug "lib/termsupport",   from:oh-my-zsh
+zplug "lib/theme-and-appearance",   from:oh-my-zsh
 
 # General
 zplug "plugins/command-not-found",   from:oh-my-zsh
