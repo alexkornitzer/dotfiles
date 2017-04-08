@@ -37,6 +37,6 @@ echo "$usage"
 
 case $BLOCK_BUTTON in
  1) i3-msg exec rofi-find ;; #left click, locate +xdg-open files with rofi
- 2) i3-msg exec caja ;; #right click, open filemanager
- 3) i3-msg exec 'caja --browser' #middle click, open filemanager
+ 2) i3-msg exec thunar ;; #right click, open filemanager
+ 3) i3-msg exec 'thunar --browser' #middle click, open filemanager
 esac

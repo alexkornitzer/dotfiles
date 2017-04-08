@@ -15,7 +15,12 @@ if [[  $(pgrep -cx xautolock) -eq 0 ]] ; then
   xautolock -time 1 -detectsleep -notify 5 -notifier "notify-send 'Locking'" -corners -000 -locker $locker &
 fi
 
-# Start RedShift GTK
-if [[  $(pgrep -cx redshift-gtk) -eq 0 ]] ; then
-  redshift-gtk &
+## Start RedShift GTK
+#if [[  $(pgrep -cx redshift-gtk) -eq 0 ]] ; then
+#  redshift-gtk &
+#fi
+
+# Start Flux
+if [[  $(pgrep -cx fluxgui) -eq 0 ]] ; then
+  fluxgui &
 fi
