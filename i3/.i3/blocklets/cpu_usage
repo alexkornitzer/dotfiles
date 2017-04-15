@@ -28,7 +28,7 @@ GetOptions("help|h" => \&help,
            "c=i"    => \$t_crit);
 
 # Get CPU usage
-$ENV{LC_ALL}="en_US"; # if mpstat is not run under en_US locale, things may break, so make sure it is
+$ENV{LC_ALL}="en_US.utf8"; # if mpstat is not run under en_US locale, things may break, so make sure it is
 open (MPSTAT, 'mpstat 1 1 |') or die;
 while (<MPSTAT>) {
     if (/^.*\s+(\d+\.\d+)\s+$/) {
