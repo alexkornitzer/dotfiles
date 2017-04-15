@@ -16,17 +16,18 @@ def get_tagname_or_hash():
     # get hash
     m = re.search('\(.*\)$', output)
     if m:
-        hash_ = output[:m.start()-1]
+        hash_ = output[:m.start() - 1]
     # get tagname
     m = re.search('tag: .*[,\)]', output)
     if m:
-        tagname = 'tags/' + output[m.start()+len('tag: '): m.end()-1]
+        tagname = 'tags/' + output[m.start() + len('tag: '): m.end() - 1]
 
     if tagname:
         return tagname
     elif hash_:
         return hash_
     return None
+
 
 # Re-use method from https://github.com/magicmonty/bash-git-prompt to get stashs count
 def get_stash():
@@ -54,7 +55,7 @@ ahead, behind = 0, 0
 # Remove « .decode('utf-8') » because it breaks status line if an accent (e.g.: « é ») is present.
 # For example, with .decode('utf-8'), git-prompt does not display with this kind of branch name: « feature/8113_liens_supplémentaires »
 # was: « status = [(line[0], line[1], line[2:]) for line in stdout.decode('utf-8').splitlines()] »
-status = [(line[0], line[1], line[2:]) for line in stdout.splitlines()]
+status = [(line[0], line[1], line[2:]) for line in stdout.decode('utf-8').splitlines()]
 for st in status:
     if st[0] == '#' and st[1] == '#':
         if re.search('Initial commit on', st[2]):
