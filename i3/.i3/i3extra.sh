@@ -19,3 +19,8 @@ fi
 if [[  $(pgrep -cx redshift-gtk) -eq 0 ]] ; then
   redshift-gtk &
 fi
+
+## Start Flux
+#if [[  $(pgrep -cx fluxgui) -eq 0 ]] ; then
+#  fluxgui &
+#fi
