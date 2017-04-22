@@ -84,6 +84,10 @@ Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
 " NertTreeTabs: NERDTree and tabs together in Vim, painlessly
 Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
 
+" Rainbow: help you read complex code by showing diff level of parentheses in
+" diff color !!
+Plug 'luochen1990/rainbow'
+
 " Signify: Show a diff using Vim sign column
 Plug 'mhinz/vim-signify'
 
