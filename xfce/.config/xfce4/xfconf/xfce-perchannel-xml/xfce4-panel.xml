@@ -19,6 +19,8 @@
         <value type="int" value="15"/>
         <value type="int" value="4"/>
         <value type="int" value="6"/>
+        <value type="int" value="16"/>
+        <value type="int" value="14"/>
         <value type="int" value="5"/>
       </property>
       <property name="mode" type="uint" value="1"/>
@@ -40,6 +42,7 @@
       <property name="names-visible" type="array">
         <value type="string" value="fluxgui"/>
         <value type="string" value="networkmanager applet"/>
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="redshift-gtk"/>
         <value type="string" value="vmware-tray"/>
       </property>
@@ -64,6 +67,10 @@
       <property name="items" type="array">
         <value type="string" value="14937496928.desktop"/>
       </property>
+    </property>
+    <property name="plugin-14" type="string" value="power-manager-plugin"/>
+    <property name="plugin-16" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
     </property>
   </property>
 </channel>
