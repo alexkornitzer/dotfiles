@@ -61,6 +61,14 @@ stow vim
 vim -c PlugInstall
 ```
 
+### xfce
+
+Nothing special to do for this one.
+
+```bash
+stow xfce
+```
+
 ### zsh
 
 Nothing special to do for this one.
