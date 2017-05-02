@@ -40,12 +40,18 @@
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
-        <value type="string" value="fluxgui"/>
-        <value type="string" value="networkmanager applet"/>
-        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="redshift-gtk"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="task manager"/>
+        <value type="string" value="fluxgui"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="blueman-applet"/>
         <value type="string" value="vmware-tray"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="notes"/>
       </property>
+      <property name="size-max" type="uint" value="22"/>
+      <property name="show-frame" type="bool" value="true"/>
     </property>
     <property name="plugin-7" type="string" value="whiskermenu"/>
     <property name="plugin-8" type="string" value="launcher">
