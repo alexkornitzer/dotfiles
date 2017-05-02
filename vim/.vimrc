@@ -84,6 +84,10 @@ Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
 " NertTreeTabs: NERDTree and tabs together in Vim, painlessly
 Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
 
+" Rainbow: help you read complex code by showing diff level of parentheses in
+" diff color !!
+Plug 'luochen1990/rainbow'
+
 " Signify: Show a diff using Vim sign column
 Plug 'mhinz/vim-signify'
 
@@ -216,6 +220,7 @@ source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/LaTeX-Box.vim            " Plugin: LaTeX-Box
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
+source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/TagList.vim              " Plugin: TagList

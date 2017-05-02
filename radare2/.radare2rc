@@ -1,0 +1,5 @@
+# Set default text editor
+e cfg.editor = vim
+
+# Set to fancy fonts
+e scr.utf8 = true
