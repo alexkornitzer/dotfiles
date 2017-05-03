@@ -5,6 +5,9 @@
 # Source in the package manager
 source ~/.zplug/init.zsh
 
+# Self manage
+zplug 'zplug/zplug', hook-build: 'zplug --self-manage'
+
 # Load Oh-My-Zsh Libraries but only the ones we want
 zplug "lib/completion",   from:oh-my-zsh
 zplug "lib/correction",   from:oh-my-zsh
