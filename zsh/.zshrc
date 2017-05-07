@@ -115,3 +115,7 @@ bindkey -M vicmd 'j' down-line-or-beginning-search
 if [[ "${terminfo[kcbt]}" != "" ]]; then
   bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
 fi
+
+# FIXME Needed to fix: https://github.com/zplug/zplug/issues/383
+# Required removal of https://github.com/zplug/zplug/pull/355/files#diff-fb361a0797fa562c6352fa10675bfbaaR6
+setopt monitor
