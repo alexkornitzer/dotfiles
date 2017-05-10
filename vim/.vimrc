@@ -104,8 +104,8 @@ Plug 'AlexKornitzer/cocoa.vim', { 'for': ['objc', 'objc++'] }
 " Vim.
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
-" LaTeXBox: Lightweight Toolbox for LaTeX
-Plug 'LaTeX-Box-Team/LaTeX-Box', { 'for': 'tex' }
+" Vimtex: A modern vim plugin for editing LaTeX files.
+Plug 'lervag/vimtex', { 'for': 'tex' }
 
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
@@ -113,10 +113,10 @@ Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 " Syntastic: Syntax checking hacks for vim
 Plug 'scrooloose/syntastic'
 
-" TexSyntax: Vim TeX syntax file
-if v:version >= 800
-  Plug 'gi1242/vim-tex-syntax'
-endif
+"" TexSyntax: Vim TeX syntax file
+"if v:version >= 800
+"  Plug 'gi1242/vim-tex-syntax'
+"endif
 
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -218,7 +218,6 @@ source $HOME/.vim/settings/EasyTags.vim             " Plugin: EasyTags
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
-source $HOME/.vim/settings/LaTeX-Box.vim            " Plugin: LaTeX-Box
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
@@ -226,7 +225,8 @@ source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/TagList.vim              " Plugin: TagList
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
-source $HOME/.vim/settings/Vim-Tex-Syntax.vim       " Plugin: Vim-Tex-Syntax
+"source $HOME/.vim/settings/Vim-Tex-Syntax.vim       " Plugin: Vim-Tex-Syntax
+source $HOME/.vim/settings/Vimtex.vim               " Plugin: Vimtex
 source $HOME/.vim/settings/YouCompleteMe.vim        " Plugin: YouCompleteMe
 
 "-------------------------------------------------------------------------------
