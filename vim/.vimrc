@@ -51,6 +51,9 @@ Plug 'tpope/vim-fugitive'
 " Plug 'edkolev/tmuxline.vim' Needs to fix the error
 Plug 'maman/tmuxline.vim'
 
+" Vimux: Vim plugin to interact with tmux
+Plug 'benmills/vimux'
+
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Interface
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -292,8 +295,15 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm
 
 "-------------------------------------------------------------------------------
-" Auto Commands
+" Custom Mappings
 "-------------------------------------------------------------------------------
+
+" Map Vimux
+nmap ri :VimuxInspectRunner<CR>
+nmap rl :VimuxRunLastCommand<CR>
+nmap rp :VimuxPromptCommand<CR>
+nmap rs :VimuxInterruptRunner<CR>
+nmap rx :VimuxCloseRunner<CR>
 
 " Map NERDTree to tt
 nmap tt :NERDTreeToggle<CR>
