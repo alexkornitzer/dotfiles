@@ -97,6 +97,9 @@ Plug 'mhinz/vim-signify'
 " Tagbar: Vim plugin that displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
 
+" UndoTree: The ultimate undo history visualizer for Vim
+Plug 'mbbill/undotree'
+
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Language
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -314,6 +317,9 @@ nmap ta :NERDTreeTabsToggle<CR>
 " Map Tagbar to tb
 nmap tb :TagbarToggle<CR>
 
+" Map UndoTree
+nnoremap <Leader>u :UndotreeToggle<CR>
+
 " Map spelling to ts
 function! SpellToggle()
   if &spell
@@ -327,3 +333,12 @@ function! SpellToggle()
   echo "Spell Checking - On:" &spell "Lang:" &spelllang  "Local:" &l:spellfile
 endfunction
 nmap ts :call SpellToggle()<CR>
+
+" Find merge conflict markers
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+" Run python's jtool and set the filetype
+nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
