@@ -19,7 +19,11 @@ MODE_INDICATOR="%{$fg_bold[blue]%} [% NORMAL]% %{$reset_color%}"
 function vi_mode_prompt_info() {
   echo " ${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
 }
+function virtualenv_prompt_info_wrap() {
+  [[ -n ${VIRTUAL_ENV} ]] || return
+  echo " %{$fg[magenta]%}$(virtualenv_prompt_info)%{$reset_color%}"
+}
 
 # Prompt
 PROMPT="${user} ${pwd}$ "
-RPROMPT="${return_status}"'$(vi_mode_prompt_info) %{$fg[magenta]%}$(virtualenv_prompt_info)%{$reset_color%} $(git_super_status)'
+RPROMPT="${return_status}"'$(vi_mode_prompt_info)$(virtualenv_prompt_info_wrap)$(git_super_status)'

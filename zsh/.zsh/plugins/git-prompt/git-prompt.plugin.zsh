@@ -76,7 +76,7 @@ git_super_status() {
           STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
       fi
       STATUS="$STATUS%{${reset_color}%}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-      echo "$STATUS"
+      echo " $STATUS"
     fi
 }
 
