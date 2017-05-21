@@ -11,15 +11,15 @@ ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[yellow]%}"
 # Locals
 local user='%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}'
 local pwd='%{$fg[blue]%}%~%{$reset_color%}'
-local return_status="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+local return_status=" %(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 local git_branch=' $(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
 
 # Functions
 MODE_INDICATOR="%{$fg_bold[blue]%} [% NORMAL]% %{$reset_color%}"
 function vi_mode_prompt_info() {
-  echo "${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
+  echo " ${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
 }
 
 # Prompt
 PROMPT="${user} ${pwd}$ "
-RPROMPT="${return_status}"'$(vi_mode_prompt_info)$(virtualenv_prompt_info)$(git_super_status)'
+RPROMPT="${return_status}"'$(vi_mode_prompt_info) %{$fg[magenta]%}$(virtualenv_prompt_info)%{$reset_color%} $(git_super_status)'

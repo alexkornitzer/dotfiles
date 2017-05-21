@@ -8,3 +8,4 @@ vim/.vim/.netrwhist
 vim/.vim/ycm_extra_conf.pyc
 zsh/.zplug/repos
 .DS_Store
+*.sw*
