@@ -1,3 +1,32 @@
+" Taken from https://github.com/fatih/vim-go/blob/master/ftplugin/go/tagbar.vim due to lack of vimplug support
+let g:tagbar_type_go = {
+  \ 'ctagstype' : 'go',
+  \ 'kinds'     : [
+    \ 'p:package',
+    \ 'i:imports',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : $HOME."/.go/bin/gotags",
+  \ 'ctagsargs' : '-sort -silent'
+\ }
+
 let g:tagbar_type_objc = {
   \ 'ctagstype' : 'objectivec',
   \ 'kinds'     : [
