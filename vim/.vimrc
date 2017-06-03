@@ -233,6 +233,7 @@ source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/TagList.vim              " Plugin: TagList
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
+source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
 "source $HOME/.vim/settings/Vim-Tex-Syntax.vim       " Plugin: Vim-Tex-Syntax
 source $HOME/.vim/settings/Vimtex.vim               " Plugin: Vimtex
