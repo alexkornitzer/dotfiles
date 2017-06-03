@@ -107,7 +107,7 @@ Plug 'mbbill/undotree'
 Plug 'AlexKornitzer/cocoa.vim', { 'for': ['objc', 'objc++'] }
 
 " Go: Go development plugin for Vim
-Plug 'fatih/vim-go', { 'for': ['go'] }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 
 " Javascript: Vastly improved Javascript indentation and syntax support in
 " Vim.
