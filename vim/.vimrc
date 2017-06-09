@@ -231,7 +231,6 @@ source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
-source $HOME/.vim/settings/TagList.vim              " Plugin: TagList
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
 source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
