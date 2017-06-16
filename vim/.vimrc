@@ -68,7 +68,7 @@ function! BuildCommandT(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
-    !cd ruby/command-t && ruby extconf.rb && make
+    !cd ruby/command-t/ext/command-t && ruby extconf.rb && make
   endif
 endfunction
 Plug 'wincent/command-t', { 'do': function('BuildCommandT') }
