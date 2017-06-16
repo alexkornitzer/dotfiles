@@ -49,7 +49,7 @@ Plug 'tpope/vim-fugitive'
 " Tmuxline: Simple tmux statusline generator with support for powerline
 " symbols and statusline / airline / lightline integration
 " Plug 'edkolev/tmuxline.vim' Needs to fix the error
-Plug 'maman/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
