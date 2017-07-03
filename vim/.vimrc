@@ -49,7 +49,7 @@ Plug 'tpope/vim-fugitive'
 " Tmuxline: Simple tmux statusline generator with support for powerline
 " symbols and statusline / airline / lightline integration
 " Plug 'edkolev/tmuxline.vim' Needs to fix the error
-Plug 'maman/tmuxline.vim'
+Plug 'darrinholst/tmuxline.vim'
 
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
@@ -68,7 +68,7 @@ function! BuildCommandT(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
-    !cd ruby/command-t && ruby extconf.rb && make
+    !cd ruby/command-t/ext/command-t && ruby extconf.rb && make
   endif
 endfunction
 Plug 'wincent/command-t', { 'do': function('BuildCommandT') }
@@ -231,7 +231,6 @@ source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
-source $HOME/.vim/settings/TagList.vim              " Plugin: TagList
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
 source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay

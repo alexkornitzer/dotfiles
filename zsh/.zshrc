@@ -79,6 +79,13 @@ alias r2='radare2'
 alias t='tmux -2'
 alias ta='tmux -2 attach'
 
+# vmrun
+if [[ $OSTYPE =~ "darwin*" ]]; then
+  if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
+    alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
+  fi
+fi
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Bindings
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

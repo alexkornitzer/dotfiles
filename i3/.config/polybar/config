@@ -1,0 +1,173 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colours]
+background = #151515
+background-alt = #262626
+foreground = #fefefe
+foreground-alt = #4f5b66
+primary = #0d61ac
+warning = #870000
+
+black = #3b3b3b
+red = #cf6a4c
+green = #99ad6a
+yellow = #d8ad4c
+blue = #597bc5
+magenta = #a037b0
+cyan = #71b9f8
+white = #adadad
+
+
+[settings]
+screenchange-reload = true
+
+
+[bar/main]
+width = 100%
+height = 30
+
+font-0 = "DejaVu Sans:size=8"
+font-1 = "FontAwesome:size=8"
+
+background = ${colours.background}
+foreground = ${colours.foreground}
+
+tray-position = right
+tray-padding = 2
+
+modules-left = i3 xwindow
+modules-right = temperature memory cpu network volume battery date
+
+module-margin-right = 3
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ACAD
+full-at = 99
+
+format-charging = %{T1}%{T-} <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full-prefix =
+
+padding-right = 2
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format-prefix = %{T1} %{T-}
+
+label = %percentage%%
+
+padding-right = 2
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = %{T1}%{T-}
+
+label = %date% %time%
+
+padding-right = 2
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 1
+label-mode-foreground = ${colours.foreground}
+label-mode-background = ${colours.background}
+
+label-focused = %index%
+label-focused-background = ${colours.primary}
+label-focused-foreground = ${colours.foreground}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-background = ${colours.background}
+label-unfocused-foreground = ${colours.foreground}
+label-unfocused-padding = 1
+
+label-visible = %index%
+label-visible-background = ${colours.background}
+label-visible-foreground = ${colours.foreground}
+label-visible-padding = 1
+
+label-urgent = %index%
+label-urgent-background = ${colours.warning}
+label-urgent-foreground = ${colours.foreground}
+label-urgent-padding = 1
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format-prefix = %{T1} %{T-}
+
+label = %percentage_used%%
+
+
+[module/network]
+type = internal/network
+interface = ens33
+
+label-connected = %{T1}%{T-}  %{T1}%{T-} %upspeed% %{T1}%{T-} %downspeed%
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <label>
+format-warn = <label-warn>
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colours.warning}
+
+
+[module/volume]
+type = internal/volume
+
+format-muted-prefix = %{T1} %{T-}
+format-volume-prefix = %{T1} %{T-}
+
+label-muted = [muted]
+
+scroll-up = amixer set Master 5%+
+scroll-down = amixer set Master 5%-
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-maxlen = 100
+
+; vim:ft=dosini
