@@ -13,30 +13,37 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# modified by leofa
 
-DIR="${BLOCK_INSTANCE:-$HOME}"
-ALERT_LOW="${100:-20}" # color will turn red above this value (default: 80%)
+TYPE="${BLOCK_INSTANCE:-mem}"
 
-usage=$(df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
-/\/.*/ {
-	print $5
-	use=$5
-	# no need to continue parsing
-	exit 0
+awk -v type=$TYPE '
+/^MemTotal:/ {
+	mem_total=$2
 }
-
+/^MemFree:/ {
+	mem_free=$2
+}
+/^Buffers:/ {
+	mem_free+=$2
+}
+/^Cached:/ {
+	mem_free+=$2
+}
+/^SwapTotal:/ {
+	swap_total=$2
+}
+/^SwapFree:/ {
+	swap_free=$2
+}
 END {
-	gsub(/%$/,"",use)
-	if (100 - use < alert_low) {
-		# color
-		print "#a54242"
-	}}')
+	# full text
+	if (type == "swap")
+		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
+	else
+		printf("%.1fG\n", mem_free/1024/1024)
 
-echo "$usage"
+	# TODO: short text
 
-case $BLOCK_BUTTON in
- 1) i3-msg exec rofi-find ;; #left click, locate +xdg-open files with rofi
- 2) i3-msg exec thunar ;; #right click, open filemanager
- 3) i3-msg exec 'thunar --browser' #middle click, open filemanager
-esac
+	# TODO: color (if less than X%)
+}
+' /proc/meminfo | xargs printf "\uf2db %s\n"

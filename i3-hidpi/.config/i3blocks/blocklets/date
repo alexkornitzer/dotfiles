@@ -11,7 +11,7 @@ dt4=$(date '+%M')
 # long
 #echo "$dt1<span foreground='#969896'>-</span>$dt2<span foreground='#B294BB'>  $dt0 </span>$dt3<span foreground='#969896'>:</span>$dt4"
 # medium
-echo "<span>$dt1 $dt2 </span>$dt3<span foreground='#969896'>:</span>$dt4 "
+echo "<span>  $dt1 $dt2 </span>$dt3<span foreground='#969896'>:</span>$dt4 "
 # short
 #echo "<span foreground='#B294BB'> </span>$dt3<span foreground='#969896'>:</span>$dt4"
 

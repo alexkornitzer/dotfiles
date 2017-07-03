@@ -46,4 +46,4 @@ END {
 
 	# TODO: color (if less than X%)
 }
-' /proc/meminfo
+' /proc/meminfo | xargs printf "\uf2db %s\n"

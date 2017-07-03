@@ -6,8 +6,8 @@ TEMP_OUTPUT=$(sensors | grep "${TEMP_DEVICE}")
 
 # Check for vmware, crude but efficient?!
 if [[ "$(lsmod | grep vmwgfx)" ]]; then
-  echo " N/A<span font_weight='ultraheavy'>°</span> "
-  echo " N/A<span font_weight='ultraheavy'>°</span> "
+  echo -e "\uf06d N/A<span font_weight='ultraheavy'>°</span>"
+  echo -e "\uf06d N/A<span font_weight='ultraheavy'>°</span>"
   echo ""
   exit
 fi
@@ -47,16 +47,16 @@ if [[ "${TOTAL_COUNT}" -gt 0 ]]; then
     AVERAGE_TEMP="${AVERAGE_TEMP}"
   fi
 
-  echo " ${AVERAGE_TEMP}<span font_weight='ultraheavy'>°</span> "
-  echo " ${AVERAGE_TEMP}<span font_weight='ultraheavy'>°</span> "
+  echo -e "\uf06d ${AVERAGE_TEMP}<span font_weight='ultraheavy'>°</span>"
+  echo -e "\uf06d ${AVERAGE_TEMP}<span font_weight='ultraheavy'>°</span>"
   echo ""
 
   if [[ "${IS_URGENT}" -eq 1 ]]; then
     exit 33
   fi
 else
-  echo " N/A<span font_weight='ultraheavy'>°</span> "
-  echo " N/A<span font_weight='ultraheavy'>°</span> "
+  echo -e "\uf06d N/A<span font_weight='ultraheavy'>°</span>"
+  echo -e "\uf06d N/A<span font_weight='ultraheavy'>°</span>"
   echo ""
 fi
 

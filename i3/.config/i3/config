@@ -10,9 +10,10 @@ set $mod Mod4
 #  Set Locals
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-set $i3_path       ~/.i3
-set $locker        ~/.i3/i3lock.sh
-set $i3blocks_conf ~/.i3/i3blocks.conf
+set $i3_path       ~/.config/i3
+set $locker        ~/.config/i3/i3lock.sh
+set $i3blocks_conf ~/.config/i3blocks/i3blocks.conf
+#set $polybar       ~/.config/polybar/launch.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Colour Palette
@@ -93,6 +94,9 @@ bar {
       binding_mode        $red          $red          $foreground
   }
 }
+
+# Launch Polybar
+#exec_always --no-startup-id $polybar
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Bindings
@@ -225,7 +229,7 @@ bindsym $mod+Shift+x exec --no-startup-id $locker
 #  "notify-send 'Locking'" -corners 0-00 -locker $locker
 
 # show system options
-set $mode_system System (l) lock, (e) logout, (s) suspend, \
+set $mode_system System (l) lock, (e) logout, (s) suspend,\
   (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   bindsym l exec --no-startup-id $locker, mode "default"
