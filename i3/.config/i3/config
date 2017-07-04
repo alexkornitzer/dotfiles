@@ -89,7 +89,7 @@ bar {
       # <workclass>       <border>      <bg>          <text>
       focused_workspace   $blue         $blue         $foreground
       inactive_workspace  $background   $background   $foreground
-      active_workspace    $background   $background   $foreground
+      active_workspace    $lightbg      $lightbg      $foreground
       urgent_workspace    $red          $red          $foreground
       binding_mode        $red          $red          $foreground
   }
@@ -304,7 +304,7 @@ exec --no-startup-id compton -b #--config ~/.compton.conf
 # i3extra.sh
 #exec --no-startup-id vmware-user-suid-wrapper
 #exec --no-startup-id redshift-gtk # redshift
-exec_always --no-startup-id ~/.i3/i3extra.sh
+exec_always --no-startup-id ~/.config/i3/i3extra.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Miscellaneous
