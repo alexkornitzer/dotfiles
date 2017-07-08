@@ -3,8 +3,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set the modifier: Mod1 (Left Alt), Mod4 (Windows Key)
-set $mod Mod1
-#set $mod Mod4
+#set $mod Mod1
+set $mod Mod4
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Locals
@@ -106,7 +106,8 @@ bar {
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -223,14 +224,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m \
 # lock i3 (using i3lock in a wrapper)
 bindsym $mod+Shift+x exec --no-startup-id $locker
 
-# TODO: Now in i3extra.sh
-## lock i3 (using i3lock in a wrapper) after 1 min of inactivity
-#exec_always --no-startup-id xautolock -time 1 -notify 5 -notifier \
-#  "notify-send 'Locking'" -corners 0-00 -locker $locker
-
 # show system options
 set $mode_system System (l) lock, (e) logout, (s) suspend,\
-  (h) hibernate, (r) reboot, (Shift+s) shutdown
+(h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   bindsym l exec --no-startup-id $locker, mode "default"
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -296,15 +292,10 @@ exec --no-startup-id udiskie --smart-tray # usb storage automounter
 # Compositor
 exec --no-startup-id compton -b #--config ~/.compton.conf
 
-# TODO: Using TLP now
-## Use XFCE4 for power management
-#exec_always --no-startup-id xfce4-power-manager
-
+# Workspace Iconiser
 exec_always ~/.config/i3/scripts/autoname_workspaces.py &
 
 # i3extra.sh
-#exec --no-startup-id vmware-user-suid-wrapper
-#exec --no-startup-id redshift-gtk # redshift
 exec_always --no-startup-id ~/.config/i3/i3extra.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
