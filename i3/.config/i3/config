@@ -301,7 +301,7 @@ exec --no-startup-id compton -b #--config ~/.compton.conf
 ## Use XFCE4 for power management
 #exec_always --no-startup-id xfce4-power-manager
 
-exec_always ~/.config/i3/scripts/autoname_workspaces.py &
+exec_always --no-startup-id ~/.config/i3/scripts/autoname_workspaces.py &
 
 # i3extra.sh
 #exec --no-startup-id vmware-user-suid-wrapper
