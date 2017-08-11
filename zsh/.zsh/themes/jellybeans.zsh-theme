@@ -6,7 +6,12 @@
 # 2. git-prompt
 
 # Globals
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[yellow]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}git:["
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[white]%}]"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[green]%}"
+
+ZSH_THEME_VIRTUALENV_PREFIX="%{$fg[white]%}virtualenv:[%{$fg[green]%}"
+ZSH_THEME_VIRTUALENV_SUFFIX="%{$fg[white]%}]"
 
 # Locals
 local user='%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}'
@@ -21,7 +26,7 @@ function vi_mode_prompt_info() {
 }
 function virtualenv_prompt_info_wrap() {
   [[ -n ${VIRTUAL_ENV} ]] || return
-  echo " %{$fg[magenta]%}$(virtualenv_prompt_info)%{$reset_color%}"
+  echo " %{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
 }
 
 # Prompt
