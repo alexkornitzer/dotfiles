@@ -293,7 +293,7 @@ exec --no-startup-id udiskie --smart-tray # usb storage automounter
 exec --no-startup-id compton -b #--config ~/.compton.conf
 
 # Workspace Iconiser
-exec_always ~/.config/i3/scripts/autoname_workspaces.py &
+exec_always --no-startup-id ~/.config/i3/scripts/autoname_workspaces.py &
 
 # i3extra.sh
 exec_always --no-startup-id ~/.config/i3/i3extra.sh

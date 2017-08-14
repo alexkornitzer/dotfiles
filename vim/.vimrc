@@ -113,9 +113,6 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 " Vim.
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
-" Vimtex: A modern vim plugin for editing LaTeX files.
-Plug 'lervag/vimtex', { 'for': 'tex' }
-
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 
@@ -129,6 +126,12 @@ Plug 'scrooloose/syntastic'
 
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+
+" VimVue: Syntax Highlight for Vue.js components
+Plug 'posva/vim-vue', { 'for': 'vue' }
+
+" Vimtex: A modern vim plugin for editing LaTeX files.
+Plug 'lervag/vimtex', { 'for': 'tex' }
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Miscellaneous
