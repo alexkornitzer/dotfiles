@@ -73,9 +73,9 @@ function! BuildCommandT(info)
 endfunction
 Plug 'wincent/command-t', { 'do': function('BuildCommandT') }
 
-" CtrlP: Fuzzy file, buffer, mru, tag, etc finder
-" TODO: Will probably remove in favour of command-t
-Plug 'ctrlpvim/ctrlp.vim'
+" GitGutter: A Vim plugin which shows a git diff in the gutter (sign column)
+" and stage/undoes hunks.
+Plug 'airblade/vim-gitgutter'
 
 " IndentLine: A vim plugin to display the indention levels with thin vertical
 " lines
@@ -90,9 +90,6 @@ Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle'
 " Rainbow: help you read complex code by showing diff level of parentheses in
 " diff color !!
 Plug 'luochen1990/rainbow'
-
-" Signify: Show a diff using Vim sign column
-Plug 'mhinz/vim-signify'
 
 " Tagbar: Vim plugin that displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
