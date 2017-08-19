@@ -230,8 +230,7 @@ bindsym $mod+Shift+x exec --no-startup-id $locker
 #  "notify-send 'Locking'" -corners 0-00 -locker $locker
 
 # show system options
-set $mode_system System (l) lock, (e) logout, (s) suspend,\
-  (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   bindsym l exec --no-startup-id $locker, mode "default"
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -306,7 +305,7 @@ exec_always --no-startup-id ~/.config/i3/scripts/autoname_workspaces.py &
 # i3extra.sh
 #exec --no-startup-id vmware-user-suid-wrapper
 #exec --no-startup-id redshift-gtk # redshift
-exec_always --no-startup-id ~/.config/i3/i3extra.sh
+exec_always --no-startup-id ~/.config/i3/i3extra.sh &
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Miscellaneous
