@@ -54,6 +54,9 @@ Plug 'darrinholst/tmuxline.vim'
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
 
+" Virtualenv:  Vim plugin for working with python virtualenvs
+Plug 'jmcantrell/vim-virtualenv'
+
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Interface
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -234,7 +237,7 @@ source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
 source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
-"source $HOME/.vim/settings/Vim-Tex-Syntax.vim       " Plugin: Vim-Tex-Syntax
+source $HOME/.vim/settings/Vim-Virtualenv.vim       " Plugin: Vim-Virtualenv
 source $HOME/.vim/settings/Vimtex.vim               " Plugin: Vimtex
 source $HOME/.vim/settings/YouCompleteMe.vim        " Plugin: YouCompleteMe
 

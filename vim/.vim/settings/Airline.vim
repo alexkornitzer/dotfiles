@@ -26,6 +26,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline-colors.conf"
+let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 
 " Tmuxline
