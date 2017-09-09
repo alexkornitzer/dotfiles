@@ -34,7 +34,7 @@ function update_current_git_vars() {
 
     local gitstatus="$__GIT_PROMPT_DIR/gitstatus.py"
     _GIT_STATUS=$(python ${gitstatus} 2>/dev/null)
-     __CURRENT_GIT_STATUS=("${(@s: :)_GIT_STATUS}")
+     __CURRENT_GIT_STATUS=("${(@s/, /)_GIT_STATUS}")
     GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
     GIT_AHEAD=$__CURRENT_GIT_STATUS[2]
     GIT_BEHIND=$__CURRENT_GIT_STATUS[3]

@@ -119,11 +119,6 @@ Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 " Syntastic: Syntax checking hacks for vim
 Plug 'scrooloose/syntastic'
 
-"" TexSyntax: Vim TeX syntax file
-"if v:version >= 800
-"  Plug 'gi1242/vim-tex-syntax'
-"endif
-
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
@@ -302,6 +297,9 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 
 " Fix for nasm syntax not being set on *.nasm file type
 autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm
+
+" Fix syntax in vue plugin
+autocmd FileType vue syntax sync fromstart
 
 "-------------------------------------------------------------------------------
 " Custom Mappings

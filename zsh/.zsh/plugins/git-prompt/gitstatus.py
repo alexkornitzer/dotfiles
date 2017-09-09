@@ -95,7 +95,7 @@ if not changed and not staged and not conflicts and not untracked and not stashe
 else:
     clean = 0
 
-out = ' '.join([
+out = ', '.join([
     branch,
     str(ahead),
     str(behind),
