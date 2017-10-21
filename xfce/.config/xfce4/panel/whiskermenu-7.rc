@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-mail-reader.desktop,exo-web-browser.desktop
-recent=chromium.desktop,evince.desktop,vmware-workstation.desktop,xfce4-taskmanager.desktop,mousepad.desktop,xfce4-notes.desktop,blueman-manager.desktop
+recent=evince.desktop,xfce4-taskmanager.desktop,mousepad.desktop,xfce4-notes.desktop
 button-title=Applications
 button-icon=desktop-environment-xfce
 button-single-row=false
@@ -10,7 +10,6 @@ launcher-show-description=true
 launcher-show-tooltip=true
 item-icon-size=2
 hover-switch-category=false
-category-show-name=true
 category-icon-size=1
 load-hierarchy=false
 recent-items-max=10
