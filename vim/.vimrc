@@ -301,6 +301,10 @@ autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm
 " Fix syntax in vue plugin
 autocmd FileType vue syntax sync fromstart
 
+" Enable XML line folding
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
 "-------------------------------------------------------------------------------
 " Custom Mappings
 "-------------------------------------------------------------------------------
