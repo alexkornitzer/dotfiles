@@ -85,6 +85,9 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
   if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
     alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
   fi
+  if [ -d "/Applications/Wine Staging.app" ]; then
+    export PATH="$PATH:/Applications/Wine Staging.app/Contents/Resources/wine/bin"
+  fi
 fi
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
