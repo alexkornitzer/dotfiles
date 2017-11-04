@@ -64,17 +64,9 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" CommandT: Fast file navigation for Vim
-function! BuildCommandT(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !cd ruby/command-t/ext/command-t && ruby extconf.rb && make
-  endif
-endfunction
-Plug 'wincent/command-t', { 'do': function('BuildCommandT') }
+" FZF: A command-line fuzzy finder
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 " GitGutter: A Vim plugin which shows a git diff in the gutter (sign column)
 " and stage/undoes hunks.
@@ -304,6 +296,10 @@ autocmd FileType vue syntax sync fromstart
 "-------------------------------------------------------------------------------
 " Custom Mappings
 "-------------------------------------------------------------------------------
+
+" Map fzf
+nmap <leader>b :Buffers<CR>
+nmap <leader>f :Files<CR>
 
 " Map Vimux
 nmap ri :VimuxInspectRunner<CR>
