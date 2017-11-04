@@ -3,3 +3,7 @@ e cfg.editor = vim
 
 # Set to fancy fonts
 e scr.utf8 = true
+e scr.utf8.curvy = true
+
+# Disable mouse scrolling, to stop click bug
+e scr.wheel = 0

@@ -33,6 +33,10 @@ zplug "plugins/pip",   from:oh-my-zsh
 zplug "plugins/python",   from:oh-my-zsh
 zplug "plugins/virtualenv",   from:oh-my-zsh
 
+# Commands
+zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
+
 # OS X
 if [[ $OSTYPE =~ "darwin*" ]]; then
   zplug "plugins/brew",   from:oh-my-zsh
@@ -111,6 +115,8 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
+bindkey '^k' up-line-or-beginning-search
+bindkey '^j' down-line-or-beginning-search
 bindkey -M vicmd 'k' up-line-or-beginning-search
 bindkey -M vicmd 'j' down-line-or-beginning-search
 
@@ -122,9 +128,13 @@ fi
 # Bind the delete key, we dont want cap oddness
 bindkey "\e[3~" delete-char
 
-# FIXME Needed to fix: https://github.com/zplug/zplug/issues/383
-# Required removal of https://github.com/zplug/zplug/pull/355/files#diff-fb361a0797fa562c6352fa10675bfbaaR6
-setopt monitor
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Sources
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Source in fzf
+source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
+source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Exports
@@ -141,3 +151,14 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 if [ `command -v 'thefuck'` ]; then
   eval "$(thefuck --alias)"
 fi
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Fixes
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# FIXME Needed to fix: https://github.com/zplug/zplug/issues/383
+# Required removal of https://github.com/zplug/zplug/pull/355/files#diff-fb361a0797fa562c6352fa10675bfbaaR6
+setopt monitor
+
+# FIXME Needed to fix: https://github.com/zplug/zplug/issues/387
+export PATH="${ZPLUG_BIN}:${PATH}"
