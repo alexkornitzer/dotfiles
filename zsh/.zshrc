@@ -155,7 +155,7 @@ fi
 # Setup FZF
 export FZF_DEFAULT_OPTS='
   --color fg:#adadad,bg:#121212,hl:#99ad6a,fg+:#d5d5d5,bg+:#262626,hl+:#c1d592
-  --color info:#99ad6a,prompt:#597bc6,spinner:#d8ad4c,pointer:#cf6a4c,marker:#99ad6a
+  --color info:#d8ad4c,prompt:#597bc6,spinner:#d8ad4c,pointer:#cf6a4c,marker:#99ad6a
 '
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
