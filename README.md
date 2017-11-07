@@ -36,12 +36,20 @@ stow bash
 
 ### i3
 
-This one has a fair few dependencies that are crudely listed in a shell script.
+This one has a fair few dependencies, most are listed below.
+
+> Dependencies:
+> - DejaVu Sans Mono
+> - Dunst
+> - Faba Mono
+> - Font Awesome
+> - i3blocks
+> - i3ipc (Python)
+> - Numix-Jellybeans (https://github.com/AlexKornitzer/numix-jellybeans-gtk-theme)
+> - Rofi
 
 ```bash
 stow i3
-cd ~/.i3
-./setup.sh
 ```
 
 ### tmux
@@ -56,6 +64,12 @@ stow tmux
 
 Nothing special to do here as `vim` does all of the work.
 
+> Dependencies:
+> - cmake
+> - gcc
+> - cscope
+> - ctags
+
 ```bash
 stow vim
 vim -c PlugInstall
@@ -64,6 +78,10 @@ vim -c PlugInstall
 ### xfce
 
 Nothing special to do for this one.
+
+> Dependencies:
+> - DejaVu Sans Mono
+> - Numix-Jellybeans (https://github.com/AlexKornitzer/numix-jellybeans-gtk-theme)
 
 ```bash
 stow xfce
