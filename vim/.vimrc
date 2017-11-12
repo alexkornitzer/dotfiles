@@ -103,7 +103,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 
 " Javascript: Vastly improved Javascript indentation and syntax support in
 " Vim.
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
