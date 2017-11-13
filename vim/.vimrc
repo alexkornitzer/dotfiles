@@ -31,7 +31,18 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer
+    "!./install.py --clang-completer
+    let s:args = '--clang-completer'
+    if executable('go')
+      let s:args .= ' --go-completer'
+    endif
+    if executable('node') && executable('npm')
+      let s:args .= ' --js-completer'
+    endif
+    if executable('rustc') && executable('cargo')
+      let s:args .= ' --rust-completer'
+    endif
+    execute '!./install.py' s:args
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
@@ -103,7 +114,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 
 " Javascript: Vastly improved Javascript indentation and syntax support in
 " Vim.
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
