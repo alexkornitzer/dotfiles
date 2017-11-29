@@ -150,6 +150,9 @@ Plug 'xolox/vim-misc'
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Themes
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Focus: Code editor color theme that lets you focus on the content
+Plug 'sindresorhus/focus', { 'rtp': 'vim' }
+
 " Jellybeans: A colorful, dark color scheme for Vim
 Plug 'nanotech/jellybeans.vim'
 
