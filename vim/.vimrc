@@ -153,8 +153,14 @@ Plug 'xolox/vim-misc'
 " Focus: Code editor color theme that lets you focus on the content
 Plug 'sindresorhus/focus', { 'rtp': 'vim' }
 
+" Hemisu: A Vim color scheme with dark and light variants
+Plug 'noahfrederick/vim-hemisu'
+
 " Jellybeans: A colorful, dark color scheme for Vim
 Plug 'nanotech/jellybeans.vim'
+
+" Base16: Base16 for Vim
+Plug 'chriskempson/base16-vim'
 
 " End
 call plug#end()
