@@ -114,7 +114,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec rofi -show run
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun -show-icons
 bindsym $mod+Shift+w exec rofi -show window
 
 # change focus
