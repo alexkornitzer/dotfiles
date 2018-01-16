@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/alex/Downloads/astane.d.inactive" added="2017-12-21T15:20:42Z" modified="2017-12-21T15:20:42Z" visited="2017-12-21T15:20:42Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-12-21T15:20:42Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alex/Downloads/Security-Event-Log-HKDC-CLI-RDS01.zip" added="2017-12-21T15:41:32Z" modified="2017-12-21T15:41:32Z" visited="2017-12-21T15:41:32Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-12-21T15:41:32Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alex/Downloads/player.exe.zip" added="2017-12-22T10:10:43Z" modified="2017-12-22T10:10:43Z" visited="2017-12-22T10:10:43Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-12-22T10:10:43Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alex/Downloads/player.exe.inactive" added="2017-12-22T10:12:53Z" modified="2017-12-22T10:14:15Z" visited="2017-12-22T10:12:54Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-12-22T10:14:15Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alex/Downloads/c4605a72-6346-4e2f-a96c-fcc8eb07256a.zip" added="2018-01-15T14:29:39Z" modified="2018-01-15T14:29:59Z" visited="2018-01-15T14:29:39Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-01-15T14:29:59Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alex/Downloads/Logs.zip" added="2018-01-15T14:34:46Z" modified="2018-01-15T14:34:46Z" visited="2018-01-15T14:34:46Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-01-15T14:34:46Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/alex/Downloads/VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle" added="2018-01-15T15:54:13Z" modified="2018-01-15T15:54:13Z" visited="2018-01-15T15:54:13Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-01-15T15:54:13Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_alex0/cc_in-memory-threat-hunting_mwrsg-wb-mw_2017-05-25_FINAL.pptx" added="2018-01-16T10:46:06Z" modified="2018-01-16T10:46:22Z" visited="2018-01-16T10:46:07Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-01-16T10:46:06Z" count="1"/>
+          <bookmark:application name="LibreOffice 5.4" exec="&apos;soffice %u&apos;" modified="2018-01-16T10:46:22Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

@@ -230,7 +230,7 @@ bindsym $mod+Shift+x exec --no-startup-id $locker
 #  "notify-send 'Locking'" -corners 0-00 -locker $locker
 
 # show system options
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system system: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (shift+s) shutdown
 mode "$mode_system" {
   bindsym l exec --no-startup-id $locker, mode "default"
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -246,7 +246,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+Escape mode "$mode_system"
 
 # manual management of external displays
-set $mode_display Set display mode: 1. [eDP1], 2. [eDP1|DP1], 3. [eDP1|DP2], 4. [eDP1|DP1|DP2] or 5. [eDP1|DP2|DP1]
+set $mode_display set display mode: 1. [eDP1], 2. [eDP1|DP1], 3. [eDP1|DP2], 4. [eDP1|DP1|DP2] or 5. [eDP1|DP2|DP1]
 mode "$mode_display" {
   bindsym 1 exec ~/.config/i3/screenlayout/1.sh, mode "default"
   bindsym 2 exec ~/.config/i3/screenlayout/1-2.sh, mode "default"
