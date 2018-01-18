@@ -177,6 +177,10 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+x [floating] move scratchpad
 
+# switch to prev/next workspace
+bindsym $mod+p workspace prev
+bindsym $mod+n workspace next
+
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
