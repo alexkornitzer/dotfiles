@@ -75,8 +75,8 @@ bar {
   position top
 
   # Enable system tray
-  tray_output primary
-  tray_padding 0
+  tray_output none
+#  tray_padding 0
 
   # Set colours
   colors {
@@ -289,23 +289,19 @@ bindsym $mod+r mode "resize"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Applets
-exec --no-startup-id nm-applet # network manager
-exec --no-startup-id dunst # notifications
+exec --no-startup-id dunst                # notifications
+exec --no-startup-id nm-applet            # network manager
+exec --no-startup-id pasystray            # pulseaudio systray
 exec --no-startup-id udiskie --smart-tray # usb storage automounter
 
 # Compositor
-exec --no-startup-id compton -b #--config ~/.compton.conf
+exec --no-startup-id compton -b
 
-# TODO: Using TLP now
-## Use XFCE4 for power management
-#exec_always --no-startup-id xfce4-power-manager
-
+# Workspace Namer
 exec_always --no-startup-id ~/.config/i3/scripts/autoname_workspaces.py &
 
 # i3extra.sh
-#exec --no-startup-id vmware-user-suid-wrapper
-#exec --no-startup-id redshift-gtk # redshift
-exec_always --no-startup-id ~/.config/i3/i3extra.sh &
+exec_always --no-startup-id ~/.config/i3/i3extra.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Miscellaneous

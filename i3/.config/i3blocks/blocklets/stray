@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# menu icon
+echo -en "\uf00b "
+#  ☰  
+
+# open or close stalonetray
+stray() {
+  if [[  $(pgrep -cx stalonetray) -eq 0 ]] ; then
+    i3-msg exec stalonetray >/dev/null &
+  else
+    PID=`pgrep -x stalonetray`
+    if [[ $? -eq 0 ]]; then
+      kill -s TERM $PID
+    fi
+  fi
+}
+
+# mouse buttons
+case $BLOCK_BUTTON in
+    1) stray ;; # left click - stalonetray
+esac
