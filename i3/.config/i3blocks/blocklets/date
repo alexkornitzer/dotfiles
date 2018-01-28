@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 #
-# show date (add pango styling)
+#  TODO: Add click actions
+#
 
 dt0=$(date '+%a')
 dt1=$(date '+%d')
@@ -8,15 +9,4 @@ dt2=$(date '+%b')
 dt3=$(date '+%H')
 dt4=$(date '+%M')
 
-# long
-#echo "$dt1<span foreground='#969896'>-</span>$dt2<span foreground='#B294BB'>  $dt0 </span>$dt3<span foreground='#969896'>:</span>$dt4"
-# medium
-echo "<span>  $dt1 $dt2 </span>$dt3<span foreground='#969896'>:</span>$dt4 "
-# short
-#echo "<span foreground='#B294BB'> </span>$dt3<span foreground='#969896'>:</span>$dt4"
-
-case $BLOCK_BUTTON in
-    1) i3-msg exec gsimplecal ;; #left click calendar
-    2) i3-msg exec "qutebrowser --backend webengine https://keep.google.com" ;; #left click, google keep
-    3) i3-msg exec "qutebrowser --backend webengine https://calendar.google.com" ;; #right click,google calendar
-esac
+echo "<span>  $dt1 $dt2 </span>$dt3<span foreground='#969896'>:</span>$dt4"
