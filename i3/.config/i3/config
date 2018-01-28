@@ -51,7 +51,7 @@ set $red         #870000
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Set pango based fonts
-font pango: DejaVu Sans Mono 8, FontAwesome 8
+font pango: DejaVu Sans Mono Book 8
 
 # Set window colours
 #class                  border      backgr.     text        indicator   child_border
@@ -296,7 +296,7 @@ exec --no-startup-id udiskie --smart-tray # usb storage automounter
 
 # Compositor
 exec --no-startup-id compton -b
-
+#
 # Workspace Namer
 exec_always --no-startup-id ~/.config/i3/scripts/autoname_workspaces.py &
 

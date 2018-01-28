@@ -27,7 +27,10 @@ let "C_IDLE=${IDLE}-${P_IDLE}"
 let "C_TOTAL=${TOTAL}-${P_TOTAL}"
 let "C_USAGE=(1000*(${C_TOTAL}-${C_IDLE})/${C_TOTAL}+5)/10"
 
-printf "\uf05b %3.0f%\n" $C_USAGE
+printf "\uf05b %3.0f" $C_USAGE
+echo "%"
+printf "\uf05b %3.0f" $C_USAGE
+echo "%"
 
 if [[ $C_USAGE -gt 80 ]]; then
     echo "#cf6a4c\n"  # Red
