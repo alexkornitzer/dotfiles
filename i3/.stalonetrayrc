@@ -1,7 +1,7 @@
 background "#151515"
-decorations border
-geometry 1x1-2+20
+geometry 1x1-2+18
 grow_gravity e
 icon_gravity ne
 icon_size 16
+slot_size 20
 window_type toolbar
