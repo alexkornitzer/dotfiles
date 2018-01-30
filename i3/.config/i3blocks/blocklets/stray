@@ -7,7 +7,13 @@ echo -en "\uf00b "
 # open or close stalonetray
 stray() {
   if [[  $(pgrep -cx stalonetray) -eq 0 ]] ; then
-    i3-msg exec stalonetray >/dev/null &
+    X=2
+    i3-msg -t get_outputs | jq -c '.[]' | while read i; do
+      if [[ `echo $i | jq '.active'` == 'true' ]]; then
+        let X+=`echo $i | jq '.rect.x'`
+      fi
+    done
+    i3-msg exec "stalonetray --geometry 1x1-$X+18" >/dev/null &
   else
     PID=`pgrep -x stalonetray`
     if [[ $? -eq 0 ]]; then
