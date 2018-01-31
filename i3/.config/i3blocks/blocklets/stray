@@ -7,13 +7,23 @@ echo -en "\uf00b "
 # open or close stalonetray
 stray() {
   if [[  $(pgrep -cx stalonetray) -eq 0 ]] ; then
-    X=2
-    i3-msg -t get_outputs | jq -c '.[]' | while read i; do
-      if [[ `echo $i | jq '.active'` == 'true' ]]; then
-        let X+=`echo $i | jq '.rect.x'`
+    WORKSPACE=""
+    WIDTH=`xdpyinfo | grep -m 1 'dimensions:' | awk '/\d*/ { print $2 }' | cut -d 'x' -f '1'`
+    X=0
+    while read i; do
+      if [[ `echo $i | jq '.focused'` == 'true' ]]; then
+        WORKSPACE=`echo $i | jq '.output'`
+        break
       fi
-    done
-    i3-msg exec "stalonetray --geometry 1x1-$X+18" >/dev/null &
+    done < <(i3-msg -t get_workspaces | jq -c '.[]')
+    while read i; do
+      if [[ `echo $i | jq '.name'` == $WORKSPACE ]]; then
+        let X+=`echo $i | jq '.rect.x'`+`echo $i | jq '.rect.width'`
+        break
+      fi
+    done < <(i3-msg -t get_outputs | jq -c '.[]')
+    let LOC=$WIDTH-$X+2
+    i3-msg exec "stalonetray --geometry 1x1-$LOC+18" >/dev/null &
   else
     PID=`pgrep -x stalonetray`
     if [[ $? -eq 0 ]]; then
