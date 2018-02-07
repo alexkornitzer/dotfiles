@@ -53,7 +53,7 @@ volume() {
 
 format() {
   awk "/\[(on|off)\]/ {gsub(/\[|\]/, \"\"); \
-    if (\$7 == \"off\") {
+    if (\$6 == \"off\") {
       if (\"$UNIT\" == \"dB\") { print \" 0dB\"; }
       else { print \" 0%\"; }
     } else { printf \"  \";
