@@ -67,7 +67,7 @@ WINDOW_ICONS = {
     'slack': fa.icons['slack'],
     'thunar': fa.icons['files-o'],
     'urxvt': fa.icons['terminal'],
-    'vmware-workstation': fa.icons['clone'],
+    'vmware': fa.icons['clone'],
     'zenity': fa.icons['window-maximize'],
 }
 
