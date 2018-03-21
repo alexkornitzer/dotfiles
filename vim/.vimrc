@@ -119,6 +119,9 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 
+" Rust: Vim configuration for Rust.
+Plug 'rust-lang/rust.vim', { 'for': ['rs'] }
+
 " Syntastic: Syntax checking hacks for vim
 Plug 'scrooloose/syntastic'
 
