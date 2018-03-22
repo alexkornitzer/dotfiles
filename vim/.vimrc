@@ -242,6 +242,7 @@ source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
+source $HOME/.vim/settings/Rust.vim                 " Plugin: Rust
 source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
