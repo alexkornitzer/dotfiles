@@ -1,4 +1,11 @@
 #-------------------------------------------------------------------------------
+# Preload
+#-------------------------------------------------------------------------------
+
+# Macports
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+#-------------------------------------------------------------------------------
 # ZPlug
 #-------------------------------------------------------------------------------
 
@@ -22,6 +29,7 @@ zplug "lib/theme-and-appearance",   from:oh-my-zsh
 # General
 zplug "plugins/command-not-found",   from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/pass",   from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh
 zplug "plugins/vi-mode",   from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
@@ -137,8 +145,8 @@ source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 # Exports
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Macports
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Pass - password-store
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # No I don't want a visible go folder...
 export GOPATH="${HOME}/.go"
