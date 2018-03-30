@@ -39,7 +39,7 @@ zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
 
 # OS X
 if [[ $OSTYPE =~ "darwin*" ]]; then
-  zplug "plugins/brew",   from:oh-my-zsh
+  zplug "plugins/macports",   from:oh-my-zsh
   zplug "plugins/osx",   from:oh-my-zsh
 fi
 
@@ -89,9 +89,6 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
   if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
     alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
   fi
-  if [ -d "/Applications/Wine Staging.app" ]; then
-    export PATH="$PATH:/Applications/Wine Staging.app/Contents/Resources/wine/bin"
-  fi
 fi
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,6 +137,9 @@ source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 # Exports
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Macports
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
 # No I don't want a visible go folder...
 export GOPATH="${HOME}/.go"
 export PATH="${PATH}:${GOPATH}/bin"
@@ -167,4 +167,4 @@ export FZF_DEFAULT_OPTS='
 setopt monitor
 
 # FIXME Needed to fix: https://github.com/zplug/zplug/issues/387
-export PATH="${ZPLUG_BIN}:${PATH}"
+export PATH="${PATH}:${ZPLUG_BIN}"
