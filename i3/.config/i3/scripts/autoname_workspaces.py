@@ -68,6 +68,7 @@ WINDOW_ICONS = {
     'thunar': fa.icons['files-o'],
     'urxvt': fa.icons['terminal'],
     'vmware': fa.icons['clone'],
+    'xfce4-terminal': fa.icons['terminal'],
     'zenity': fa.icons['window-maximize'],
 }
 
