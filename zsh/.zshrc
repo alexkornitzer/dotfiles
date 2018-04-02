@@ -147,6 +147,7 @@ source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 
 # Pass - password-store
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export PINENTRY_USER_DATA="USE_CURSES=1"
 
 # No I don't want a visible go folder...
 export GOPATH="${HOME}/.go"
