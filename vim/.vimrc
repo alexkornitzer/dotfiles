@@ -120,7 +120,8 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 
 " Rust: Vim configuration for Rust.
-Plug 'rust-lang/rust.vim', { 'for': ['rs'] }
+" Plug 'rust-lang/rust.vim', { 'for': ['rs'] }
+Plug 'rust-lang/rust.vim'
 
 " Syntastic: Syntax checking hacks for vim
 Plug 'scrooloose/syntastic'
