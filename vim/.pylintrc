@@ -18,7 +18,7 @@ ignore-patterns=
 #init-hook=
 
 # Use multiple processes to speed up Pylint.
-jobs=1
+jobs=4
 
 # List of plugins (as comma separated values of python modules names) to load,
 # usually to register additional checkers.
@@ -129,8 +129,6 @@ disable=print-statement,
         dict-values-not-iterating,
         line-too-long,
         fixme,
-        broad-except,
-        missing-docstring
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -247,9 +245,12 @@ function-naming-style=snake_case
 #function-rgx=
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,
+good-names=f,
+           i,
            j,
            k,
+           v,
+           db,
            ex,
            Run,
            _
