@@ -72,7 +72,7 @@ Nothing special to do here as `vim` does all of the work.
 
 ```bash
 stow vim
-vim -c PlugInstall
+vim +PlugInstall +qall
 ```
 
 ### xfce

@@ -65,6 +65,12 @@ Plug 'kevinkjt2000/tmuxline.vim'
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
 
+" VimuxCargo: Run cargo commands in vim
+Plug 'jtdowney/vimux-cargo'
+
+" VimTmuxNavigator: Seamless navigation between tmux panes and vim splits
+Plug 'christoomey/vim-tmux-navigator'
+
 " Virtualenv:  Vim plugin for working with python virtualenvs
 Plug 'jmcantrell/vim-virtualenv'
 
@@ -218,6 +224,12 @@ set scrolloff=10
 " Turn on Omni completion
 set omnifunc=syntaxcomplete#Complete
 
+" Enable easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "-------------------------------------------------------------------------------
 " Plugin Settings
 "-------------------------------------------------------------------------------
@@ -331,11 +343,12 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
 
 " Map Vimux
-nmap ri :VimuxInspectRunner<CR>
-nmap rl :VimuxRunLastCommand<CR>
-nmap rp :VimuxPromptCommand<CR>
-nmap rs :VimuxInterruptRunner<CR>
-nmap rx :VimuxCloseRunner<CR>
+nmap vi :VimuxInspectRunner<CR>
+nmap vl :VimuxRunLastCommand<CR>
+nmap vp :VimuxPromptCommand<CR>
+nmap vs :VimuxInterruptRunner<CR>
+nmap vx :VimuxCloseRunner<CR>
+nmap vz :VimuxZoomRunner<CR>
 
 " Map NERDTree to tt
 nmap tt :NERDTreeToggle<CR>

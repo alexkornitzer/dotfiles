@@ -120,10 +120,6 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
-bindkey '^k' up-line-or-beginning-search
-bindkey '^j' down-line-or-beginning-search
-bindkey -M vicmd 'k' up-line-or-beginning-search
-bindkey -M vicmd 'j' down-line-or-beginning-search
 
 # Reset, gets overridden
 if [[ "${terminfo[kcbt]}" != "" ]]; then
