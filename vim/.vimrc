@@ -66,7 +66,8 @@ Plug 'kevinkjt2000/tmuxline.vim'
 Plug 'benmills/vimux'
 
 " VimuxCargo: Run cargo commands in vim
-Plug 'jtdowney/vimux-cargo'
+"Plug 'jtdowney/vimux-cargo'
+Plug 'alexkornitzer/vimux-cargo'
 
 " VimTmuxNavigator: Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
@@ -343,21 +344,21 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
 
 " Map Vimux
-nmap vi :VimuxInspectRunner<CR>
-nmap vl :VimuxRunLastCommand<CR>
-nmap vp :VimuxPromptCommand<CR>
-nmap vs :VimuxInterruptRunner<CR>
-nmap vx :VimuxCloseRunner<CR>
-nmap vz :VimuxZoomRunner<CR>
+nmap <leader>vi :VimuxInspectRunner<CR>
+nmap <leader>vl :VimuxRunLastCommand<CR>
+nmap <leader>vp :VimuxPromptCommand<CR>
+nmap <leader>vs :VimuxInterruptRunner<CR>
+nmap <leader>vx :VimuxCloseRunner<CR>
+nmap <leader>vz :VimuxZoomRunner<CR>
 
 " Map NERDTree to tt
-nmap tt :NERDTreeToggle<CR>
+nmap <leader>tt :NERDTreeToggle<CR>
 
 " Map NERDTreeTabs to ta
-nmap ta :NERDTreeTabsToggle<CR>
+nmap <leader>ta :NERDTreeTabsToggle<CR>
 
 " Map Tagbar to tb
-nmap tb :TagbarToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
 
 " Map UndoTree
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -374,7 +375,7 @@ function! SpellToggle()
   endif
   echo "Spell Checking - On:" &spell "Lang:" &spelllang  "Local:" &l:spellfile
 endfunction
-nmap ts :call SpellToggle()<CR>
+nmap <leader>ts :call SpellToggle()<CR>
 
 " Find merge conflict markers
 map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
