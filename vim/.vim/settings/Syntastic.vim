@@ -10,6 +10,9 @@ let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_tex_chktex_args = "-g1"
 let g:syntastic_vue_checkers = ['eslint']
 
+" Checker specific
+autocmd FileType rust let b:syntastic_checkers = findfile('Cargo.toml', '.') != '' ? ['cargo'] : ['rustc']
+
 " Status line configuration
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
