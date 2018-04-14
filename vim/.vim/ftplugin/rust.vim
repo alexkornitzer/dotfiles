@@ -1,4 +1,5 @@
 " Vimux Cargo bindings for Rust
+map <Leader>rs :wa<CR> :CargoBenchAll<CR>
 map <Leader>rb :wa<CR> :CargoBuild<CR>
 map <Leader>rc :wa<CR> :CargoRun<CR>
 map <Leader>ra :wa<CR> :CargoPromptArgs<CR>
