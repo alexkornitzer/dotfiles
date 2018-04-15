@@ -11,7 +11,14 @@ fi
 xdotool keydown ctrl+alt; xdotool keyup ctrl+alt
 
 # Lock screen displaying this image.
-i3lock --color "#151515"
-
-# Turn the screen off after a delay.
-(sleep 60; pgrep i3lock && xset dpms force off) &
+revert() {
+  xset dpms 0 0 0
+}
+trap revert HUP INT TERM
+xset +dpms dpms 5 5 5
+if [[ `i3lock --version 2>&1 | cut -d" " -f3` = *c ]]; then
+  i3lock -n --color "#151515" --insidecolor "#151515FF" --ringcolor "#262626FF" --ringvercolor "#0d61acFF" --insidevercolor "#151515FF" --ringwrongcolor "#870000FF" --insidewrongcolor "#151515FF" --keyhlcolor "#262626FF" --bshlcolor "#870000FF" --verifcolor "#fefefeFF" --wrongcolor "#fefefeFF" --linecolor "#fefefeff" --separatorcolor "#fefefeff" --wrongtext "failed" --veriftext "checking" -S 1
+else
+  i3lock -n --color "#151515"
+fi
+revert
