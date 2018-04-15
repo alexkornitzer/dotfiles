@@ -7,7 +7,7 @@ let g:ycm_extra_conf_vim_data   = ['&filetype']
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 " Set rust path if possible
 if executable('rustc')
-  let g:ycm_rust_src_path = system('rustc --print sysroot') . '/lib/rustlib/src/rust/src'
+  let g:ycm_rust_src_path = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 endif
 
 " Use Syntastic

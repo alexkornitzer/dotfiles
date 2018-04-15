@@ -40,6 +40,9 @@ function! BuildYCM(info)
       let s:args .= ' --js-completer'
     endif
     if executable('rustc') && executable('cargo')
+      if executable('rustup')
+        execute '!rustup component add rust-src'
+      endif
       let s:args .= ' --rust-completer'
     endif
     execute '!./install.py' s:args
