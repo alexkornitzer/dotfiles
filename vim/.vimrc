@@ -42,6 +42,7 @@ function! BuildYCM(info)
     if executable('rustc') && executable('cargo')
       if executable('rustup')
         execute '!rustup component add rust-src'
+        execute '!rustup component add rustfmt-preview'
       endif
       let s:args .= ' --rust-completer'
     endif
