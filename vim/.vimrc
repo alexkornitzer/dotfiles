@@ -348,9 +348,8 @@ nmap <leader>lo :lopen<CR>
 nmap <leader>lc :lclose<CR>
 
 " Map ale
-nmap <leader>aj :ALENext<cr>
-nmap <leader>ak :ALEPrevious<cr>
-
+nmap <leader>lj :ALENext<cr>
+nmap <leader>lk :ALEPrevious<cr>
 
 " Map fzf
 nmap <leader>b :Buffers<CR>
