@@ -347,6 +347,11 @@ au FileType xml setlocal foldmethod=syntax
 nmap <leader>lo :lopen<CR>
 nmap <leader>lc :lclose<CR>
 
+" Map ale
+nmap <leader>aj :ALENext<cr>
+nmap <leader>ak :ALEPrevious<cr>
+
+
 " Map fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
