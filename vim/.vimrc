@@ -343,6 +343,10 @@ au FileType xml setlocal foldmethod=syntax
 " Custom Mappings
 "-------------------------------------------------------------------------------
 
+" Location list hotkeys
+nmap <leader>lo :lopen<CR>
+nmap <leader>lc :lclose<CR>
+
 " Map fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
