@@ -134,8 +134,8 @@ Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 " Plug 'rust-lang/rust.vim', { 'for': ['rs'] }
 Plug 'rust-lang/rust.vim'
 
-" Syntastic: Syntax checking hacks for vim
-Plug 'scrooloose/syntastic'
+" ALE: Asynchronous Lint Engine
+Plug 'w0rp/ale'
 
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -254,6 +254,7 @@ let g:tex_fold_enabled=1
 
 " Load pluging settings from the settings folder
 source $HOME/.vim/settings/Airline.vim              " Plugin: Airline
+source $HOME/.vim/settings/ALE.vim                  " Plugin: ALE
 source $HOME/.vim/settings/EasyTags.vim             " Plugin: EasyTags
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
@@ -261,7 +262,6 @@ source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Rust.vim                 " Plugin: Rust
-source $HOME/.vim/settings/Syntastic.vim            " Plugin: Syntastic
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
 source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
