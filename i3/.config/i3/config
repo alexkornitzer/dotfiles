@@ -42,7 +42,7 @@ set $darkfg      #4f5b66
 set $foreground  #fefefe
 
 # Override 'incorrect' colours
-set $blue        #8197bf
+set $blue        #597bc5
 set $green       #99ad6a
 set $red         #cf6a4c
 
@@ -102,8 +102,8 @@ bar {
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
