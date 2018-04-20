@@ -83,8 +83,8 @@ Plug 'jmcantrell/vim-virtualenv'
 " Interface
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Airline: lean & mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 " FZF: A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -97,6 +97,15 @@ Plug 'airblade/vim-gitgutter'
 " IndentLine: A vim plugin to display the indention levels with thin vertical
 " lines
 Plug 'Yggdroot/indentLine'
+
+" LightLine: A light and configurable statusline/tabline plugin for Vim
+Plug 'itchyny/lightline.vim'
+
+" LightLine ALE: ALE indicator for the lightline vim plugin
+Plug 'maximbaz/lightline-ale'
+
+" LightLine Bufferline: A lightweight plugin to display the list of buffers in the lightline vim plugin
+Plug 'mgee/lightline-bufferline'
 
 " Nerdtree: A tree explorer plugin for Vim
 Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
@@ -156,11 +165,15 @@ Plug 'brookhong/cscope.vim'
 " FastFold: Speed up Vim by updating folds only when called-for
 Plug 'Konfekt/FastFold'
 
-" Stay: Make Vim persist editing state without fuss
-Plug 'kopischke/vim-stay'
-
 " Misc: Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc'
+
+" Lessmess: Remove white-space mess from files in ViM
+"Plug 'mboughaba/vim-lessmess'
+Plug 'alexkornitzer/vim-lessmess'
+
+" Stay: Make Vim persist editing state without fuss
+Plug 'kopischke/vim-stay'
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Themes
@@ -235,6 +248,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Always show tabline
+set showtabline=2
+
 "-------------------------------------------------------------------------------
 " Plugin Settings
 "-------------------------------------------------------------------------------
@@ -259,6 +275,7 @@ source $HOME/.vim/settings/EasyTags.vim             " Plugin: EasyTags
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
+source $HOME/.vim/settings/LightLine.vim            " Plugin: LightLine
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Rust.vim                 " Plugin: Rust
@@ -283,11 +300,6 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:las
 "-------------------------------------------------------------------------------
 " Functions
 "-------------------------------------------------------------------------------
-
-" Function to trim white space
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
 
 " Helps with syntax debugging
 if has("user_commands")
@@ -325,9 +337,6 @@ autocmd BufEnter * call CheckLeftBuffers()
 " TODO: No Longer needed as we have Vim-Stay
 "autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview
-
-" Auto commands to trim white space on pre buffer write
-autocmd BufWritePre * :call TrimWhiteSpace()
 
 " Fix for nasm syntax not being set on *.nasm file type
 autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm
