@@ -399,5 +399,8 @@ map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
+" Write buffer and delete it
+cmap bq w\|bd
+
 " Run python's jtool and set the filetype
 nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
