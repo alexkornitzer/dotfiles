@@ -402,5 +402,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Write buffer and delete it
 cmap bq w\|bd
 
+" Mirror gt && gT for buffers
+map gb :bnext<CR>
+map gB :bprev<CR>
+
 " Run python's jtool and set the filetype
 nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
