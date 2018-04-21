@@ -82,9 +82,6 @@ Plug 'jmcantrell/vim-virtualenv'
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Interface
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Airline: lean & mean status/tabline for vim that's light as air
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 
 " FZF: A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -169,8 +166,7 @@ Plug 'Konfekt/FastFold'
 Plug 'xolox/vim-misc'
 
 " Lessmess: Remove white-space mess from files in ViM
-"Plug 'mboughaba/vim-lessmess'
-Plug 'alexkornitzer/vim-lessmess'
+Plug 'mboughaba/vim-lessmess'
 
 " Stay: Make Vim persist editing state without fuss
 Plug 'kopischke/vim-stay'
@@ -269,7 +265,6 @@ let g:tex_fold_enabled=1
 "*******************************************************************************
 
 " Load pluging settings from the settings folder
-source $HOME/.vim/settings/Airline.vim              " Plugin: Airline
 source $HOME/.vim/settings/ALE.vim                  " Plugin: ALE
 source $HOME/.vim/settings/EasyTags.vim             " Plugin: EasyTags
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
