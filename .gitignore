@@ -1,7 +1,6 @@
 # Things to ignore
 bash/.bash-git-prompt
 tmux/.tmux-gitbar
-tmux/.tmux-statusline-colors.conf
 vim/.vim/autoload/plug.vim
 vim/.vim/autoload/plug.vim.old
 vim/.vim/plugged/
