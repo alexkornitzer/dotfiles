@@ -89,6 +89,9 @@ ZSH_HIGHLIGHT_MAXLENGTH=300
 # radare2
 alias r2='radare2'
 
+# ranger
+alias r='ranger'
+
 # tmux
 alias t='tmux -2'
 alias ta='tmux -2 attach'
