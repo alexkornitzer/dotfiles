@@ -9,6 +9,7 @@ stray() {
   if [[  $(pgrep -cx stalonetray) -eq 0 ]] ; then
     WORKSPACE=""
     WIDTH=`xdpyinfo | grep -m 1 'dimensions:' | awk '/\d*/ { print $2 }' | cut -d 'x' -f '1'`
+    DPI=`xdpyinfo | grep -m 1 'dimensions:' | awk '/\d*/ { print $2 }' | cut -d 'x' -f '1'`
     X=0
     while read i; do
       if [[ `echo $i | jq '.focused'` == 'true' ]]; then
@@ -23,7 +24,11 @@ stray() {
       fi
     done < <(i3-msg -t get_outputs | jq -c '.[]')
     let LOC=$WIDTH-$X+2
-    i3-msg exec "stalonetray --geometry 1x1-$LOC+18" >/dev/null &
+    if [[ $WIDTH -ge 192 ]]; then
+      i3-msg exec "stalonetray --geometry 1x1-$LOC+32" >/dev/null &
+    else
+      i3-msg exec "stalonetray --geometry 1x1-$LOC+18" >/dev/null &
+    fi
   else
     PID=`pgrep -x stalonetray`
     if [[ $? -eq 0 ]]; then
