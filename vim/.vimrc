@@ -245,6 +245,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Always show tabline
+set laststatus=2
 set showtabline=2
 
 "-------------------------------------------------------------------------------
