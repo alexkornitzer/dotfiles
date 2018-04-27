@@ -31,8 +31,8 @@ padding:
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
 dpi:
-  x: 96.0
-  y: 96.0
+  x: 192.0
+  y: 192.0
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
@@ -110,7 +110,7 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x121212'
+    background: '0x151515'
     foreground: '0xadadad'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
