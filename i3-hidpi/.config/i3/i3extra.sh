@@ -1,1 +1,1 @@
-/home/developer/Dotfiles/i3/.config/i3/i3extra.sh
+/home/alex/Dotfiles/i3/.config/i3/i3extra.sh
