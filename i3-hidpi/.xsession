@@ -1,0 +1,1 @@
+/home/alex/Dotfiles/i3/.xsession
