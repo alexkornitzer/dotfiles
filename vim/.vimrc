@@ -143,6 +143,9 @@ Plug 'rust-lang/rust.vim'
 " ALE: Asynchronous Lint Engine
 Plug 'w0rp/ale'
 
+" TOML: Vim syntax for TOML
+Plug 'cespare/vim-toml'
+
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
