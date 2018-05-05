@@ -17,7 +17,7 @@
 #------------------------------------------------------------------------
 
 INTERFACE_E="${BLOCK_INSTANCE:-eth0}"
-INTERFACE_W="${BLOCK_INSTANCE:-wlan0}"
+INTERFACE_W="${BLOCK_INSTANCE:-wlp2s0}"
 
 
 LINE=""
