@@ -296,7 +296,8 @@ bindsym $mod+r mode "resize"
 
 # Applets
 exec --no-startup-id dunst                # notifications
-exec --no-startup-id nm-applet            # network manager
+#exec --no-startup-id nm-applet            # network manager
+exec --no-startup-id connman-gtk --tray   # connman
 exec --no-startup-id pasystray            # pulseaudio systray
 exec --no-startup-id udiskie --smart-tray # usb storage automounter
 

@@ -36,7 +36,7 @@ $UPOWER -i $INSTANCE | awk -v alert_low=$ALERT_LOW '
   remaining_time = $4 " " substr ($5, 0, 1)
 }
 /percentage:/ {
-  percentage = $2;
+  percentage = gensub(/%$/, "", "G", $2)
 }
 END {
   if (percentage == "")
@@ -46,7 +46,7 @@ END {
       label = " "
     else if (state == "fully-charged")
       label = " "
-    else if (percentage == "100%")
+    else if (percentage == "100")
       label = " "
     else if (percentage > 99)
       label = " "
@@ -62,23 +62,22 @@ END {
       label = " "
 
     # full text & "$@" > /dev/null;
-    print label " " percentage
+    print label " " percentage "%"
 
     # short text
-    print label " " percentage
+    print label " " percentage "%"
 
     # color
-    gsub(/%$/,"",percentage)
-      if (percentage == "100")
-        print ""
-      else if (state == "charging")
-        print ""
-      else if (+ percentage < + alert_low)
-        print "#f79274"
-      else if (percentage < 26)
-        print ""
-      else
-        print ""
+    if (percentage == "100")
+      print ""
+    else if (state == "charging")
+      print ""
+    else if (+ percentage < + alert_low)
+      print "#f79274"
+    else if (percentage < 26)
+      print ""
+    else
+      print ""
   }
 }
 '
