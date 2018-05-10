@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Args
+NOFORK=-n
+if [[ "$1" == "-f" ]]; then
+  NOFORK=''
+fi
+
 # Check if already locked
 if [[  $(pgrep -cx i3lock) -gt 0 ]] ; then
   printf "%s\n" "i3lock is already running." >&2
@@ -17,8 +23,8 @@ revert() {
 trap revert HUP INT TERM
 xset +dpms dpms 5 5 5
 if [[ `i3lock --version 2>&1 | cut -d" " -f3` = *c ]]; then
-  i3lock -n --color "#151515" --insidecolor "#151515FF" --ringcolor "#262626FF" --ringvercolor "#0d61acFF" --insidevercolor "#151515FF" --ringwrongcolor "#870000FF" --insidewrongcolor "#151515FF" --keyhlcolor "#fefefeFF" --bshlcolor "#870000FF" --verifcolor "#fefefeFF" --wrongcolor "#fefefeFF" --linecolor "#fefefeff" --separatorcolor "#fefefeff" --wrongtext "failed" --veriftext "checking" -S 1
+  i3lock $NOFORK --color "#151515" --insidecolor "#151515FF" --ringcolor "#262626FF" --ringvercolor "#0d61acFF" --insidevercolor "#151515FF" --ringwrongcolor "#870000FF" --insidewrongcolor "#151515FF" --keyhlcolor "#fefefeFF" --bshlcolor "#870000FF" --verifcolor "#fefefeFF" --wrongcolor "#fefefeFF" --linecolor "#fefefeff" --separatorcolor "#fefefeff" --wrongtext "failed" --veriftext "checking" -S 1
 else
-  i3lock -n --color "#151515"
+  i3lock $NOFORK --color "#151515"
 fi
 revert
