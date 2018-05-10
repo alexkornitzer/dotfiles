@@ -20,11 +20,15 @@ xdotool keydown ctrl+alt; xdotool keyup ctrl+alt
 revert() {
   xset dpms 0 0 0
 }
-trap revert HUP INT TERM
-xset +dpms dpms 5 5 5
+if [[ "$NOFORK" == "-n" ]]; then
+  trap revert HUP INT TERM
+  xset +dpms dpms 5 5 5
+fi
 if [[ `i3lock --version 2>&1 | cut -d" " -f3` = *c ]]; then
   i3lock $NOFORK --color "#151515" --insidecolor "#151515FF" --ringcolor "#262626FF" --ringvercolor "#0d61acFF" --insidevercolor "#151515FF" --ringwrongcolor "#870000FF" --insidewrongcolor "#151515FF" --keyhlcolor "#fefefeFF" --bshlcolor "#870000FF" --verifcolor "#fefefeFF" --wrongcolor "#fefefeFF" --linecolor "#fefefeff" --separatorcolor "#fefefeff" --wrongtext "failed" --veriftext "checking" -S 1
 else
   i3lock $NOFORK --color "#151515"
 fi
-revert
+if [[ "$NOFORK" == "-n" ]]; then
+  revert
+fi

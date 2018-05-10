@@ -11,8 +11,14 @@ fi
 
 # Start autolock
 if [[  $(pgrep -cx xautolock) -eq 0 ]] ; then
-  locker='~/.config/i3/i3lock.sh'
+  locker="$HOME/.config/i3/i3lock.sh"
   xautolock -time 1 -detectsleep -notify 5 -notifier "notify-send 'Locking'" -corners -000 -locker $locker &
+fi
+
+# Start xss-lock
+if [[  $(pgrep -cx xss-lock) -eq 0 ]] ; then
+  locker="$HOME/.config/i3/i3lock.sh"
+  xss-lock -- $locker -f &
 fi
 
 # Start RedShift GTK
