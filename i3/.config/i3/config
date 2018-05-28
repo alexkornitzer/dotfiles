@@ -51,7 +51,7 @@ set $red         #cf6a4c
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Set pango based fonts
-font pango: Noto Sans 8
+font pango: Noto Sans Mono 8
 
 # Set window colours
 #class                  border      backgr.     text        indicator   child_border

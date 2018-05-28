@@ -7,7 +7,7 @@ rofi.color-normal: #262626, #fefefe, #262626, #151515, #fefefe
 rofi.color-active: #262626, #fefefe, #262626, #0d61ac, #fefefe
 rofi.color-urgent: #262626, #fefefe, #262626, #dc322f, #fefefe
 
-rofi.font: DejaVu Sans Mono 16
+rofi.font: Noto Sans Mono 16
 
 rofi.separator-style: solid
 
