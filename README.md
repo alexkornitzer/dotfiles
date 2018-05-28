@@ -26,23 +26,15 @@ git submodule update
 
 ## Stows
 
-### bash
-
-Nothing special to do for this one.
-
-```bash
-stow bash
-```
-
 ### i3
 
 This one has a fair few dependencies, most are listed below.
 
 > Dependencies:
-> - DejaVu Sans Mono
 > - Dunst
 > - Faba Mono
 > - Font Awesome
+> - Noto Sans
 > - i3blocks
 > - i3ipc (Python)
 > - Numix-Jellybeans (https://github.com/AlexKornitzer/numix-jellybeans-gtk-theme)
@@ -80,7 +72,7 @@ vim +PlugInstall +qall
 Nothing special to do for this one.
 
 > Dependencies:
-> - DejaVu Sans Mono
+> - Noto Sans
 > - Numix-Jellybeans (https://github.com/AlexKornitzer/numix-jellybeans-gtk-theme)
 
 ```bash

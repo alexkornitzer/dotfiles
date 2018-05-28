@@ -148,7 +148,7 @@
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     frame_width = 2
-    frame_color = "#fefefe"
+    frame_color = "#262626"
 
 [shortcuts]
 
@@ -176,14 +176,14 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#262626"
     foreground = "#fefefe"
-    frame_color = "#99ad6a"
-    timeout = 10
+    frame_color = "#4f5b66"
+    timeout = 20
 
 [urgency_normal]
     background = "#262626"
     foreground = "#fefefe"
-    frame_color = "#fefefe"
-    timeout = 10
+    frame_color = "#597bc5"
+    timeout = 20
 
 [urgency_critical]
     background = "#262626"

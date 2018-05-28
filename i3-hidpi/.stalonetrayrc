@@ -1,7 +1,0 @@
-background "#151515"
-geometry 1x1-4+36
-grow_gravity e
-icon_gravity ne
-icon_size 32
-slot_size 40
-window_type toolbar

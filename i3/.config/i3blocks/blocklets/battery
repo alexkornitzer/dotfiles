@@ -46,19 +46,21 @@ END {
       label = " "
     else if (state == "fully-charged")
       label = " "
-    else if (percentage == "100")
+    else if (percentage+0 == 100+0)
       label = " "
-    else if (percentage > 99)
+    else if (percentage+0 > 99+0)
       label = " "
-    else if (percentage > 75)
+    else if (percentage+0 > 75+0)
       label = " "
-    else if (percentage > 50)
+    else if (percentage+0 > 50+0)
       label = " "
-    else if (percentage > 25)
+    else if (percentage+0 > 25+0)
       label = " "
-    else if (percentage > 10)
+    else if (percentage+0 > 10+0)
       label = " "
-    else if (percentage > 5)
+    else if (percentage+0 > 5+0)
+      label = " "
+    else
       label = " "
 
     # full text & "$@" > /dev/null;

@@ -1,13 +1,10 @@
 # Things to ignore
-bash/.bash-git-prompt
-tmux/.tmux-gitbar
 vim/.vim/autoload/plug.vim
 vim/.vim/autoload/plug.vim.old
 vim/.vim/plugged/
 vim/.vim/view/
 vim/.vim/.netrwhist
 vim/.vim/ycm_extra_conf.pyc
-zsh/.zplug
 .DS_Store
 *.sw*
 __pycache__
