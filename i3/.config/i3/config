@@ -293,7 +293,7 @@ exec --no-startup-id udiskie --smart-tray # usb storage automounter
 exec_always --no-startup-id ~/.config/i3/scripts/autoname_workspaces.py &
 
 # i3extra.sh
-exec_always --no-startup-id ~/.config/i3/scripts/i3extra.sh
+exec_always --no-startup-id ~/.config/i3/scripts/i3extra.sh &
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Miscellaneous
