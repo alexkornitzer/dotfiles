@@ -20,7 +20,7 @@ fi
 DPI=`xdpyinfo | grep -m 1 'dimensions:' | awk '/\d*/ { print $2 }' | cut -d 'x' -f '1'`
 if [[ $DPI -ge 192 ]]; then
   xrandr --output $EDP1 --auto \
-         --output $DP2 --auto --panning 3840x2400+3840+0 --scale 2x2 --right-of $EDP1
+         --output $DP2 --auto --panning 3840x2400+3840+0 --scale 2x2 --right-of $EDP1 \
          --output $DP1 --off \
          --output $HDMI1 --off \
          --output $HDMI2 --off
