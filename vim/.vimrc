@@ -54,9 +54,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Integrations
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Easytags: Automated tag file generation and syntax highlighting of tags in
-" Vim
-Plug 'xolox/vim-easytags'
+" Gutentags: A Vim plugin that manages your tag files
+Plug 'ludovicchabant/vim-gutentags'
 
 " Fugitive: a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
@@ -163,7 +162,8 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'brookhong/cscope.vim'
 
 " FastFold: Speed up Vim by updating folds only when called-for
-Plug 'Konfekt/FastFold'
+" NOTE: Conflicting with rust.vim, and I don't really use folds atm
+"Plug 'Konfekt/FastFold'
 
 " Misc: Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc'
@@ -270,7 +270,7 @@ let g:tex_fold_enabled=1
 
 " Load pluging settings from the settings folder
 source $HOME/.vim/settings/ALE.vim                  " Plugin: ALE
-source $HOME/.vim/settings/EasyTags.vim             " Plugin: EasyTags
+source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
