@@ -163,7 +163,7 @@ Plug 'brookhong/cscope.vim'
 
 " FastFold: Speed up Vim by updating folds only when called-for
 " NOTE: Conflicting with rust.vim, and I don't really use folds atm
-"Plug 'Konfekt/FastFold'
+Plug 'Konfekt/FastFold'
 
 " Misc: Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc'
