@@ -20,3 +20,8 @@ fi
 if [[  $(pgrep -cx redshift-gtk) -eq 0 ]] ; then
   redshift-gtk &
 fi
+
+# Polkit helper
+if [[  $(pgrep -cx polkit-gnome-authentication-agent-1) -eq 0 ]] ; then
+  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fi
