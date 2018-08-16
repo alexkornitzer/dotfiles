@@ -53,13 +53,24 @@ volume() {
 
 format() {
   awk "/\[(on|off)\]/ {gsub(/\[|\]/, \"\"); \
-    if (\$6 == \"off\") {
-      if (\"$UNIT\" == \"dB\") { print \" 0dB\"; }
-      else { print \" 0%\"; }
-    } else { printf \"  \";
-      if (\"$UNIT\" == \"dB\") { printf \"%udB\n\", \$6; }
-      else { printf \"%u%\n\", \$5; }
-    }}"
+    if (\$1 == \"Mono:\") {
+      if (\$6 == \"off\") {
+        if (\"$UNIT\" == \"dB\") { print \" 0dB\"; }
+        else { print \" 0%\"; }
+      } else { printf \"  \";
+        if (\"$UNIT\" == \"dB\") { printf \"%udB\n\", \$5; }
+        else { printf \"%u%\n\", \$4; }
+      }
+    } else {
+      if (\$6 == \"off\") {
+        if (\"$UNIT\" == \"dB\") { print \" 0dB\"; }
+        else { print \" 0%\"; }
+      } else { printf \"  \";
+        if (\"$UNIT\" == \"dB\") { printf \"%udB\n\", \$6; }
+        else { printf \"%u%\n\", \$5; }
+      }
+    }
+  }"
 }
 
 #------------------------------------------------------------------------
