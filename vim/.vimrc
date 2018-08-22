@@ -142,6 +142,9 @@ Plug 'rust-lang/rust.vim'
 " ALE: Asynchronous Lint Engine
 Plug 'w0rp/ale'
 
+" SCSS: Vim syntax file for scss (Sassy CSS) 
+Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'vue'] }
+
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
 
