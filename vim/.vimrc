@@ -81,6 +81,8 @@ Plug 'jmcantrell/vim-virtualenv'
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Interface
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Colorizer: color hex codes and color names 
+Plug 'chrisbra/Colorizer', { 'for': ['css', 'html', 'sass', 'scss', 'vue'] }
 
 " FZF: A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -273,6 +275,7 @@ let g:tex_fold_enabled=1
 
 " Load pluging settings from the settings folder
 source $HOME/.vim/settings/ALE.vim                  " Plugin: ALE
+source $HOME/.vim/settings/Colorizer.vim            " Plugin: Colorizer
 source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
@@ -361,6 +364,7 @@ nmap <leader>lc :lclose<CR>
 " Map ale
 nmap <leader>lj :ALENext<cr>
 nmap <leader>lk :ALEPrevious<cr>
+nmap <leader>lf :ALEFix<cr>
 
 " Map fzf
 nmap <leader>b :Buffers<CR>
