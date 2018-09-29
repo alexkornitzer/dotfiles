@@ -37,7 +37,7 @@ This one has a fair few dependencies, most are listed below.
 > - Noto Sans
 > - i3blocks
 > - i3ipc (Python)
-> - Numix-Jellybeans (https://github.com/AlexKornitzer/numix-jellybeans-gtk-theme)
+> - Adapta-Nokto (https://github.com/adapta-project/adapta-gtk-theme) (`./autogen.sh --prefix=/usr --enable-parallel --with-selection_color=#597bc5 --with-accent_color=#597bc5 --with-suggestion_color=#597bc5 --with-destruction_color=#cf6a4c`)
 > - Rofi
 
 ```bash
