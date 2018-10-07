@@ -15,3 +15,5 @@ rofi.location: 2
 rofi.yoffset: 200
 
 rofi.modi: window,run,ssh,drun
+
+rofi.drun-show-actions: true
