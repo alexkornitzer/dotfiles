@@ -31,13 +31,13 @@ git submodule update
 This one has a fair few dependencies, most are listed below.
 
 > Dependencies:
+> - [Adapta-Nokto](https://github.com/adapta-project/adapta-gtk-theme) (Tag: 3.95.0.1) (`./autogen.sh --prefix=/usr --enable-parallel --with-selection_color=#597bc5 --with-accent_color=#597bc5 --with-suggestion_color=#597bc5 --with-destruction_color=#cf6a4c`)
 > - Dunst
 > - Faba Mono
 > - Font Awesome
 > - Noto Sans
 > - i3blocks
 > - i3ipc (Python)
-> - Adapta-Nokto (https://github.com/adapta-project/adapta-gtk-theme)(3.95.0.1) (`./autogen.sh --prefix=/usr --enable-parallel --with-selection_color=#597bc5 --with-accent_color=#597bc5 --with-suggestion_color=#597bc5 --with-destruction_color=#cf6a4c`)
 > - Rofi
 
 ```bash
