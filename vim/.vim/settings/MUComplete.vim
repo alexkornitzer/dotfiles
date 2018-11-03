@@ -11,6 +11,11 @@ let g:mucomplete#chains.unite = []
 "
 let g:mucomplete#can_complete = {}
 
+" Default
+let g:mucomplete#can_complete.default = {
+  \  'omni': { t -> strlen(&l:omnifunc) > 0 && t =~# '\%(\k\.\)$' }
+  \ }
+
 " Rust
 let g:mucomplete#can_complete.rust = {
   \  'omni': { t -> strlen(&l:omnifunc) > 0 && t =~# '\%(\k\:\:\|\k\.\)$' }
