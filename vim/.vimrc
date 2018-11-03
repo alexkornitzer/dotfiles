@@ -139,6 +139,19 @@ Plug 'cespare/vim-toml'
 " Web
 " SCSS: Vim syntax file for scss (Sassy CSS)
 Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'vue'] }
+function! InstallTern(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status != 'unchanged' || a:info.force
+    if executable('npm')
+      execute '!npm install'
+    endif
+  endif
+endfunction
+" TernForVim: Tern plugin for Vim 
+Plug 'ternjs/tern_for_vim', { 'do': function('InstallTern') }
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " VimVue: Syntax Highlight for Vue.js components
@@ -258,6 +271,7 @@ source $HOME/.vim/settings/Racer.vim                " Plugin: Racer
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Rust.vim                 " Plugin: Rust
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
+source $HOME/.vim/settings/TernForVim.vim           " Plugin: TernForVim
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
 source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
@@ -315,6 +329,9 @@ autocmd BufEnter * call CheckLeftBuffers()
 
 " Fix for nasm syntax not being set on *.nasm file type
 autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm
+
+" Tell vim that vue is javascript...
+autocmd BufEnter,BufRead *.vue set filetype=vue.javascript
 
 " Fix syntax in vue plugin
 autocmd FileType vue syntax sync fromstart

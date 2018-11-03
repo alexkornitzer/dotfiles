@@ -1,4 +1,12 @@
 {
+  "libs": [
+    "browser",
+    "ecmascript",
+    "jquery",
+    "react",
+    "underscore",
+    "vue"
+  ],
   "plugins": {
     "node": {}
   }
