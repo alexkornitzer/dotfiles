@@ -1,1 +1,1 @@
-let g:jedi#completions_enabled = 0  " YCM is installed
+let g:jedi#popup_on_dot = 0

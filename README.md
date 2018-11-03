@@ -59,6 +59,7 @@ Nothing special to do here as `vim` does all of the work.
 > Dependencies:
 > - cmake
 > - gcc
+> - global
 > - cscope
 > - ctags
 

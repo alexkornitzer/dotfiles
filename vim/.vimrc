@@ -12,172 +12,137 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Completion
+" General
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Jedi: Using the jedi autocompletion library for Vim
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
-" Snippets: vim-snipmate default snippets (Previously snipmate-snippets)
-Plug 'honza/vim-snippets'
-
-" UltiSnips: The ultimate snippet solution for Vim. Send pull requests to
-" SirVer/ultisnips!
-Plug 'SirVer/ultisnips'
-
-" YouCompleteMe: A code-completion engine for Vim
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    "!./install.py --clang-completer
-    let s:args = '--clang-completer'
-    if executable('go')
-      let s:args .= ' --go-completer'
-    endif
-    if executable('node') && executable('npm')
-      let s:args .= ' --js-completer'
-    endif
-    if executable('rustc') && executable('cargo')
-      if executable('rustup')
-        execute '!rustup component add rust-src'
-        execute '!rustup component add rustfmt-preview'
-      endif
-      let s:args .= ' --rust-completer'
-    endif
-    execute '!./install.py' s:args
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Integrations
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Gutentags: A Vim plugin that manages your tag files
-Plug 'ludovicchabant/vim-gutentags'
-
-" Fugitive: a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
-
-" Tmuxline: Simple tmux statusline generator with support for powerline
-" symbols and statusline / airline / lightline integration
-" Plug 'edkolev/tmuxline.vim' Needs to fix the error
-Plug 'kevinkjt2000/tmuxline.vim'
-
-" Vimux: Vim plugin to interact with tmux
-Plug 'benmills/vimux'
-
-" VimuxCargo: Run cargo commands in vim
-"Plug 'jtdowney/vimux-cargo'
-Plug 'alexkornitzer/vimux-cargo'
-
-" VimTmuxNavigator: Seamless navigation between tmux panes and vim splits
-Plug 'christoomey/vim-tmux-navigator'
-
-" Virtualenv:  Vim plugin for working with python virtualenvs
-Plug 'jmcantrell/vim-virtualenv'
-
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Interface
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Colorizer: color hex codes and color names 
+" General
+" ALE: Asynchronous Lint Engine
+Plug 'w0rp/ale'
+" Colorizer: color hex codes and color names
 Plug 'chrisbra/Colorizer', { 'for': ['css', 'html', 'sass', 'scss', 'vue'] }
-
+" Cscope: A vim plugin to help you to create/update cscope database and
+" connect to existing proper database automatically.
+Plug 'brookhong/cscope.vim'
+" FastFold: Speed up Vim by updating folds only when called-for
+" NOTE: Conflicting with rust.vim, and I don't really use folds atm
+Plug 'Konfekt/FastFold'
 " FZF: A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+" Gutentags: A Vim plugin that manages your tag files
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+" IndentLine: A vim plugin to display the indention levels with thin vertical
+" lines
+Plug 'Yggdroot/indentLine'
+" Lessmess: Remove white-space mess from files in ViM
+Plug 'mboughaba/vim-lessmess'
+" LightLine: A light and configurable statusline/tabline plugin for Vim
+Plug 'itchyny/lightline.vim'
+" LightLine ALE: ALE indicator for the lightline vim plugin
+Plug 'maximbaz/lightline-ale'
+" Misc: Miscellaneous auto-load Vim scripts
+Plug 'xolox/vim-misc'
+" MUComplete: Chained completion that works the way you want!
+Plug 'lifepillar/vim-mucomplete'
+" Nerdtree: A tree explorer plugin for Vim
+Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
+" NertTreeTabs: NERDTree and tabs together in Vim, painlessly
+Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
+" Rainbow: help you read complex code by showing diff level of parentheses in
+" diff color
+Plug 'luochen1990/rainbow'
+" Stay: Make Vim persist editing state without fuss
+Plug 'kopischke/vim-stay'
+" Tagbar: Vim plugin that displays tags in a window, ordered by scope
+Plug 'majutsushi/tagbar'
+" UndoTree: The ultimate undo history visualizer for Vim
+Plug 'mbbill/undotree'
 
+" Git
+" Fugitive: a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
 " GitGutter: A Vim plugin which shows a git diff in the gutter (sign column)
 " and stage/undoes hunks.
 Plug 'airblade/vim-gitgutter'
 
-" IndentLine: A vim plugin to display the indention levels with thin vertical
-" lines
-Plug 'Yggdroot/indentLine'
+" Python
+" Virtualenv:  Vim plugin for working with python virtualenvs
+Plug 'jmcantrell/vim-virtualenv'
 
-" LightLine: A light and configurable statusline/tabline plugin for Vim
-Plug 'itchyny/lightline.vim'
+" Snippets
+" UltiSnips: The ultimate snippet solution for Vim. Send pull requests to
+" SirVer/ultisnips!
+Plug 'SirVer/ultisnips'
+" Snippets: vim-snipmate default snippets (Previously snipmate-snippets)
+Plug 'honza/vim-snippets'
 
-" LightLine ALE: ALE indicator for the lightline vim plugin
-Plug 'maximbaz/lightline-ale'
-
-" LightLine Bufferline: A lightweight plugin to display the list of buffers in the lightline vim plugin
-Plug 'mgee/lightline-bufferline'
-
-" Nerdtree: A tree explorer plugin for Vim
-Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
-
-" NertTreeTabs: NERDTree and tabs together in Vim, painlessly
-Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
-
-" Rainbow: help you read complex code by showing diff level of parentheses in
-" diff color !!
-Plug 'luochen1990/rainbow'
-
-" Tagbar: Vim plugin that displays tags in a window, ordered by scope
-Plug 'majutsushi/tagbar'
-
-" UndoTree: The ultimate undo history visualizer for Vim
-Plug 'mbbill/undotree'
+" Tmux
+" Tmuxline: Simple tmux statusline generator with support for powerline
+" symbols and statusline / airline / lightline integration
+" Plug 'edkolev/tmuxline.vim' Needs to fix the error
+Plug 'kevinkjt2000/tmuxline.vim'
+" Vimux: Vim plugin to interact with tmux
+Plug 'benmills/vimux'
+" VimuxCargo: Run cargo commands in vim
+"Plug 'jtdowney/vimux-cargo'
+Plug 'alexkornitzer/vimux-cargo'
+" VimTmuxNavigator: Seamless navigation between tmux panes and vim splits
+Plug 'christoomey/vim-tmux-navigator'
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Language
+" Languages
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 " Cocoa: Vim plugin for Cocoa/Objective-C development
 Plug 'AlexKornitzer/cocoa.vim', { 'for': ['objc', 'objc++'] }
 
 " Go: Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 
-" Javascript: Vastly improved Javascript indentation and syntax support in
-" Vim.
+" Javascript: Vastly improved Javascript indentation and syntax support in Vim.
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 
+" Latex
+" Vimtex: A modern vim plugin for editing LaTeX files.
+Plug 'lervag/vimtex', { 'for': 'tex' }
+
+" Powershell
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 
+" Python
+" Jedi: Using the jedi autocompletion library for Vim
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+" Rust
 " Rust: Vim configuration for Rust.
-" Plug 'rust-lang/rust.vim', { 'for': ['rs'] }
-Plug 'rust-lang/rust.vim'
-
-" ALE: Asynchronous Lint Engine
-Plug 'w0rp/ale'
-
-" SCSS: Vim syntax file for scss (Sassy CSS) 
-Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'vue'] }
+Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
+" Racer: Racer support for Vim
+function! InstallRacer(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status != 'unchanged' || a:info.force
+    if executable('rustc') && executable('cargo') && executable('rustup')
+      execute '!rustup toolchain add nightly'
+      execute '!cargo +nightly install racer'
+    endif
+  endif
+endfunction
+Plug 'racer-rust/vim-racer', { 'for': 'rust', 'do': function('InstallRacer') }
 
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
 
+" Web
+" SCSS: Vim syntax file for scss (Sassy CSS)
+Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'vue'] }
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-
 " VimVue: Syntax Highlight for Vue.js components
 Plug 'posva/vim-vue', { 'for': 'vue' }
-
-" Vimtex: A modern vim plugin for editing LaTeX files.
-Plug 'lervag/vimtex', { 'for': 'tex' }
-
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Miscellaneous
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Cscope: A vim plugin to help you to create/update cscope database and connect
-"to existing proper database automatically.
-Plug 'brookhong/cscope.vim'
-
-" FastFold: Speed up Vim by updating folds only when called-for
-" NOTE: Conflicting with rust.vim, and I don't really use folds atm
-Plug 'Konfekt/FastFold'
-
-" Misc: Miscellaneous auto-load Vim scripts
-Plug 'xolox/vim-misc'
-
-" Lessmess: Remove white-space mess from files in ViM
-Plug 'mboughaba/vim-lessmess'
-
-" Stay: Make Vim persist editing state without fuss
-Plug 'kopischke/vim-stay'
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Themes
@@ -244,7 +209,9 @@ set expandtab
 set scrolloff=10
 
 " Turn on Omni completion
-set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
+set completeopt+=menu,menuone,noinsert,noselect
+set shortmess+=c
 
 " Enable easier split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -255,6 +222,9 @@ nnoremap <C-H> <C-W><C-H>
 " Always show tabline
 set laststatus=2
 set showtabline=2
+
+" Prefer Python 3
+set pyxversion=0
 
 "-------------------------------------------------------------------------------
 " Plugin Settings
@@ -281,7 +251,9 @@ source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/LightLine.vim            " Plugin: LightLine
+source $HOME/.vim/settings/MUComplete.vim           " Plugin: MUComplete
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
+source $HOME/.vim/settings/Racer.vim                " Plugin: Racer
 source $HOME/.vim/settings/Rainbow.vim              " Plugin: Rainbow
 source $HOME/.vim/settings/Rust.vim                 " Plugin: Rust
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
@@ -290,7 +262,6 @@ source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
 source $HOME/.vim/settings/Vim-Virtualenv.vim       " Plugin: Vim-Virtualenv
 source $HOME/.vim/settings/Vimtex.vim               " Plugin: Vimtex
-source $HOME/.vim/settings/YouCompleteMe.vim        " Plugin: YouCompleteMe
 
 "-------------------------------------------------------------------------------
 " Fixes for TODOS
@@ -337,11 +308,6 @@ function! CheckLeftBuffers()
   endif
 endfunction
 autocmd BufEnter * call CheckLeftBuffers()
-
-" Auto commands to save and load views
-" TODO: No Longer needed as we have Vim-Stay
-"autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* silent loadview
 
 " Fix for nasm syntax not being set on *.nasm file type
 autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm

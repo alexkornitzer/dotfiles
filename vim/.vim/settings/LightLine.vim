@@ -5,7 +5,6 @@ let g:lightline = {
 
 " Load components
 let g:lightline.component_expand = {
-      \  'buffers' : 'lightline#bufferline#buffers',
       \  'linter_checking': 'lightline#ale#checking',
       \  'linter_warnings': 'lightline#ale#warnings',
       \  'linter_errors': 'lightline#ale#errors',
@@ -41,7 +40,7 @@ let g:lightline.active = {
   \            [ 'percent' ],
   \            [ 'tagbar', 'fileformat', 'fileencoding', 'filetype' ] ]
   \}
-let g:lightline.tabline = {'left': [['tabs']], 'right': [['close'], ['buffers']]}
+let g:lightline.tabline = {'left': [['tabs']], 'right': [['close']]}
 
 " Override colour palette
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
