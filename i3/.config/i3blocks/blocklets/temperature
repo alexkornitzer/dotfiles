@@ -49,7 +49,6 @@ if [[ "${TOTAL_COUNT}" -gt 0 ]]; then
 
   echo -e "\uf06d ${AVERAGE_TEMP}<span font_weight='ultraheavy'>°</span>"
   echo -e "\uf06d ${AVERAGE_TEMP}<span font_weight='ultraheavy'>°</span>"
-  echo ""
 
   if [[ "${IS_URGENT}" -eq 1 ]]; then
     exit 33
@@ -57,7 +56,6 @@ if [[ "${TOTAL_COUNT}" -gt 0 ]]; then
 else
   echo -e "\uf06d N/A<span font_weight='ultraheavy'>°</span>"
   echo -e "\uf06d N/A<span font_weight='ultraheavy'>°</span>"
-  echo ""
 fi
 
 case $BLOCK_BUTTON in

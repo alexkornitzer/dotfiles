@@ -33,9 +33,9 @@ printf "\uf05b %u" $C_USAGE
 echo "%"
 
 if [[ $C_USAGE -gt 80 ]]; then
-    echo "#cf6a4c\n"  # Red
+    echo "#cf6a4c"  # Red
     exit 0;
 elif [[ $C_USAGE -gt 60 ]]; then
-    echo "#d8ad4c\n"  # Yellow
+    echo "#ffb964"  # Yellow
     exit 0;
 fi

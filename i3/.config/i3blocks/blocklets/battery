@@ -70,16 +70,8 @@ END {
     print label " " percentage "%"
 
     # color
-    if (percentage == "100")
-      print ""
-    else if (state == "charging")
-      print ""
-    else if (+ percentage < + alert_low)
+    if (+ percentage < + alert_low)
       print "#f79274"
-    else if (percentage < 26)
-      print ""
-    else
-      print ""
   }
 }
 '

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # menu icon
-echo -en "\uf00b "
+echo -e "\uf00b "
 #  ☰  
 
 # open or close stalonetray
@@ -42,3 +42,5 @@ stray() {
 case $BLOCK_BUTTON in
     1) stray ;; # left click - stalonetray
 esac
+
+exit 0

@@ -16,15 +16,33 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# Get custom IN and OUT labels if provided by command line arguments
+while [[ $# -gt 1 ]]; do
+    key="$1"
+    case "$key" in
+        -l|--label)
+            LABEL="$2"
+            shift;;
+    esac
+    shift
+done
+
+[[ -z $LABEL ]] && LABEL="\uf309\uf30c "
+
 # Use the provided interface, otherwise the device used for the default route.
-if [[ -n $BLOCK_INSTANCE ]]; then
+if [[ -z $INTERFACE ]] && [[ -n $BLOCK_INSTANCE ]]; then
   INTERFACE=$BLOCK_INSTANCE
-else
+elif [[ -z $INTERFACE ]]; then
   INTERFACE=$(ip route | awk '/^default/ { print $5 ; exit }')
 fi
 
+# Exit if there is no default route
+[[ -z "$INTERFACE" ]] && exit
+
 # Issue #36 compliant.
-if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
+if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || \
+    (! [ "$TREAT_UNKNOWN_AS_UP" = "1" ] &&
+    ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ])
 then
     echo "$INTERFACE down"
     echo "$INTERFACE down"
@@ -70,21 +88,24 @@ tx_rate=$(( $tx_diff / $time_diff ))
 # 1024^2 = 1048576, then display MiB/s instead
 
 # incoming
-echo -ne "\uf309 "
+echo -ne "$LABEL"
 rx_kib=$(( $rx_rate >> 10 ))
-if [[ "$rx_rate" -gt 1048576 ]]; then
-  printf '%sM' "`echo "scale=1; $rx_kib / 1024" | bc`"
+if hash bc 2>/dev/null && [[ "$rx_rate" -gt 1048576 ]]; then
+  printf '%sMB/s' "`echo "scale=1; $rx_kib / 1024" | bc`"
 else
-  echo -n "${rx_kib}K"
+  echo -n "${rx_kib}KB/s"
 fi
 
 echo -n " "
 
 # outgoing
-echo -ne "\uf30c "
 tx_kib=$(( $tx_rate >> 10 ))
-if [[ "$tx_rate" -gt 1048576 ]]; then
-  printf '%sM' "`echo "scale=1; $tx_kib / 1024" | bc`"
+if hash bc 2>/dev/null && [[ "$tx_rate" -gt 1048576 ]]; then
+  printf '%sMB/s' "`echo "scale=1; $tx_kib / 1024" | bc`"
 else
-  echo -n "${tx_kib}K"
+  echo -n "${tx_kib}KB/s"
 fi
+
+echo ""
+
+exit 0
