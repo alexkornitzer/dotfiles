@@ -287,6 +287,9 @@ endif
 " Auto Commands
 "-------------------------------------------------------------------------------
 
+" Set MUcompleteNotify as it has not setting...
+autocmd VimEnter * if exists('mucomplete#msg#set_notifications') | call mucomplete#msg#set_notifications(1)
+
 " auto command to close NERDTree and Tag List if they are the only windows open. https://yous.be/2014/11/30/automatically-quit-vim-if-actual-files-are-closed
 function! CheckLeftBuffers()
   if tabpagenr('$') == 1
