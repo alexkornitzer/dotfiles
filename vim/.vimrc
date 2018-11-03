@@ -41,6 +41,9 @@ Plug 'mboughaba/vim-lessmess'
 Plug 'itchyny/lightline.vim'
 " LightLine ALE: ALE indicator for the lightline vim plugin
 Plug 'maximbaz/lightline-ale'
+" LSP: async language server protocol plugin for vim and neovim
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 " Misc: Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc'
 " MUComplete: Chained completion that works the way you want!
@@ -150,8 +153,9 @@ function! InstallTern(info)
     endif
   endif
 endfunction
-" TernForVim: Tern plugin for Vim 
-Plug 'ternjs/tern_for_vim', { 'do': function('InstallTern') }
+" TernForVim: Tern plugin for Vim
+"Plug 'ternjs/tern_for_vim', { 'do': function('InstallTern') }
+Plug 'alexkornitzer/tern_for_vim', { 'do': function('InstallTern') }
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " VimVue: Syntax Highlight for Vue.js components
@@ -265,6 +269,7 @@ source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/LightLine.vim            " Plugin: LightLine
+source $HOME/.vim/settings/LSP.vim                  " Plugin: LSP
 source $HOME/.vim/settings/MUComplete.vim           " Plugin: MUComplete
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Racer.vim                " Plugin: Racer
@@ -329,9 +334,6 @@ autocmd BufEnter * call CheckLeftBuffers()
 
 " Fix for nasm syntax not being set on *.nasm file type
 autocmd BufRead,BufNewFile,Bufenter *.nasm set filetype=nasm
-
-" Tell vim that vue is javascript...
-autocmd BufEnter,BufRead *.vue set filetype=vue.javascript
 
 " Fix syntax in vue plugin
 autocmd FileType vue syntax sync fromstart
