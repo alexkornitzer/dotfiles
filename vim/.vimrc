@@ -221,6 +221,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Always show tabline
 set laststatus=2
+set noshowmode
 set showtabline=2
 
 " Prefer Python 3

@@ -1,4 +1,4 @@
 " General
-let g:UltiSnipsExpandTrigger = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsExpandTrigger = "<C-u>"
+let g:UltiSnipsJumpForwardTrigger = "<C-u>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
