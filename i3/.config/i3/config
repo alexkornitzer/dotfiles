@@ -18,33 +18,22 @@ set $i3blocks_conf ~/.config/i3blocks/i3blocks.conf
 #  Set Colour Palette
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# ANSI Colours for Jellybeans
-set $black       #3b3b3b
-set $red         #cf6a4c
-set $green       #99ad6a
-set $yellow      #d8ad4c
-set $blue        #597bc5
-set $magenta     #a037b0
-set $cyan        #71b9f8
-set $white       #adadad
-set $darkblack   #636363
-set $darkred     #f79274
-set $darkgreen   #c1d592
-set $darkyellow  #ffd574
-set $darkblue    #81a3ed
-set $darkmagenta #c85fd8
-set $darkcyan    #99e1ff
-set $darkwhite   #d5d5d5
-
-set $background  #151515
-set $lightbg     #262626
-set $darkfg      #4f5b66
-set $foreground  #fefefe
-
-# Override 'incorrect' colours
-set $blue        #597bc5
-set $green       #99ad6a
-set $red         #cf6a4c
+set $base00 #1d1f21
+set $base01 #282a2e
+set $base02 #373b41
+set $base03 #969896
+set $base04 #b4b7b4
+set $base05 #c5c8c6
+set $base06 #e0e0e0
+set $base07 #ffffff
+set $base08 #cc6666
+set $base09 #de935f
+set $base0A #f0c674
+set $base0B #b5bd68
+set $base0C #8abeb7
+set $base0D #81a2be
+set $base0E #b294bb
+set $base0F #a3685a
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Theme
@@ -55,13 +44,12 @@ font pango: Noto Sans Mono 8
 
 # Set window colours
 #class                  border      backgr.     text        indicator   child_border
-client.focused          $blue       $blue       $foreground $blue       $blue
-client.focused_inactive $lightbg    $lightbg    $foreground $lightbg    $background
-client.unfocused        $background $background $darkfg     $background $background
-client.urgent           $red        $red        $foreground $red        $red
-client.placeholder      $background $background $foreground $background $background
-
-client.background       $background
+client.focused          $base0D $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base00 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background $base07
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Set Statusbar
@@ -79,17 +67,16 @@ bar {
 
   # Set colours
   colors {
-      # <bar>
-      separator           $foreground
-      background          $background
-      statusline          $foreground
+    background $base00
+    separator  $base01
+    statusline $base04
 
-      # <workclass>       <border>      <bg>          <text>
-      focused_workspace   $blue         $blue         $foreground
-      inactive_workspace  $background   $background   $foreground
-      active_workspace    $lightbg      $lightbg      $foreground
-      urgent_workspace    $red          $red          $foreground
-      binding_mode        $red          $red          $foreground
+    # State             Border  BG      Text
+    focused_workspace   $base0D $base0D $base00
+    active_workspace    $base03 $base03 $base00
+    inactive_workspace  $base01 $base01 $base05
+    urgent_workspace    $base08 $base08 $base00
+    binding_mode        $base0A $base0A $base00
   }
 }
 
@@ -305,4 +292,4 @@ for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 
 # Set desktop color
-exec_always --no-startup-id xsetroot -solid "$background"
+exec_always --no-startup-id xsetroot -solid "$base00"

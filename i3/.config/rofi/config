@@ -2,10 +2,7 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #262626, #262626, #151515
-rofi.color-normal: #262626, #fefefe, #262626, #151515, #fefefe
-rofi.color-active: #262626, #fefefe, #262626, #0d61ac, #fefefe
-rofi.color-urgent: #262626, #fefefe, #262626, #dc322f, #fefefe
+rofi.theme: base16-tomorrow-night
 
 rofi.font: Noto Sans Mono 16
 

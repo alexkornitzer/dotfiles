@@ -205,7 +205,7 @@ set number
 
 " Set the background to dark and set the colour scheme
 set background=dark
-colorscheme jellybeans
+colorscheme base16-tomorrow-night
 
 " Map back space
 set backspace=indent,eol,start

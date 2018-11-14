@@ -162,10 +162,31 @@ if [ `command -v 'thefuck'` ]; then
 fi
 
 # Setup FZF
-export FZF_DEFAULT_OPTS='
-  --color fg:#adadad,bg:#151515,hl:#99ad6a,fg+:#d5d5d5,bg+:#262626,hl+:#c1d592
-  --color info:#d8ad4c,prompt:#597bc6,spinner:#d8ad4c,pointer:#cf6a4c,marker:#99ad6a
-'
+_gen_fzf_default_opts() {
+  local color00='#1d1f21'
+  local color01='#282a2e'
+  local color02='#373b41'
+  local color03='#969896'
+  local color04='#b4b7b4'
+  local color05='#c5c8c6'
+  local color06='#e0e0e0'
+  local color07='#ffffff'
+  local color08='#cc6666'
+  local color09='#de935f'
+  local color0A='#f0c674'
+  local color0B='#b5bd68'
+  local color0C='#8abeb7'
+  local color0D='#81a2be'
+  local color0E='#b294bb'
+  local color0F='#a3685a'
+  
+  export FZF_DEFAULT_OPTS="
+    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+    --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+    --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+  "
+}
+_gen_fzf_default_opts
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Fixes

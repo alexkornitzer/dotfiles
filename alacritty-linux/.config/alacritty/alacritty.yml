@@ -135,59 +135,39 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (Jellybeans)
+# Colors (Base16 Tommorrow Night)
 colors:
   # Default colors
   primary:
-    background: '0x151515'
-    foreground: '0xadadad'
-
-    # (Optional) Bright and Dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #
-    # dim_foreground: '0x9a9a9a'
-    # bright_foreground: '0xffffff'
+    background: '0x1d1f21'
+    foreground: '0xc5c8c6'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0xffb473'
+    text: '0x1d1f21'
+    cursor: '0xc5c8c6'
 
   # Normal colors
   normal:
-    black:   '0x3b3b3b'
-    red:     '0xcf6a4c'
-    green:   '0x99ad6a'
-    yellow:  '0xd8ad4c'
-    blue:    '0x597bc5'
-    magenta: '0xa037b0'
-    cyan:    '0x71b9f8'
-    white:   '0xadadad'
+    black:   '0x1d1f21'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
+    cyan:    '0x8abeb7'
+    white:   '0xc5c8c6'
 
   # Bright colors
   bright:
-    black:   '0x636363'
-    red:     '0xf79274'
-    green:   '0xc1d592'
-    yellow:  '0xffd574'
-    blue:    '0x81a3ed'
-    magenta: '0xc85fd8'
-    cyan:    '0x99e1ff'
-    white:   '0xd5d5d5'
-
-  # Dim colors (Optional)
-  dim:
-    black:   '0x4f4f4f'
-    red:     '0xe37e60'
-    green:   '0xadc17e'
-    yellow:  '0xecc160'
-    blue:    '0x6d8fd9'
-    magenta: '0xb44bc4'
-    cyan:    '0x85cdff'
-    white:   '0xc1c1c1'
+    black:   '0x969896'
+    red:     '0xde935f'
+    green:   '0x282a2e'
+    yellow:  '0x373b41'
+    blue:    '0xb4b7b4'
+    magenta: '0xe0e0e0'
+    cyan:    '0xa3685a'
+    white:   '0xffffff'
 
 # Visual Bell
 #
