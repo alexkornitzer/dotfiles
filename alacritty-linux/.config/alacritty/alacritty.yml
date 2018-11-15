@@ -160,14 +160,14 @@ colors:
 
   # Bright colors
   bright:
-    black:   '0x969896'
-    red:     '0xde935f'
-    green:   '0x282a2e'
-    yellow:  '0x373b41'
-    blue:    '0xb4b7b4'
-    magenta: '0xe0e0e0'
-    cyan:    '0xa3685a'
-    white:   '0xffffff'
+    black:   '0x454749'
+    red:     '0xf48e8e'
+    green:   '0xdde590'
+    yellow:  '0xffee9c'
+    blue:    '0xa9cae6'
+    magenta: '0xdabce3'
+    cyan:    '0xb2e6df'
+    white:   '0xedf0ee'
 
 # Visual Bell
 #
