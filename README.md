@@ -33,7 +33,7 @@ This one has a fair few dependencies, most are listed below.
 > Dependencies:
 > - [Adapta-Nokto](https://github.com/adapta-project/adapta-gtk-theme/tree/3.95.0.1) (Tag: 3.95.0.1) (`./autogen.sh --prefix=/usr --enable-parallel --with-selection_color=#597bc5 --with-accent_color=#597bc5 --with-suggestion_color=#597bc5 --with-destruction_color=#cf6a4c`)
 > - Dunst
-> - Faba Mono
+> - Suru Plus Dark
 > - Font Awesome
 > - Noto Sans
 > - i3blocks
