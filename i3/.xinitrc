@@ -1,6 +1,8 @@
 # TODO: Only set the laptop screen
 xrandr --dpi 192 2>/dev/null
 
+setxkbmap gb
+
 [[ -f $HOME/.Xresources ]] && xrdb -merge -I$HOME $HOME/.Xresources
 [[ -f $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap
 
