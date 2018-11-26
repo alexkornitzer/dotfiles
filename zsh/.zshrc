@@ -198,8 +198,3 @@ setopt monitor
 
 # FIXME Needed to fix: https://github.com/zplug/zplug/issues/387
 export PATH="${PATH}:${ZPLUG_BIN}"
-
-# Run modmap again just incase
-if [[ -f $HOME/.Xmodmap ]]; then
-  xmodmap $HOME/.Xmodmap
-fi
