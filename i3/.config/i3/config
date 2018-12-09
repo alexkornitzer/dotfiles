@@ -189,8 +189,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -270,6 +272,9 @@ bindsym $mod+r mode "resize"
 #  Set Executables
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Compton
+exec --no-startup-id compton -b
+
 # Applets
 exec --no-startup-id dunst                # notifications
 exec --no-startup-id connman-gtk --tray   # connman
@@ -292,4 +297,5 @@ for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 
 # Set desktop color
-exec_always --no-startup-id xsetroot -solid "$base00"
+#exec_always --no-startup-id xsetroot -solid "$base00"
+exec_always --no-startup-id hsetroot -solid "$base00"
