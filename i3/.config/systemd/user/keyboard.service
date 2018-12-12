@@ -1,9 +1,10 @@
 [Unit]
 Description=Fix Keyboard Layout after Suspend
-After=suspend.target
+After=sleep.target suspend.target
 
 [Service]
 ExecStart=xkbcomp -I%h/.xkb -R%h/.xkb keymap/custom $DISPLAY
+RemainAfterExit=yes
 Type=oneshot
 
 [Install]
