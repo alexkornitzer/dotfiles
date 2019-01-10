@@ -30,8 +30,8 @@ Plug 'Konfekt/FastFold'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 " Gutentags: A Vim plugin that manages your tag files
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'skywind3000/gutentags_plus'
 " IndentLine: A vim plugin to display the indention levels with thin vertical
 " lines
 Plug 'Yggdroot/indentLine'
@@ -130,7 +130,7 @@ function! InstallRacer(info)
   if a:info.status != 'unchanged' || a:info.force
     if executable('rustc') && executable('cargo') && executable('rustup')
       execute '!rustup toolchain add nightly'
-      execute '!cargo +nightly install racer'
+      execute '!cargo +nightly install --force racer'
     endif
   endif
 endfunction
@@ -341,6 +341,13 @@ autocmd FileType vue syntax sync fromstart
 " Enable XML line folding
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+
+" Extended Todo
+augroup extended_todo
+  au!
+  au Syntax * syn match ExtendedTodo "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|HACK\|REVIEW\|XXX\)" containedin=.*Comment.*,vimCommentTitle
+augroup END
+hi def link ExtendedTodo Todo
 
 "-------------------------------------------------------------------------------
 " Custom Mappings
