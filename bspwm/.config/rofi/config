@@ -1,0 +1,16 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.theme: base16-tomorrow-night
+
+rofi.font: Noto Sans Mono 16
+
+rofi.separator-style: solid
+
+rofi.location: 2
+rofi.yoffset: 200
+
+rofi.modi: window,run,ssh,drun
+
+rofi.drun-show-actions: true
