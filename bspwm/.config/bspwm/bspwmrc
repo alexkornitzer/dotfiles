@@ -26,5 +26,10 @@ xsetroot -cursor_name left_ptr
 polybar example &
 sxhkd &
 vmware-user-suid-wrapper
-dunst
-
+dunst &
+if [[ $(pgrep -cx xss-lock) -eq 0 ]]; then
+	xset s 60 10
+	XSECURELOCK_DIM_COLOR="${base00}" \
+	XSECURELOCK_FONT=-xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1 \
+	xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
+fi
