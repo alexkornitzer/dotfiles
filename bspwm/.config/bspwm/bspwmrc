@@ -4,7 +4,7 @@
 eval $(grep -o -E 'base0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
 
 # Monitor 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 # Config
 bspc config border_width         2

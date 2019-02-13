@@ -100,9 +100,22 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# Focus or send to the given desktop
+# Focus or send to the given desktop (by name)
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '{1-9,10}'
+	#bspc {desktop -f,node -d} '^{1-9,10}'
+	
+# Move desktop to given monitor
+super + ctrl + shift + {1-9,0}
+    dst='^{1-9,10}'; \
+    bspc desktop -m $dst 2>&-; \
+    dsk=$(bspc query -D -m $dst --names | grep -n Desktop | cut -f1 -d:); \
+    if [ "$dsk" = "1" ]; then \
+        bspc monitor -f $dst; \
+        bspc desktop -f '^1'; \
+        bspc desktop -r; \
+    fi; \
+    bspc monitor -o $(bspc query -D -m $dst --names | sort -n)
 
 # Preselect the direction, with auto_cancel
 super + ctrl + {h,j,k,l}
