@@ -9,6 +9,7 @@ red = #cc6666
 yellow = #f0c674
 
 [bar/example]
+monitor = ${env:MONITOR:}
 width = 100%
 dpi = 192
 ;height = 24
@@ -65,21 +66,22 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true
 
-label-focused = %index%
-label-focused-foreground = ${colors.foreground-alt}
+label-focused = %name%
+label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.blue}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-background = ${colors.background-alt}
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.red}
 label-urgent-padding = 2
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
