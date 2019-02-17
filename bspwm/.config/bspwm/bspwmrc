@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Purge running
-pkill -u $(whoami) dunst
-pkill -u $(whoami) panel
-pkill -u $(whoami) sxhkd
-pkill -u $(whoami) xss-lock
+kill $(pgrep -u $(whoami) -d, -x dunst)
+kill $(pgrep -u $(whoami) -d, -x panel)
+kill $(pgrep -u $(whoami) -d, -x sxhkd)
+kill $(pgrep -u $(whoami) -d, -x xss-lock)
 
 # Variables
 export BSPWM_TDIR="$(mktemp -d)"
