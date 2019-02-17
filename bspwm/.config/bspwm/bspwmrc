@@ -24,9 +24,6 @@ bspc config presel_feedback_color   "${base0E}"
 # General
 hsetroot -solid "${base00}"
 xsetroot -cursor_name left_ptr
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --reload example &
-done
 sxhkd &
 vmware-user-suid-wrapper
 dunst &
@@ -36,3 +33,6 @@ if [[ $(pgrep -cx xss-lock) -eq 0 ]]; then
   XSECURELOCK_FONT=-xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1 \
   xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 fi
+
+# Bar
+~/.config/panel/panel &

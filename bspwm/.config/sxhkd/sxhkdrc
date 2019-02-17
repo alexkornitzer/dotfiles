@@ -8,6 +8,7 @@ super + Escape
 
 # Quit bspwm
 super + alt + Escape
+  killall panel; \
   bspc quit
 
 # Terminal emulator
