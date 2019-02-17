@@ -8,8 +8,7 @@ super + Escape
 
 # Quit bspwm
 super + alt + Escape
-  killall panel; \
-  bspc quit
+  pkill -x panel; bspc quit
 
 # Terminal emulator
 super + Return
@@ -46,6 +45,17 @@ super + Print
   maim -s ~/Screenshots/$(date +%F-%T).png
 super + shift + Print
   maim -s | xclip -selection clipboard -t image/png -i
+
+# System options
+super + shift + Escape; {l, e, s, h, r, shift + s}
+  {\
+    sleep 1 && xset dpms force off,\
+    pkill -x panel; bspc quit, \
+    systemctl suspend, \
+    systemctl hibernate, \
+    systemctl reboot, \
+    systemctl poweroff -i, \
+  }
 
 #-------------------------------------------------------------------------------
 # bspwm

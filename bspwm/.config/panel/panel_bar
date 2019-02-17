@@ -4,15 +4,48 @@ cd $(dirname $0)
 source ./config
 
 num_mon=$(bspc query -M | wc -l)
+chord=0
 
 while read -r line ; do
   case $line in
+    K*)
+      item=${line#?}
+      case ${item} in
+        H*) # Key binding
+          # What we should really do is read the line above the chord in sxhkdrc
+          key_binding=${item#?}
+          case ${key_binding} in
+            "super + shift + Escape")
+              sxhkd="system: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (shift+s) shutdown"
+              ;;
+            *)
+              sxhkd="Unknown chord"
+              ;;
+          esac
+          ;;
+        B*) # Begin chain
+          chord=1
+          ;;
+        E*) # End chain
+          chord=0
+          ;;
+        C*) # Command
+          ;;
+        T*) # Timeout
+          ;;
+      esac
+      ;;
     S*)
+      # system info (conky)
       sys_infos="%{r}${line#?}"
       ;;
     T*)
       # xtitle output
-      title="| %{F$FOREGROUND}%{B$BACKGROUND} ${line#?} %{B-}%{F-}"
+      if [ -z "${line#?}" ]; then
+        title=""
+      else
+        title=" | %{F$FOREGROUND}%{B$BACKGROUND} ${line#?} %{B-}%{F-}"
+      fi
       ;;
     W*)
       # bspwm's state
@@ -77,14 +110,18 @@ while read -r line ; do
             esac
             wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}%{-u}"
             ;;
-          [LTG]*)
-            # layout, state and flags
-            wm="${wm}%{F$FOREGROUND}%{B$BACKGROUND} ${name} %{B-}%{F-}"
-            ;;
+          #[LTG]*)
+          #  # layout, state and flags
+          #  wm="${wm}%{F$FOREGROUND}%{B$BACKGROUND} ${name} %{B-}%{F-}"
+          #  ;;
         esac
         shift
       done
       ;;
   esac
-  printf "%s\n" "%{l}${wm}${title}%{c}%{r}${sys_infos}"
+  if [ $chord -eq 0 ]; then
+    printf "%s\n" "%{l}${wm}${title}%{c}%{r}${sys_infos}"
+  else
+    printf "%s\n" "%{l}%{F${BACKGROUND}}%{B${YELLOW}} ${sxhkd} %{B-}%{F-}%{c}%{r}${sys_infos}"
+  fi
 done

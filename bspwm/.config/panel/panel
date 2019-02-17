@@ -10,10 +10,11 @@ fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-PANEL_FIFO="$(mktemp)"
+PANEL_FIFO="$(mktemp -d)/panel"
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
+cat "$SXHKD_FIFO" | while read -r line; do echo "K$line" > "$PANEL_FIFO"; done &
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 conky -c ./conkyrc > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
