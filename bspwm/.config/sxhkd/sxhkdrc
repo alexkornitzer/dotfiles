@@ -8,7 +8,7 @@ super + Escape
 
 # Reload bspwm
 super + alt + Escape
-  bspc wm -r; ~/.config/bspwm/bspwmrc
+  bspc wm -r
 
 # Terminal emulator
 super + Return
