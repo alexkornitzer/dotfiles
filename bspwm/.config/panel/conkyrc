@@ -20,7 +20,9 @@ ${if_match "${acpiacadapter}" != "no ac_adapters?"}\
   ${lua_parse format %3.0f ${battery_percent}}%  \
 ${endif}\
 %{A:amixer -q -D pulse set 'Master' toggle>/dev/null:}\
-${if_pa_sink_muted}   0%${else} ${lua_parse format %3.0f ${pa_sink_volume}}%${endif}\
+${if_pa_sink_muted}\
+   0%${else} ${lua_parse format %3.0f ${pa_sink_volume}}%\
+${endif}\
 %{A}  \
  ${time %d/%m/%y}  \
  ${time %H:%M} \

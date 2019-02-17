@@ -6,9 +6,9 @@
 super + Escape
   pkill -USR1 -x sxhkd
 
-# Quit bspwm
+# Reload bspwm
 super + alt + Escape
-  pkill -x panel; bspc quit
+  bspc wm -r; ~/.config/bspwm/bspwmrc
 
 # Terminal emulator
 super + Return

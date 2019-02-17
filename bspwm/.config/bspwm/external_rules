@@ -1,0 +1,11 @@
+#!/bin/bash
+
+wid=$1
+class=$2
+instance=$3
+
+if [[ $(xprop -id "$wid" | grep WM_WINDOW_ROLE) = *'= "pop-up"' ]]; then
+  echo "state=floating"
+elif [[ $(xprop -id "$wid" | grep WM_WINDOW_ROLE) = *'= "task_dialog"' ]]; then
+  echo "state=floating"
+fi
