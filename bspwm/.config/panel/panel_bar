@@ -43,13 +43,7 @@ while read -r line ; do
             ;;
           [fFoOuU]*)
             case $item in
-              f*)
-                # free desktop
-                FG=$FOREGROUND
-                BG=$BACKGROUND
-                UL=$BG
-                ;;
-              F*)
+              [OFU]*)
                 if [ "$on_focused_monitor" ] ; then
                   # focused free desktop
                   FG=$BACKGROUND
@@ -62,43 +56,23 @@ while read -r line ; do
                   UL=$BG
                 fi
                 ;;
+              f*)
+                # free desktop
+                FG=$FOREGROUND
+                BG=$BACKGROUND
+                UL=$BG
+                ;;
               o*)
                 # occupied desktop
                 FG=$FOREGROUND
                 BG=$BACKGROUND_ALT
                 UL=$BG
                 ;;
-              O*)
-                if [ "$on_focused_monitor" ] ; then
-                  # focused occupied desktop
-                  FG=$FOREGROUND
-                  BG=$BLUE
-                  UL=$BG
-                else
-                  # active occupied desktop
-                  FG=$FOREGROUND
-                  BG=$BLUE
-                  UL=$BG
-                fi
-                ;;
               u*)
                 # urgent desktop
                 FG=$BACKGROUND
                 BG=$RED
                 UL=$BG
-                ;;
-              U*)
-                if [ "$on_focused_monitor" ] ; then
-                  # focused urgent desktop
-                  FG=$BACKGROUND
-                  BG=$RED
-                  UL=$BG
-                else
-                  # active urgent desktop
-                  FG=$FOREGROUND
-                  BG=$BACKGROUND
-                  UL=$BG
-                fi
                 ;;
             esac
             wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}%{-u}"
