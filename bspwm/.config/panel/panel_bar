@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/bash
 
 cd $(dirname $0)
 source ./config
@@ -119,9 +119,15 @@ while read -r line ; do
       done
       ;;
   esac
-  if [ $chord -eq 0 ]; then
-    printf "%s\n" "%{l}${wm}${title}%{c}%{r}${sys_infos}"
-  else
-    printf "%s\n" "%{l}%{F${BACKGROUND}}%{B${YELLOW}} ${sxhkd} %{B-}%{F-}%{c}%{r}${sys_infos}"
-  fi
+  IFS=$' \t\n'
+  barout=""
+  for i in $(seq 1 $(bspc query -M | wc -l)); do
+    let index=$i-1
+    if [ $chord -eq 0 ]; then
+      barout+="%{S${index}}%{l}${wm}${title}%{c}%{r}${sys_infos} "
+    else
+      barout+="%{S${index}}}%{l}%{F${BACKGROUND}}%{B${YELLOW}} ${sxhkd} %{B-}%{F-}%{c}%{r}${sys_infos} "
+    fi
+  done
+  printf "%s\n" "$barout"
 done
