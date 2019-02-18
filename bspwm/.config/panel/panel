@@ -1,0 +1,42 @@
+#!/bin/bash
+
+cd $(dirname $0)
+source ./config
+
+if [ -n "$(pgrep -u $(whoami) -x lemonbar)" ]; then
+  printf "%s\n" "The panel is already running." >&2
+  exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+PANEL_FIFO="$(mktemp -d)/panel"
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+cat "$SXHKD_FIFO" | while read -r line; do echo "K$line" > "$PANEL_FIFO"; done &
+xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
+conky -c ./conkyrc > "$PANEL_FIFO" &
+bspc subscribe report > "$PANEL_FIFO" &
+
+./panel_bar < "$PANEL_FIFO" \
+  | lemonbar \
+    -a 32 \
+    -n "$NAME" \
+    -g "$GEOMETRY" \
+    -o -10 \
+    -f "$FONT1" \
+    -o -18 \
+    -f "$FONT2" \
+    -o -18 \
+    -f "$FONT3" \
+    -o -18 \
+    -f "$FONT4" \
+    -F "$FOREGROUND" \
+    -B "$BACKGROUND" \
+  | sh &
+
+wid=$(xdo id -m -a "$NAME")
+xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+wait

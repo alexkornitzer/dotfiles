@@ -1,0 +1,29 @@
+conky.config = {
+  background=true,
+  lua_load='~/.config/panel/helpers.lua',
+  out_to_console=true,
+  out_to_x=false,
+  short_units=true,
+  update_interval=1.0,
+  update_interval_on_battery=5.0,
+}
+
+conky.text = [[
+S \
+${if_up ens33}  ${endif}\
+${if_up wlp2s0}${lua_parse format %3.0f ${wireless_link_qual_perc wlp2s0}}%  ${endif}\
+ ${upspeed}  ${downspeed}  \
+ ${fs_used /}  \
+${lua_parse format %3.0f ${memperc}}%  \
+${lua_parse format %3.0f ${cpu}}%  \
+${if_match "${acpiacadapter}" != "no ac_adapters?"}\
+ ${lua_parse format %3.0f ${battery_percent}}%  \
+${endif}\
+%{A:amixer -q -D pulse set 'Master' toggle>/dev/null:}\
+${if_pa_sink_muted}\
+   0%${else}${lua_parse format %3.0f ${pa_sink_volume}}%\
+${endif}\
+%{A}  \
+ ${time %d/%m/%y}  \
+ ${time %H:%M} \
+]]

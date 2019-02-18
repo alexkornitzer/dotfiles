@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Purge running
+kill $(pgrep -u $(whoami) -x dunst) 2>/dev/null
+kill $(pgrep -u $(whoami) -x panel) 2>/dev/null
+kill $(pgrep -u $(whoami) -x sxhkd) 2>/dev/null
+kill $(pgrep -u $(whoami) -x xss-lock) 2>/dev/null
+
+# Variables
+export BSPWM_TDIR="$(mktemp -d)"
+export SXHKD_FIFO="$BSPWM_TDIR/sxhkd"
+
+# Colours - assumes that base16 colours are defined in ~/.Xresources
+eval $(grep -o -E 'base0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
+
+# Monitor
+if [[ $(bspc query -M | wc -l) -lt 2 ]]; then
+  bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+fi
+
+# Config
+bspc config border_width  2
+bspc config window_gap    0
+bspc config split_ratio   0.52
+bspc config remove_unplugged_monitors true
+bspc config borderless_monocle        true
+bspc config gapless_monocle           true
+bspc config normal_border_color     "${base01}"
+bspc config active_border_color     "${base00}"
+bspc config focused_border_color    "${base0D}"
+bspc config presel_feedback_color   "${base0E}"
+bspc config external_rules_command  ~/.config/bspwm/external_rules
+
+# Rules
+bspc rule -a Arandr state=floating
+
+# General
+hsetroot -solid "${base00}"
+xsetroot -cursor_name left_ptr
+
+# Polkit
+if [[  $(pgrep -cx polkit-gnome-authentication-agent-1) -eq 0 ]] ; then
+  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 2>/dev/null &
+fi
+
+# VMware
+if [[  $(lsmod | grep ^vmwgfx | wc -l) -gt 0 ]] ; then
+  vmware-user-suid-wrapper &
+fi
+
+# Notifications
+dunst &
+
+# Keyboard
+mkfifo $SXHKD_FIFO>/dev/null && sxhkd -t 60 -s $SXHKD_FIFO &
+
+# Locker
+xset s 60 5
+XSECURELOCK_DIM_COLOR="${base00}" \
+XSECURELOCK_FONT=-xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1 \
+xss-lock -n ~/.config/bspwm/dimmer -l -- xsecurelock &
+
+# Bar
+~/.config/panel/panel &
