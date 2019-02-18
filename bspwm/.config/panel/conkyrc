@@ -10,9 +10,12 @@ conky.config = {
 
 conky.text = [[
 S \
-${if_up ens33}  ${endif}\
-${if_up wlp2s0}${lua_parse format %3.0f ${wireless_link_qual_perc wlp2s0}}%  ${endif}\
- ${upspeed}  ${downspeed}  \
+${if_up ens33}  \
+ ${upspeed ens33}  ${downspeed ens33}  \
+${endif}\
+${if_up wlp2s0}${lua_parse format %3.0f ${wireless_link_qual_perc wlp2s0}}%  \
+ ${upspeed wlp2s0}  ${downspeed wlp2s0}  \
+${endif}\
  ${fs_used /}  \
 ${lua_parse format %3.0f ${memperc}}%  \
 ${lua_parse format %3.0f ${cpu}}%  \
