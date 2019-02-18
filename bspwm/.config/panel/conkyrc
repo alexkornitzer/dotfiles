@@ -10,6 +10,7 @@ conky.config = {
 
 conky.text = [[
 S \
+${if_up vpn0}  ${endif}\
 ${if_up ens33}  \
  ${upspeed ens33}  ${downspeed ens33}  \
 ${endif}\
