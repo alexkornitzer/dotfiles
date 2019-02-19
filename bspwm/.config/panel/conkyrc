@@ -24,7 +24,7 @@ ${if_match "${acpiacadapter}" != "no ac_adapters?"}\
  ${lua_parse format %3.0f ${battery_percent}}%  \
 ${endif}\
 %{A:amixer -q -D pulse set 'Master' toggle>/dev/null:}\
-${if_match "${exec 'pacmd list-sinks | awk "/muted/ {print \$2;exit;}"'}" == "no"}\
+${if_match "${exec 'amixer -D pulse get Master | awk "END {print \$6}"'}" == "[off]"}\
    0%${else}${lua_parse format %3.0f ${pa_sink_volume}}%\
 ${endif}\
 %{A}  \
