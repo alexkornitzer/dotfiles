@@ -59,6 +59,9 @@ Plug 'luochen1990/rainbow'
 Plug 'kopischke/vim-stay'
 " Tagbar: Vim plugin that displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
+" Vebugger: Yes, we do need another debugger plugin
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'idanarye/vim-vebugger'
 " UndoTree: The ultimate undo history visualizer for Vim
 Plug 'mbbill/undotree'
 
@@ -174,7 +177,8 @@ Plug 'noahfrederick/vim-hemisu'
 Plug 'nanotech/jellybeans.vim'
 
 " Base16: Base16 for Vim
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+Plug 'danielwe/base16-vim'
 
 " End
 call plug#end()
@@ -278,6 +282,7 @@ source $HOME/.vim/settings/Rust.vim                 " Plugin: Rust
 source $HOME/.vim/settings/Tagbar.vim               " Plugin: Tagbar
 source $HOME/.vim/settings/TernForVim.vim           " Plugin: TernForVim
 source $HOME/.vim/settings/UltiSnips.vim            " Plugin: UltiSnips
+source $HOME/.vim/settings/Vebugger.vim             " Plugin: Vebugger
 source $HOME/.vim/settings/Vim-Go.vim               " Plugin: Vim-Go
 source $HOME/.vim/settings/Vim-Stay.vim             " Plugin: Vim-Stay
 source $HOME/.vim/settings/Vim-Virtualenv.vim       " Plugin: Vim-Virtualenv
