@@ -2,7 +2,7 @@
 
 # Escape the cursor if held by VMware
 if [[ $(which xdotool) -eq 0 ]]; then
-  xdotool keydown ctrl+alt; xdotool keyup ctrl+alt
+  xdotool keydown ctrl+alt; xdotool keyup ctrl+alt; sleep 1
 fi
 
 /usr/lib/xsecurelock/dimmer

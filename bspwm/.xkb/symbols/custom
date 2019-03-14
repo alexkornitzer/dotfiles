@@ -1,0 +1,4 @@
+partial alphanumeric_keys xkb_symbols "custom" { 
+  override key <CAPS> {         [          Escape ] };
+  //override key  <ESC> {         [       Caps_Lock ] };
+};

@@ -26,11 +26,11 @@ bspc subscribe report > "$PANEL_FIFO" &
     -g "$GEOMETRY" \
     -o -10 \
     -f "$FONT1" \
-    -o -18 \
+    -o -14 \
     -f "$FONT2" \
-    -o -18 \
+    -o -14 \
     -f "$FONT3" \
-    -o -18 \
+    -o -14 \
     -f "$FONT4" \
     -F "$FOREGROUND" \
     -B "$BACKGROUND" \
