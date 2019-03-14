@@ -177,7 +177,8 @@ Plug 'noahfrederick/vim-hemisu'
 Plug 'nanotech/jellybeans.vim'
 
 " Base16: Base16 for Vim
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+Plug 'danielwe/base16-vim'
 
 " End
 call plug#end()
