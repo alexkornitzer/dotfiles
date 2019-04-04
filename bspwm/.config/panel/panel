@@ -16,7 +16,8 @@ mkfifo "$PANEL_FIFO"
 
 cat "$SXHKD_FIFO" | while read -r line; do echo "K$line" > "$PANEL_FIFO"; done &
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
-conky -c ./conkyrc > "$PANEL_FIFO" &
+# NOTE: Pulseaudio can crash conky due to sleep/wake? lets just bring it back
+until conky -c ./conkyrc > "$PANEL_FIFO"; do echo "conky crashed" >&2; sleep 1; done &
 bspc subscribe report > "$PANEL_FIFO" &
 
 ./panel_bar < "$PANEL_FIFO" \
@@ -36,7 +37,8 @@ bspc subscribe report > "$PANEL_FIFO" &
     -B "$BACKGROUND" \
   | sh &
 
-wid=$(xdo id -m -a "$NAME")
-xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+for i in $(xdo id -m -a "$NAME"); do
+  xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$i"
+done
 
 wait
