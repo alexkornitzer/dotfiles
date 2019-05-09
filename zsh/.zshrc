@@ -179,7 +179,7 @@ _gen_fzf_default_opts() {
   local color0D='#81a2be'
   local color0E='#b294bb'
   local color0F='#a3685a'
-  
+
   export FZF_DEFAULT_OPTS="
     --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
     --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
@@ -187,6 +187,9 @@ _gen_fzf_default_opts() {
   "
 }
 _gen_fzf_default_opts
+if whence -cp 'ag' > /dev/null; then
+  export FZF_DEFAULT_COMMAND='ag -l --hidden --follow --ignore .git'
+fi
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Fixes
