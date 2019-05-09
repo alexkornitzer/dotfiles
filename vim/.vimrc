@@ -48,10 +48,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'xolox/vim-misc'
 " MUComplete: Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
-" Nerdtree: A tree explorer plugin for Vim
-Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
-" NertTreeTabs: NERDTree and tabs together in Vim, painlessly
-Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
+"" Nerdtree: A tree explorer plugin for Vim
+"Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
+"" NertTreeTabs: NERDTree and tabs together in Vim, painlessly
+"Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
 " Rainbow: help you read complex code by showing diff level of parentheses in
 " diff color
 Plug 'luochen1990/rainbow'
@@ -379,11 +379,11 @@ nmap <leader>vs :VimuxInterruptRunner<CR>
 nmap <leader>vx :VimuxCloseRunner<CR>
 nmap <leader>vz :VimuxZoomRunner<CR>
 
-" Map NERDTree to tt
-nmap <leader>tt :NERDTreeToggle<CR>
+"" Map NERDTree to tt
+"nmap <leader>tt :NERDTreeToggle<CR>
 
-" Map NERDTreeTabs to ta
-nmap <leader>ta :NERDTreeTabsToggle<CR>
+"" Map NERDTreeTabs to ta
+"nmap <leader>ta :NERDTreeTabsToggle<CR>
 
 " Map Tagbar to tb
 nmap <leader>tb :TagbarToggle<CR>

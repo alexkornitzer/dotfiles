@@ -6,6 +6,9 @@ let g:ale_set_highlights = 0
 "
 let g:ale_fixers = {}
 
+" Python
+let g:ale_fixers.python = ['black']
+
 " Javascript
 let g:ale_fixers.javascript = ['eslint']
 
