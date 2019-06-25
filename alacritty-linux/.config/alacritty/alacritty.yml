@@ -327,6 +327,7 @@ mouse:
     #launcher:
     #  program: xdg-open
     #  args: []
+    launcher: None
 
     # URL modifiers
     #
