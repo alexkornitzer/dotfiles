@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cd $(dirname $0)
+source ./config
+
+if [ "$(pgrep -u $(whoami) -x tab | wc -l)" -gt 2 ]; then
+  printf "%s\n" "The tab is already running." >&2
+  exit 1
+fi
+
+while read line; do
+  parts=($line)
+  case ${parts[0]} in
+    desktop_layout)
+      case ${parts[3]} in
+        monocle)
+          ./tab_bar ${parts[1]} ${parts[2]} &
+          ;;
+        tiled)
+          kill $(pgrep lemonbar -a | grep ${parts[2]} | cut -d ' ' -f 1)
+          ;;
+      esac
+      ;;
+    desktop_transfer)
+      kill $(pgrep lemonbar -a | grep ${parts[2]} | cut -d ' ' -f 1)
+      ./tab_bar ${parts[3]} ${parts[2]} &
+      ;;
+  esac
+done < <(bspc subscribe desktop_layout desktop_transfer)
