@@ -17,12 +17,12 @@ while read line; do
           ./tab_bar ${parts[1]} ${parts[2]} &
           ;;
         tiled)
-          kill $(pgrep lemonbar -a | grep ${parts[2]} | cut -d ' ' -f 1)
+          kill $(pgrep tab_bar -a | grep ${parts[2]} | cut -d ' ' -f 1)
           ;;
       esac
       ;;
     desktop_transfer)
-      kill $(pgrep lemonbar -a | grep ${parts[2]} | cut -d ' ' -f 1)
+      kill $(pgrep tab_bar -a | grep ${parts[2]} | cut -d ' ' -f 1)
       ./tab_bar ${parts[3]} ${parts[2]} &
       ;;
   esac
