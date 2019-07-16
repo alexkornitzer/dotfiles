@@ -11,19 +11,29 @@ fi
 while read line; do
   parts=($line)
   case ${parts[0]} in
+    desktop_focus)
+      layout=$(bspc query -T -d ${parts[2]}| jq .userLayout -r)
+      if [ "$layout" == "tiled" ]; then
+        kill -15 $(pgrep tab_bar -a | grep ${parts[1]} | cut -d ' ' -f 1)
+      elif [ $(pgrep tab_bar -a | grep ${parts[2]} | wc -l) -eq 0 ]; then
+        ./tab_bar ${parts[1]} ${parts[2]} &
+      fi
+      ;;
     desktop_layout)
       case ${parts[3]} in
         monocle)
-          ./tab_bar ${parts[1]} ${parts[2]} &
+          if [ $(pgrep tab_bar -a | grep ${parts[2]} | wc -l) -eq 0 ]; then
+            ./tab_bar ${parts[1]} ${parts[2]} &
+          fi
           ;;
         tiled)
-          kill $(pgrep tab_bar -a | grep ${parts[2]} | cut -d ' ' -f 1)
+          kill -15 $(pgrep tab_bar -a | grep ${parts[2]} | cut -d ' ' -f 1)
           ;;
       esac
       ;;
     desktop_transfer)
-      kill $(pgrep tab_bar -a | grep ${parts[2]} | cut -d ' ' -f 1)
+      kill -15 $(pgrep tab_bar -a | grep ${parts[2]} | cut -d ' ' -f 1)
       ./tab_bar ${parts[3]} ${parts[2]} &
       ;;
   esac
-done < <(bspc subscribe desktop_layout desktop_transfer)
+done < <(bspc subscribe desktop_focus desktop_layout desktop_transfer)

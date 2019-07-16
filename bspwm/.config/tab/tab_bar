@@ -6,6 +6,7 @@ source ./config
 G=($(bspc query -T -m $1 | jq '.rectangle | {x, width} | .[]'))
 
 while
+  active=$(printf "0x%.8X" $(bspc query -T -m | jq .focusedDesktopId))
   focused=$(printf "0x%.8X" $(bspc query -T -d $2 | jq .focusedNodeId))
   barout=""
   prev=""
@@ -15,7 +16,11 @@ while
     if [ -n "$title" ]; then
       [ -n "$barout" ] && [ $focused != $i ] && [ $focused != $prev ] && barout+="|"
       if [ $focused == $i ]; then
-        barout+="%{F$BACKGROUND}%{B$BLUE} $title %{B-}%{F-}"
+        if [ $active == $2 ]; then
+          barout+="%{F$BACKGROUND}%{B$BLUE} $title %{B-}%{F-}"
+        else
+          barout+="%{F$FOREGROUND}%{B$BACKGROUND_ALT} $title %{B-}%{F-}"
+        fi
       else
         barout+="%{A:bspc node -f ${i}:} $title  %{A}"
       fi

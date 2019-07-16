@@ -2,9 +2,11 @@
 
 # Purge running
 kill $(pgrep -u $(whoami) -x dunst) 2>/dev/null
+kill $(pgrep -u $(whoami) -x lemonbar) 2>/dev/null
 kill $(pgrep -u $(whoami) -x panel) 2>/dev/null
 kill $(pgrep -u $(whoami) -x sxhkd) 2>/dev/null
 kill $(pgrep -u $(whoami) -x tab) 2>/dev/null
+kill $(pgrep -u $(whoami) -x tab_bar) 2>/dev/null
 kill $(pgrep -u $(whoami) -x xss-lock) 2>/dev/null
 
 # Variables
