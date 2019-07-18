@@ -123,21 +123,18 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 " Rust
 " Rust: Vim configuration for Rust.
-Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
-" Racer: Racer support for Vim
-function! InstallRacer(info)
+function! InstallRLS(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status != 'unchanged' || a:info.force
     if executable('rustc') && executable('cargo') && executable('rustup')
-      execute '!rustup toolchain add nightly'
-      execute '!cargo +nightly install --force racer'
+      execute '!rustup component add rls rust-analysis rust-src'
     endif
   endif
 endfunction
-Plug 'racer-rust/vim-racer', { 'for': 'rust', 'do': function('InstallRacer') }
+Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'], 'do': function('InstallRLS') }
 
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
