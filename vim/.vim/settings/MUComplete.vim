@@ -1,10 +1,10 @@
 " General
 let g:mucomplete#enable_auto_at_startup = 1
+set shortmess+=c
 
 " Chain Settings
 let g:mucomplete#chains = {}
-let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
-let g:mucomplete#chains.unite = []
+let g:mucomplete#chains.default  = ['path', 'omni', 'keyn', 'dict', 'uspl', 'ulti']
 
 "
 " Language Specific

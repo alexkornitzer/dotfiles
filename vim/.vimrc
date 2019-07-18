@@ -371,6 +371,7 @@ nmap <leader>f :Files<CR>
 
 " Map LSP
 nmap K :LspHover<CR>
+nmap gd :LspDefinition<CR>
 
 " Map Vimux
 nmap <leader>vi :VimuxInspectRunner<CR>
