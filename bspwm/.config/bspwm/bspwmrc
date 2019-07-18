@@ -2,8 +2,11 @@
 
 # Purge running
 kill $(pgrep -u $(whoami) -x dunst) 2>/dev/null
+kill $(pgrep -u $(whoami) -x lemonbar) 2>/dev/null
 kill $(pgrep -u $(whoami) -x panel) 2>/dev/null
 kill $(pgrep -u $(whoami) -x sxhkd) 2>/dev/null
+kill $(pgrep -u $(whoami) -x tab) 2>/dev/null
+kill $(pgrep -u $(whoami) -x tab_bar) 2>/dev/null
 kill $(pgrep -u $(whoami) -x xss-lock) 2>/dev/null
 
 # Variables
@@ -26,7 +29,8 @@ bspc config border_width  2
 bspc config window_gap    0
 bspc config split_ratio   0.52
 bspc config remove_unplugged_monitors true
-bspc config borderless_monocle        true
+bspc config borderless_monocle        false
+bspc config top_monocle_padding       48
 bspc config gapless_monocle           true
 bspc config normal_border_color     "${base01}"
 bspc config active_border_color     "${base00}"
@@ -65,3 +69,6 @@ xss-lock -n ~/.config/bspwm/dimmer -l -- xsecurelock &
 
 # Bar
 ~/.config/panel/panel &
+
+# Tab
+~/.config/tab/tab &

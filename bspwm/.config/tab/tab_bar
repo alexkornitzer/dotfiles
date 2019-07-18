@@ -1,0 +1,46 @@
+#!/bin/bash
+
+cd $(dirname $0)
+source ./config
+
+G=($(bspc query -T -m $1 | jq '.rectangle | {x, width} | .[]'))
+
+while
+  active=$(printf "0x%.8X" $(bspc query -T -m | jq .focusedDesktopId))
+  focused=$(printf "0x%.8X" $(bspc query -T -d $2 | jq .focusedNodeId))
+  barout=""
+  prev=""
+  for i in $(bspc query -N -d $2); do
+    title=$(xtitle -e $i)
+    title=${title//[$'\t\r\n']}
+    if [ -n "$title" ]; then
+      [ -n "$barout" ] && [ $focused != $i ] && [ $focused != $prev ] && barout+="|"
+      if [ $focused == $i ]; then
+        if [ $active == $2 ]; then
+          barout+="%{F$BACKGROUND}%{B$BLUE} $title %{B-}%{F-}"
+        else
+          barout+="%{F$FOREGROUND}%{B$BACKGROUND_ALT} $title %{B-}%{F-}"
+        fi
+      else
+        barout+="%{A:bspc node -f ${i}:} $title  %{A}"
+      fi
+      prev=$i
+    fi
+  done
+  printf "%s\n" "$barout"
+  read line
+do true; done < <(bspc subscribe node_activate node_add node_focus node_remove) | lemonbar \
+    -a 32 \
+    -n $2 \
+    -g "${G[1]}x48+${G[0]}+48" \
+    -o -10 \
+    -f "$FONT1" \
+    -o -14 \
+    -f "$FONT2" \
+    -o -14 \
+    -f "$FONT3" \
+    -o -14 \
+    -f "$FONT4" \
+    -F "$FOREGROUND" \
+    -B "$BACKGROUND" \
+  | sh
