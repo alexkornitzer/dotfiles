@@ -8,7 +8,16 @@ if executable('rls')
     \ 'whitelist': ['rust'],
     \ })
   autocmd FileType rust setlocal omnifunc=lsp#complete
-endif 
+endif
+
+if executable('pyls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+  autocmd FileType python setlocal omnifunc=lsp#complete
+endif
 
 if executable('vls')
   au User lsp_setup call lsp#register_server({

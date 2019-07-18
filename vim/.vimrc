@@ -42,16 +42,28 @@ Plug 'itchyny/lightline.vim'
 " LightLine ALE: ALE indicator for the lightline vim plugin
 Plug 'maximbaz/lightline-ale'
 " LSP: async language server protocol plugin for vim and neovim
+function! InstallLSP(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status != 'unchanged' || a:info.force
+    " PYLS
+    if executable('pip')
+      execute '!pip install --user python-language-server black pylint'
+    endif
+    " RLS
+    if executable('rustc') && executable('cargo') && executable('rustup')
+      execute '!rustup component add rls rust-analysis rust-src'
+    endif
+  endif
+endfunction
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/vim-lsp', { 'do': function('InstallLSP') }
 " Misc: Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc'
 " MUComplete: Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
-"" Nerdtree: A tree explorer plugin for Vim
-"Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
-"" NertTreeTabs: NERDTree and tabs together in Vim, painlessly
-"Plug 'jistr/vim-nerdtree-tabs', { 'on': [ 'NERDTreeToggle', 'NERDTreeTabsToggle' ] }
 " Rainbow: help you read complex code by showing diff level of parentheses in
 " diff color
 Plug 'luochen1990/rainbow'
@@ -123,18 +135,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 " Rust
 " Rust: Vim configuration for Rust.
-function! InstallRLS(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status != 'unchanged' || a:info.force
-    if executable('rustc') && executable('cargo') && executable('rustup')
-      execute '!rustup component add rls rust-analysis rust-src'
-    endif
-  endif
-endfunction
-Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'], 'do': function('InstallRLS') }
+Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
 
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
@@ -367,6 +368,9 @@ nmap <leader>lf :ALEFix<cr>
 " Map fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
+
+" Map LSP
+nmap K :LspHover<CR>
 
 " Map Vimux
 nmap <leader>vi :VimuxInspectRunner<CR>
