@@ -4,7 +4,8 @@ set shortmess+=c
 
 " Chain Settings
 let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['path', 'omni', 'keyn', 'dict', 'uspl', 'ulti']
+"let g:mucomplete#chains.default  = ['path', 'omni', 'keyn', 'dict', 'uspl', 'ulti']
+let g:mucomplete#chains.default  = ['path', 'omni', 'c-p', 'dict', 'uspl', 'ulti']
 
 "
 " Language Specific

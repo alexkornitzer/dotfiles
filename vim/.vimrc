@@ -368,6 +368,7 @@ nmap <leader>lf :ALEFix<cr>
 " Map fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
+nmap <leader>s :Ag<CR>
 
 " Map LSP
 nmap K :LspHover<CR>

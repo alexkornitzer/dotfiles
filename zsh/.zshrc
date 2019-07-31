@@ -2,8 +2,12 @@
 # Preload
 #-------------------------------------------------------------------------------
 
+export LANG=en_GB.UTF-8
+
 # Macports
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Python 
+export PATH="$PATH:$HOME/.local/bin"
 
 #-------------------------------------------------------------------------------
 # ZPlug
@@ -26,12 +30,12 @@ zplug "lib/spectrum",   from:oh-my-zsh
 zplug "lib/termsupport",   from:oh-my-zsh
 zplug "lib/theme-and-appearance",   from:oh-my-zsh
 
-# General
+## General
 zplug "plugins/command-not-found",   from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/pass",   from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh
-zplug "plugins/vi-mode",   from:oh-my-zsh
+#zplug "plugins/vi-mode",   from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "~/.zsh/plugins/git-prompt", from:local
@@ -106,9 +110,6 @@ fi
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Bindings
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Vi mode
-bindkey -v
 
 # zsh-autosuggestions
 bindkey '^ ' autosuggest-accept
