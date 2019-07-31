@@ -62,7 +62,8 @@ dunst &
 mkfifo $SXHKD_FIFO>/dev/null && sxhkd -t 60 -s $SXHKD_FIFO &
 
 # Locker
-xset s 60 5
+#xset s 60 5
+xset s off off
 XSECURELOCK_DIM_COLOR="${base00}" \
 XSECURELOCK_FONT=-xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1 \
 xss-lock -n ~/.config/bspwm/dimmer -l -- xsecurelock &
