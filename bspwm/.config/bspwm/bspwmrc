@@ -57,6 +57,8 @@ fi
 
 # Notifications
 dunst &
+pulseaudio --start
+udiskie &
 
 # Keyboard
 mkfifo $SXHKD_FIFO>/dev/null && sxhkd -t 60 -s $SXHKD_FIFO &
