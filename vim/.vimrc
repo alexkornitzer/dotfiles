@@ -348,7 +348,7 @@ au FileType xml setlocal foldmethod=syntax
 " Extended Todo
 augroup extended_todo
   au!
-  au Syntax * syn match ExtendedTodo "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|HACK\|REVIEW\|XXX\)" containedin=.*Comment.*,vimCommentTitle
+  au Syntax * syn match ExtendedTodo "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|HACK\|REVIEW\|XXX\):" containedin=.*Comment.*,vimCommentTitle
 augroup END
 hi def link ExtendedTodo Todo
 
