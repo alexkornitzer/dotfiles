@@ -103,8 +103,7 @@ Plug 'kevinkjt2000/tmuxline.vim'
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
 " VimuxCargo: Run cargo commands in vim
-"Plug 'jtdowney/vimux-cargo'
-Plug 'alexkornitzer/vimux-cargo'
+Plug 'jtdowney/vimux-cargo'
 " VimTmuxNavigator: Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -136,6 +135,9 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " Rust
 " Rust: Vim configuration for Rust.
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
+
+" Svelte
+Plug 'evanleck/vim-svelte'
 
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
