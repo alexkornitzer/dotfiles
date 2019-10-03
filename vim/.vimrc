@@ -23,6 +23,8 @@ Plug 'chrisbra/Colorizer', { 'for': ['css', 'html', 'sass', 'scss', 'vue'] }
 " Cscope: A vim plugin to help you to create/update cscope database and
 " connect to existing proper database automatically.
 Plug 'brookhong/cscope.vim'
+" Echodoc: Print documents in echo area
+Plug 'Shougo/echodoc.vim'
 " FastFold: Speed up Vim by updating folds only when called-for
 " NOTE: Conflicting with rust.vim, and I don't really use folds atm
 Plug 'Konfekt/FastFold'
@@ -268,8 +270,9 @@ let g:tex_fold_enabled=1
 " Load pluging settings from the settings folder
 source $HOME/.vim/settings/ALE.vim                  " Plugin: ALE
 source $HOME/.vim/settings/Colorizer.vim            " Plugin: Colorizer
-source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
+source $HOME/.vim/settings/Echodoc.vim              " Plugin: Echodoc
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
+source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/LightLine.vim            " Plugin: LightLine

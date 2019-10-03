@@ -1,6 +1,5 @@
 " General
 let g:mucomplete#enable_auto_at_startup = 1
-set shortmess+=c
 
 " Chain Settings
 let g:mucomplete#chains = {}
