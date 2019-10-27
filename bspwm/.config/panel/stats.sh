@@ -19,13 +19,13 @@ _parse_volume() {
     if (\$1 == \"Mono:\") {
       if (\$6 == \"off\") {
         printf \"   0%\";
-      } else { printf \"  \";
+      } else { printf \" \";
         printf \"%3.0u%\", \$4;
       }
     } else if (\$2 == \"Left:\") {
       if (\$6 == \"off\") {
         printf \"   0%\";
-      } else { printf \"  \";
+      } else { printf \" \";
         printf \"%3.0u%\", \$5;
       }
     }
