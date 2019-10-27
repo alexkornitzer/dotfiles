@@ -56,12 +56,12 @@ _bandwidth() {
   rx_kib=$(( $rx_rate >> 10 ))
   tx_kib=$(( $rx_rate >> 10 ))
   # TODO: Handle MB/s
-  printf " %3.0fKB/s  %3.0fKB/s " $tx_kib $rx_kib
+  printf "  %3.0fKB/s  %3.0fKB/s " $tx_kib $rx_kib
 }
 
 _battery() {
   local bat=$(cat /sys/class/power_supply/BAT0/capacity)
-  printf "  %3.0f%% " "${bat}"
+  printf "  %3.0f%% " "${bat}"
 }
 
 _cpu() {
@@ -77,51 +77,51 @@ _cpu() {
   let "idle=${c_idle}-${p_idle}"
   let "total=${c_total}-${p_total}"
   let "usage=(1000*(${total}-${idle})/${total}+5)/10"
-  printf "  %3.0f%% " "${usage}"
+  printf "  %3.0f%% " "${usage}"
 }
 
 _date() {
-  echo " $(date +%d/%m/%y) "
+  echo "  $(date +%d/%m/%y) "
 }
 
 _disk() {
   local home="$(df -k /home)"
-  printf "  %3.0f%% " "$(expr "$home" : '.* \([0-9]\?[0-9]\?[0-9]\?\)%')"
+  printf "  %3.0f%% " "$(expr "$home" : '.* \([0-9]\?[0-9]\?[0-9]\?\)%')"
 }
 
 _lan() {
-  [ "$(ip addr show ens33 2>/dev/null)" ] && echo " "
+  [ "$(ip addr show ens33 2>/dev/null)" ] && echo "  "
 }
 
 _memory() {
   local memfree=`cat /proc/meminfo | grep MemFree | awk '{print $2}'`;
   local memtotal=`cat /proc/meminfo | grep MemTotal | awk '{print $2}'`;
-  printf " %3.0f%% " "$((($memtotal - $memfree) * 100 / $memtotal))"
+  printf "  %3.0f%% " "$((($memtotal - $memfree) * 100 / $memtotal))"
 }
 
 _temperature() {
   local core="$(sensors | grep 'Package id' | cut -d " " -f 5)"
   local temp="$(expr "$core" : '.*+\([0-9]\?[0-9]\?[0-9]\?\).')"
-  printf " %3.0f° " "$temp"
+  printf "  %3.0f° " "$temp"
 }
 
 _time() {
-  echo " $(date +%H:%M)"
+  echo "  $(date +%H:%M)"
 }
 
 _volume() {
   local vol=$(amixer -D default get Master | _parse_volume)
-  echo "%{A:amixer -q -D pulse set 'Master' toggle>/dev/null:}${vol}%{A} "
+  echo " %{A:amixer -q -D pulse set 'Master' toggle>/dev/null:}${vol}%{A} "
 }
 
 _vpn() {
-  [ "$(ip addr show vpn0 2>/dev/null)" ] && echo " "
+  [ "$(ip addr show vpn0 2>/dev/null)" ] && echo "  "
 }
 
 _wifi() {
   if [ "$(ip addr show wlan0 2>/dev/null)" ]; then
     local quality=$(grep wlan0 /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
-    printf "  %3.0f%% " "${quality}"
+    printf "  %3.0f%% " "${quality}"
   fi
 }
 
