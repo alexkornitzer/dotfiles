@@ -18,13 +18,13 @@ _parse_volume() {
   awk "/\[(on|off)\]/ {gsub(/\[|\]/, \"\"); \
     if (\$1 == \"Mono:\") {
       if (\$6 == \"off\") {
-        printf \"   0%\";
+        printf \"   0%\";
       } else { printf \"  \";
         printf \"%3.0u%\", \$4;
       }
     } else if (\$2 == \"Left:\") {
       if (\$6 == \"off\") {
-        printf \"   0%\";
+        printf \"   0%\";
       } else { printf \"  \";
         printf \"%3.0u%\", \$5;
       }
