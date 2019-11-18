@@ -300,6 +300,13 @@ endif
 " Auto Commands
 "-------------------------------------------------------------------------------
 
+" Override omnifunc for certain languages
+augroup OmniCompletionSetup
+    autocmd!
+    autocmd FileType python     set omnifunc=jedi#completions
+    autocmd FileType ruby       set omnifunc=ale#completion#OmniFunc
+augroup END
+
 " Set MUcompleteNotify as it has not setting...
 autocmd VimEnter * if exists(':MUcompleteNotify') | call mucomplete#msg#set_notifications(1)
 
