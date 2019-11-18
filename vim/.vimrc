@@ -17,7 +17,23 @@ call plug#begin('~/.vim/plugged')
 
 " General
 " ALE: Asynchronous Lint Engine
-Plug 'w0rp/ale'
+function! InstallLSP(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status != 'unchanged' || a:info.force
+    " PYLS
+    if executable('pip')
+      execute '!pip install --user python-language-server black pylint'
+    endif
+    " RLS
+    if executable('rustc') && executable('cargo') && executable('rustup')
+      execute '!rustup component add rls rust-analysis rust-src'
+    endif
+  endif
+endfunction
+Plug 'w0rp/ale', { 'do': function('InstallLSP') }
 " Colorizer: color hex codes and color names
 Plug 'chrisbra/Colorizer', { 'for': ['css', 'html', 'sass', 'scss', 'vue'] }
 " Cscope: A vim plugin to help you to create/update cscope database and
@@ -44,24 +60,8 @@ Plug 'itchyny/lightline.vim'
 " LightLine ALE: ALE indicator for the lightline vim plugin
 Plug 'maximbaz/lightline-ale'
 " LSP: async language server protocol plugin for vim and neovim
-function! InstallLSP(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status != 'unchanged' || a:info.force
-    " PYLS
-    if executable('pip')
-      execute '!pip install --user python-language-server black pylint'
-    endif
-    " RLS
-    if executable('rustc') && executable('cargo') && executable('rustup')
-      execute '!rustup component add rls rust-analysis rust-src'
-    endif
-  endif
-endfunction
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp', { 'do': function('InstallLSP') }
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp', { 'do': function('InstallLSP') }
 " Misc: Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc'
 " MUComplete: Chained completion that works the way you want!
@@ -276,7 +276,7 @@ source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/LightLine.vim            " Plugin: LightLine
-source $HOME/.vim/settings/LSP.vim                  " Plugin: LSP
+"source $HOME/.vim/settings/LSP.vim                  " Plugin: LSP
 source $HOME/.vim/settings/MUComplete.vim           " Plugin: MUComplete
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Racer.vim                " Plugin: Racer
@@ -376,8 +376,8 @@ nmap <leader>f :Files<CR>
 nmap <leader>s :Ag<CR>
 
 " Map LSP
-nmap K :LspHover<CR>
-nmap gd :LspDefinition<CR>
+nmap K :ALEHover<CR>
+nmap gd :ALEGoToDefinition<CR>
 
 " Map Vimux
 nmap <leader>vi :VimuxInspectRunner<CR>
