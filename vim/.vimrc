@@ -47,9 +47,6 @@ Plug 'Konfekt/FastFold'
 " FZF: A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-" Gutentags: A Vim plugin that manages your tag files
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'skywind3000/gutentags_plus'
 " IndentLine: A vim plugin to display the indention levels with thin vertical
 " lines
 Plug 'Yggdroot/indentLine'
@@ -262,7 +259,7 @@ source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
 source $HOME/.vim/settings/LightLine.vim            " Plugin: LightLine
-"source $HOME/.vim/settings/LSP.vim                  " Plugin: LSP
+"source $HOME/.vim/settings/LSP.vim                   Plugin: LSP
 source $HOME/.vim/settings/MUComplete.vim           " Plugin: MUComplete
 source $HOME/.vim/settings/NERDTree.vim             " Plugin: NERDTree
 source $HOME/.vim/settings/Racer.vim                " Plugin: Racer
@@ -303,8 +300,8 @@ endif
 " Override omnifunc for certain languages
 augroup OmniCompletionSetup
     autocmd!
-    autocmd FileType python     set omnifunc=jedi#completions
-    autocmd FileType ruby       set omnifunc=ale#completion#OmniFunc
+    autocmd FileType python     set omnifunc=ale#completion#OmniFunc
+    autocmd FileType rust       set omnifunc=ale#completion#OmniFunc
 augroup END
 
 " Set MUcompleteNotify as it has not setting...
@@ -379,12 +376,6 @@ nmap <leader>vp :VimuxPromptCommand<CR>
 nmap <leader>vs :VimuxInterruptRunner<CR>
 nmap <leader>vx :VimuxCloseRunner<CR>
 nmap <leader>vz :VimuxZoomRunner<CR>
-
-"" Map NERDTree to tt
-"nmap <leader>tt :NERDTreeToggle<CR>
-
-"" Map NERDTreeTabs to ta
-"nmap <leader>ta :NERDTreeTabsToggle<CR>
 
 " Map Tagbar to tb
 nmap <leader>tb :TagbarToggle<CR>
