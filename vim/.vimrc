@@ -147,20 +147,6 @@ Plug 'cespare/vim-toml'
 " Web
 " SCSS: Vim syntax file for scss (Sassy CSS)
 Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'vue'] }
-function! InstallTern(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status != 'unchanged' || a:info.force
-    if executable('npm')
-      execute '!npm install'
-    endif
-  endif
-endfunction
-" TernForVim: Tern plugin for Vim
-"Plug 'ternjs/tern_for_vim', { 'do': function('InstallTern') }
-Plug 'alexkornitzer/tern_for_vim', { 'do': function('InstallTern') }
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " VimVue: Syntax Highlight for Vue.js components
