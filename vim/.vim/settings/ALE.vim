@@ -12,14 +12,13 @@ let g:ale_fixers.yaml = ['prettier']
 
 " Python
 let g:ale_fixers.python = ['black']
-let g:ale_linters.python = ['pyls']
+let g:ale_linters.python = []  " NOTE: We use vim-lsp
 
 " Javascript
 let g:ale_fixers.javascript = ['eslint']
 
 " Rust
-let g:ale_rust_rls_toolchain = 'stable'
-autocmd FileType rust let b:ale_linters = {'rust': findfile('Cargo.toml', '.;') != '' ? (executable('rls') ? ['rls'] : ['cargo']) : ['rustc'] }
+let g:ale_linters.rust = []  " NOTE: We use vim-lsp
 
 " Svelte
 let g:ale_linter_aliases = {'svelte': ['svelte', 'javascript', 'css', 'html']}

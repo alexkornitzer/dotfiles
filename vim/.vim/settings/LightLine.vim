@@ -3,20 +3,29 @@ let g:lightline = {
   \   'colorscheme': 'base16_tomorrow_night',
   \ }
 
+" HACK: Incredible inefficient...
+augroup LightLineOnLsp
+  autocmd!
+  autocmd CursorMoved * call lightline#update()
+augroup end
+
 " Load components
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
       \  'linter_warnings': 'lightline#ale#warnings',
       \  'linter_errors': 'lightline#ale#errors',
       \  'linter_ok': 'lightline#ale#ok',
+      \  'lsp_warnings': 'LspWarnings',
+      \  'lsp_errors': 'LspErrors',
+      \  'lsp_ok': 'LspOk',
       \  'tabs': 'LightlineTabs',
       \ }
 let g:lightline.component_function = {
       \  'gitgutter': 'Git',
-      \  'lessmess': 'Lessmess',
       \  'fileformat': 'LightlineFileformat',
       \  'filename': 'LightlineFilename',
       \  'filetype': 'LightlineFiletype',
+      \  'lessmess': 'Lessmess',
       \  'mode': 'LightlineMode',
       \  'tagbar': 'Tagbar',
       \  'virtualenv': 'VirtualEnv',
@@ -29,6 +38,9 @@ let g:lightline.component_type = {
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
       \     'linter_ok': 'left',
+      \     'lsp_warnings': 'warning',
+      \     'lsp_errors': 'error',
+      \     'lsp_ok': 'left',
       \ }
 
 " Add components
@@ -36,7 +48,7 @@ let g:lightline.active = {
   \  'left': [ [ 'mode', 'paste' ],
   \            [ 'virtualenv', 'gitgutter', 'filename' ],
   \            [ 'spell' ] ],
-  \ 'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lessmess', 'lineinfo' ],
+  \ 'right': [ [ 'lsp_errors', 'lsp_warnings', 'lsp_ok', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lessmess', 'lineinfo' ],
   \            [ 'percent' ],
   \            [ 'tagbar', 'fileformat', 'fileencoding', 'filetype' ] ]
   \}
@@ -141,8 +153,26 @@ function! LightlineTabs() abort
   endif
   return [x, y, z]
 endfunction
-function! Test()
-  return lightline#tabs()
+function! LspErrors() abort
+  if exists('*lsp#get_buffer_diagnostics_counts')
+    let l:diag = lsp#get_buffer_diagnostics_counts()
+    return l:diag.error == 0 ? '' : printf('E:' . l:diag.error)
+  endif
+  return ''
+endfunction
+function! LspWarnings() abort
+  if exists('*lsp#get_buffer_diagnostics_counts')
+    let l:diag = lsp#get_buffer_diagnostics_counts()
+    return l:diag.warning == 0 ? '' : printf('W:' . l:diag.warning)
+  endif
+  return ''
+endfunction
+function! LspOk() abort
+  if exists('*lsp#get_buffer_diagnostics_counts')
+    let l:diag = lsp#get_buffer_diagnostics_counts()
+    return l:diag.error == 0 && l:diag.warning == 0 ? 'OK' : ''
+  endif
+  return ''
 endfunction
 function! VirtualEnv()
   if exists('*virtualenv#statusline')

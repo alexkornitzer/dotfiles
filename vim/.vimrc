@@ -353,18 +353,24 @@ nmap <leader>lo :lopen<CR>
 nmap <leader>lc :lclose<CR>
 
 " Map ale
-nmap <leader>lj :ALENext<cr>
-nmap <leader>lk :ALEPrevious<cr>
+nmap <leader>lj :ALENextWrap<cr>
+nmap <leader>lk :ALEPreviousWrap<cr>
 nmap <leader>lf :ALEFix<cr>
+nmap gd         :ALEGoToDefinition<cr>
 
 " Map fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :Ag<CR>
 
-" Map LSP
-nmap K :LspHover<CR>
-nmap gd :LspDefinition<CR>
+" Map LSP - override ale when we use lsp
+augroup LspGroup
+  autocmd FileType python,rust    nmap <leader>ld  :LspDocumentDiagnostics<CR>
+  autocmd FileType python,rust    nmap <leader>lj  :LspNextError<CR>
+  autocmd FileType python,rust    nmap <leader>lk  :LspPreviousError<CR>
+  autocmd FileType python,rust    nmap K  :LspHover<CR>
+  autocmd FileType python,rust    nmap gd :LspDefinition<CR>
+augroup END
 
 " Map Vimux
 nmap <leader>vi :VimuxInspectRunner<CR>
