@@ -150,6 +150,9 @@ source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export PINENTRY_USER_DATA="USE_CURSES=1"
 
+# Add cargo
+export PATH="${PATH}:${HOME}/.cargo/bin"
+
 # No I don't want a visible go folder...
 export GOPATH="${HOME}/.go"
 export PATH="${PATH}:${GOPATH}/bin"
