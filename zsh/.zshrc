@@ -191,8 +191,8 @@ _gen_fzf_default_opts() {
   "
 }
 _gen_fzf_default_opts
-if whence -cp 'ag' > /dev/null; then
-  export FZF_DEFAULT_COMMAND='ag -l --hidden --follow --ignore .git'
+if whence -cp 'rg' > /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg -l --hidden --follow --ignore .git'
 fi
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
