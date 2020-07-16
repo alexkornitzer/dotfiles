@@ -361,7 +361,7 @@ nmap gd         :ALEGoToDefinition<cr>
 " Map fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
-nmap <leader>s :Ag<CR>
+nmap <leader>s :Rg<CR>
 
 " Map LSP - override ale when we use lsp
 augroup LspGroup
