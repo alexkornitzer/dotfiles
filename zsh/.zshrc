@@ -6,7 +6,7 @@ export LANG=en_GB.UTF-8
 
 # Macports
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Python 
+# Python
 export PATH="$PATH:$HOME/.local/bin"
 
 #-------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ _gen_fzf_default_opts() {
 }
 _gen_fzf_default_opts
 if whence -cp 'rg' > /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg -l --hidden --follow --ignore .git'
+  export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!{.git/*}'"
 fi
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
