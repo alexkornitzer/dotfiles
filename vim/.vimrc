@@ -52,9 +52,10 @@ function! InstallLSP(info)
       execute '!python -m pip install --user python-language-server black pylint'
     endif
     " RLS
-    if executable('rustc') && executable('cargo') && executable('rustup')
-      execute '!rustup component add rls rust-analysis rust-src'
-    endif
+    " NOTE: Wait for rust-analyzer to hit stable
+    "if executable('rustc') && executable('cargo') && executable('rustup')
+    "  execute '!rustup component add rls rust-analysis rust-src'
+    "endif
   endif
 endfunction
 Plug 'prabirshrestha/async.vim'
@@ -102,7 +103,7 @@ Plug 'kevinkjt2000/tmuxline.vim'
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
 " VimuxCargo: Run cargo commands in vim
-Plug 'jtdowney/vimux-cargo'
+Plug 'jtdowney/vimux-cargo', { 'branch': 'main' }
 " VimTmuxNavigator: Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -136,7 +137,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
 
 " Svelte
-Plug 'evanleck/vim-svelte'
+Plug 'evanleck/vim-svelte', { 'branch': 'main' }
 
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
