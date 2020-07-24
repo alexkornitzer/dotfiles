@@ -191,9 +191,24 @@ _gen_fzf_default_opts() {
   "
 }
 _gen_fzf_default_opts
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 if whence -cp 'rg' > /dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!{.git/*}'"
 fi
+# Taken from: https://github.com/junegunn/fzf/issues/862
+traverse-upwards() {
+  local dir=$(
+    [ $# = 1 ] && [ -d "$1" ] && cd "$1"
+    while true; do
+      find "$PWD" -mindepth 1 -maxdepth 1 -type d
+      echo "$PWD"
+      [ $PWD = / ] && break
+      cd ..
+    done | fzf --tiebreak=end --height 50% --reverse --preview 'tree -C {} | head -200'
+  ) && cd "$dir"
+}
+zle -N traverse-upwards{,}
+bindkey '^[j' traverse-upwards
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Fixes
