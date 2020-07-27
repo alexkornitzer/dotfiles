@@ -4,6 +4,8 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_insert_text_enabled = 0
 let g:lsp_signs_enabled = 1
 let g:lsp_text_edit_enabled = 0
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
 
 " LSP Systems
 if executable('rust-analyzer')
@@ -49,10 +51,10 @@ if executable('pyls')
   autocmd FileType python setlocal omnifunc=lsp#complete
 endif
 
-if executable('sls')
+if executable('svelteserver')
   au User lsp_setup call lsp#register_server({
-    \ 'name': 'svelte-language-server',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'sls --stdio']},
+    \ 'name': 'svelteserver',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'svelteserver --stdio']},
     \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
     \ 'whitelist': ['svelte'],
     \ })

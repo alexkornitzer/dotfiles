@@ -21,8 +21,7 @@ let g:ale_fixers.javascript = ['eslint']
 let g:ale_linters.rust = []  " NOTE: We use vim-lsp
 
 " Svelte
-let g:ale_linter_aliases = {'svelte': ['svelte', 'javascript', 'css', 'html']}
-let g:ale_fixers.svelte = ['eslint', 'prettier', 'prettier_standard']
+let g:ale_fixers.svelte = ['eslint']
 let g:ale_linters.svelte = ['eslint']
 
 " Vue
