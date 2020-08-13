@@ -302,6 +302,8 @@ endif
 " Auto Commands
 "-------------------------------------------------------------------------------
 
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0) 
+
 " Set MUcompleteNotify as it has not setting...
 autocmd VimEnter * if exists(':MUcompleteNotify') | call mucomplete#msg#set_notifications(1)
 
@@ -367,8 +369,8 @@ nmap <leader>s :Rg<CR>
 " Map LSP - override ale when we use lsp
 augroup LspGroup
   autocmd FileType python,rust    nmap <leader>ld  :LspDocumentDiagnostics<CR>
-  autocmd FileType python,rust    nmap <leader>lj  :LspNextError<CR>
-  autocmd FileType python,rust    nmap <leader>lk  :LspPreviousError<CR>
+  autocmd FileType python,rust    nmap <leader>lj  :LspNextDiagnostic<CR>
+  autocmd FileType python,rust    nmap <leader>lk  :LspPreviousDiagnostic<CR>
   autocmd FileType python,rust    nmap K  :LspHover<CR>
   autocmd FileType python,rust    nmap gd :LspDefinition<CR>
 augroup END
