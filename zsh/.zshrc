@@ -167,27 +167,27 @@ fi
 
 # Setup FZF
 _gen_fzf_default_opts() {
-  local color00='#1d1f21'
-  local color01='#282a2e'
-  local color02='#373b41'
-  local color03='#969896'
-  local color04='#b4b7b4'
-  local color05='#c5c8c6'
-  local color06='#e0e0e0'
-  local color07='#ffffff'
-  local color08='#cc6666'
-  local color09='#de935f'
-  local color0A='#f0c674'
-  local color0B='#b5bd68'
-  local color0C='#8abeb7'
-  local color0D='#81a2be'
-  local color0E='#b294bb'
-  local color0F='#a3685a'
+  local color00='#2E3440'
+  local color01='#3B4252'
+  local color02='#434C5E'
+  local color03='#4C566A'
+  local color04='#D8DEE9'
+  local color05='#E5E9F0'
+  local color06='#ECEFF4'
+  local color07='#8FBCBB'
+  local color08='#88C0D0'
+  local color09='#81A1C1'
+  local color0A='#5E81AC'
+  local color0B='#BF616A'
+  local color0C='#D08770'
+  local color0D='#EBCB8B'
+  local color0E='#A3BE8C'
+  local color0F='#B48EAD'
 
   export FZF_DEFAULT_OPTS="
-    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
-    --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
-    --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color08
+    --color=fg:$color04,header:$color08,info:$color0D,pointer:$color0C
+    --color=marker:$color0E,fg+:$color06,prompt:$color09,hl+:$color08
   "
 }
 _gen_fzf_default_opts

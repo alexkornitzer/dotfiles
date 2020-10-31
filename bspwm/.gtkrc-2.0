@@ -1,3 +1,4 @@
-gtk-theme-name="Adapta-Nokto"
+#gtk-theme-name="Adapta-Nokto"
+gtk-theme-name="Nordic"
 gtk-font-name="Noto Sans Mono 8"
 gtk-icon-theme-name="Suru++-Dark"

@@ -99,7 +99,7 @@ Plug 'honza/vim-snippets'
 " Tmuxline: Simple tmux statusline generator with support for powerline
 " symbols and statusline / airline / lightline integration
 " Plug 'edkolev/tmuxline.vim' Needs to fix the error
-Plug 'kevinkjt2000/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 " Vimux: Vim plugin to interact with tmux
 Plug 'benmills/vimux'
 " VimuxCargo: Run cargo commands in vim
@@ -156,15 +156,8 @@ Plug 'posva/vim-vue', { 'for': 'vue' }
 " Focus: Code editor color theme that lets you focus on the content
 Plug 'sindresorhus/focus', { 'rtp': 'vim' }
 
-" Hemisu: A Vim color scheme with dark and light variants
-Plug 'noahfrederick/vim-hemisu'
-
-" Jellybeans: A colorful, dark color scheme for Vim
-Plug 'nanotech/jellybeans.vim'
-
-" Base16: Base16 for Vim
-"Plug 'chriskempson/base16-vim'
-Plug 'danielwe/base16-vim'
+" Nord: An arctic, north-bluish clean and elegant Vim theme
+Plug 'arcticicestudio/nord-vim'
 
 " End
 call plug#end()
@@ -199,7 +192,7 @@ set number
 
 " Set the background to dark and set the colour scheme
 set background=dark
-colorscheme base16-tomorrow-night
+colorscheme nord
 
 " Map back space
 set backspace=indent,eol,start
@@ -302,7 +295,7 @@ endif
 " Auto Commands
 "-------------------------------------------------------------------------------
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0) 
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " Set MUcompleteNotify as it has not setting...
 autocmd VimEnter * if exists(':MUcompleteNotify') | call mucomplete#msg#set_notifications(1)

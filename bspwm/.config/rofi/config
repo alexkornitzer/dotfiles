@@ -2,7 +2,7 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.theme: base16-tomorrow-night
+rofi.theme: nord
 
 rofi.font: Noto Sans Mono 16
 
