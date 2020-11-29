@@ -1,6 +1,3 @@
-[submodule "tmux/.tmux-gitbar"]
-	path = tmux/.tmux-gitbar
-	url = https://github.com/aurelien-rainone/tmux-gitbar.git
 [submodule "zsh/.zplug"]
 	path = zsh/.zplug
 	url = https://github.com/zplug/zplug.git
