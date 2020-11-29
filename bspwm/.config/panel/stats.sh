@@ -60,8 +60,9 @@ _bandwidth() {
 }
 
 _battery() {
-  local bat=$(cat /sys/class/power_supply/BAT0/capacity)
-  printf "  %3.0f%% " "${bat}"
+  local bat=$(ls /sys/class/power_supply | grep -m1 BAT)
+  local val=$(cat /sys/class/power_supply/${bat}/capacity)
+  printf "  %3.0f%% " "${val}"
 }
 
 _cpu() {
