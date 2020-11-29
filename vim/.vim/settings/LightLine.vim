@@ -18,7 +18,6 @@ let g:lightline.component_expand = {
       \  'lsp_warnings': 'LspWarnings',
       \  'lsp_errors': 'LspErrors',
       \  'lsp_ok': 'LspOk',
-      \  'tabs': 'LightlineTabs',
       \ }
 let g:lightline.component_function = {
       \  'gitgutter': 'Git',
@@ -53,41 +52,6 @@ let g:lightline.active = {
   \            [ 'tagbar', 'fileformat', 'fileencoding', 'filetype' ] ]
   \}
 let g:lightline.tabline = {'left': [['tabs']], 'right': [['close']]}
-
-" Colorscheme
-let s:base00 = [ '#1d1f21',  0 ]
-let s:base01 = [ '#282a2e', 18 ]
-let s:base02 = [ '#373b41', 19 ]
-let s:base03 = [ '#969896',  8 ]
-let s:base04 = [ '#b4b7b4', 20 ]
-let s:base05 = [ '#c5c8c6',  7 ]
-let s:base06 = [ '#e0e0e0', 21 ]
-let s:base07 = [ '#ffffff', 15 ]
-let s:base08 = [ '#cc6666',  1 ]
-let s:base09 = [ '#de935f', 16 ]
-let s:base0A = [ '#f0c674',  3 ]
-let s:base0B = [ '#b5bd68',  2 ]
-let s:base0C = [ '#8abeb7',  6 ]
-let s:base0D = [ '#81a2be',  4 ]
-let s:base0E = [ '#b294bb',  5 ]
-let s:base0F = [ '#a3685a', 17 ]
-let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left     = [ [ s:base01, s:base03 ], [ s:base05, s:base02 ] ]
-let s:p.insert.left     = [ [ s:base00, s:base0D ], [ s:base05, s:base02 ] ]
-let s:p.visual.left     = [ [ s:base00, s:base09 ], [ s:base05, s:base02 ] ]
-let s:p.replace.left    = [ [ s:base00, s:base08 ], [ s:base05, s:base02 ] ]
-let s:p.inactive.left   = [ [ s:base02, s:base00 ] ]
-let s:p.normal.middle   = [ [ s:base05, s:base00 ] ]
-let s:p.inactive.middle = [ [ s:base01, s:base00 ] ]
-let s:p.normal.right    = [ [ s:base01, s:base03 ], [ s:base03, s:base02 ] ]
-let s:p.inactive.right  = [ [ s:base01, s:base00 ] ]
-let s:p.normal.error    = [ [ s:base07, s:base08 ] ]
-let s:p.normal.warning  = [ [ s:base07, s:base09 ] ]
-let s:p.tabline.left    = [ [ s:base05, s:base01 ] ]
-let s:p.tabline.middle  = [ [ s:base05, s:base00 ] ]
-let s:p.tabline.right   = [ [ s:base05, s:base02 ] ]
-let s:p.tabline.tabsel  = [ [ s:base05, s:base02 ] ]
-let g:lightline#colorscheme#base16_tomorrow_night#palette = lightline#colorscheme#flatten(s:p)
 
 " Helper functions
 function! Git()
@@ -133,25 +97,6 @@ function! LightlineModified()
 endfunction
 function! LightlineReadonly()
   return &ft !~? 'help' && &readonly ? 'RO' : ''
-endfunction
-function! LightlineTabs() abort
-  let [x, y, z] = [[], [], []]
-  let nr = tabpagenr()
-  let cnt = tabpagenr('$')
-  for i in range(1, cnt)
-    call add(i < nr ? x : i == nr ? y : z,
-          \ '%' . i . '%%{lightline#onetab(' . i . ',' . (i == nr) . ')}'
-          \ . (i == cnt ? '%T' : ''))
-  endfor
-  if len(x) > 3
-    let x = x[len(x)-3:]
-    let x[0] = '<' . x[0]
-  endif
-  if len(z) > 3
-    let z = z[:2]
-    let z[len(z)-1] = z[len(z)-1] . '>'
-  endif
-  return [x, y, z]
 endfunction
 function! LspErrors() abort
   if exists('*lsp#get_buffer_diagnostics_counts')

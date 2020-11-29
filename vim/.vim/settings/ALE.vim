@@ -7,6 +7,9 @@ let g:ale_set_highlights = 0
 let g:ale_fixers = {}
 let g:ale_linters = {}
 
+" Elixir
+let g:ale_fixers.elixir = ['mix_format']
+
 " YAML
 let g:ale_fixers.yaml = ['prettier']
 

@@ -40,6 +40,15 @@ elseif executable('rls')
   autocmd FileType rust setlocal omnifunc=lsp#complete
 endif
 
+if executable('elixir-ls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'elixir-ls',
+    \ 'cmd': {server_info->['elixir-ls']},
+    \ 'whitelist': ['elixir'],
+    \ })
+  autocmd FileType elixir setlocal omnifunc=lsp#complete
+endif
+
 if executable('pyls')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'pyls',

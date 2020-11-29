@@ -19,14 +19,13 @@ call plug#begin('~/.vim/plugged')
 " ALE: Asynchronous Lint Engine
 Plug 'w0rp/ale'
 " Colorizer: color hex codes and color names
-Plug 'chrisbra/Colorizer', { 'for': ['css', 'html', 'sass', 'scss', 'vue'] }
+Plug 'chrisbra/Colorizer', { 'for': ['css', 'html', 'sass', 'scss', 'svelte'] }
 " Cscope: A vim plugin to help you to create/update cscope database and
 " connect to existing proper database automatically.
 Plug 'brookhong/cscope.vim'
 " Echodoc: Print documents in echo area
 Plug 'Shougo/echodoc.vim'
 " FastFold: Speed up Vim by updating folds only when called-for
-" NOTE: Conflicting with rust.vim, and I don't really use folds atm
 Plug 'Konfekt/FastFold'
 " FZF: A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -60,13 +59,8 @@ function! InstallLSP(info)
 endfunction
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp', { 'do': function('InstallLSP') }
-" Misc: Miscellaneous auto-load Vim scripts
-Plug 'xolox/vim-misc'
 " MUComplete: Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
-" Rainbow: help you read complex code by showing diff level of parentheses in
-" diff color
-Plug 'luochen1990/rainbow'
 " Stay: Make Vim persist editing state without fuss
 Plug 'kopischke/vim-stay'
 " Tagbar: Vim plugin that displays tags in a window, ordered by scope
@@ -114,11 +108,11 @@ Plug 'christoomey/vim-tmux-navigator'
 " Cocoa: Vim plugin for Cocoa/Objective-C development
 Plug 'AlexKornitzer/cocoa.vim', { 'for': ['objc', 'objc++'] }
 
+" Elixir: Vim configuration files for Elixir
+Plug 'elixir-editors/vim-elixir', { 'for': ['ex', 'exs', 'eex', 'leex'] }
+
 " Go: Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
-
-" Javascript: Vastly improved Javascript indentation and syntax support in Vim.
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 
 " Latex
 " Vimtex: A modern vim plugin for editing LaTeX files.
@@ -128,27 +122,24 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 " PS1: A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 
-" Python
-" Jedi: Using the jedi autocompletion library for Vim
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-
 " Rust
 " Rust: Vim configuration for Rust.
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
-
-" Svelte
-Plug 'evanleck/vim-svelte', { 'branch': 'main' }
 
 " TOML: Vim syntax for TOML
 Plug 'cespare/vim-toml'
 
 " Web
+" Javascript: Vastly improved Javascript indentation and syntax support in Vim.
+Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 " SCSS: Vim syntax file for scss (Sassy CSS)
-Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'vue'] }
+Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss'] }
+" Svelte: Vim syntax and indent plugin for .svelte files
+Plug 'leafOfTree/vim-svelte-plugin', { 'for': ['svelte'] }
+let g:vim_svelte_plugin_use_typescript=1
+let g:vim_svelte_plugin_use_sass=1
 " Typescript: Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-" VimVue: Syntax Highlight for Vue.js components
-Plug 'posva/vim-vue', { 'for': 'vue' }
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Themes
