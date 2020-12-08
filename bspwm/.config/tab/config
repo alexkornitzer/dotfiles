@@ -4,13 +4,13 @@ FONT2='Font Awesome 5 Free:style=Regular:size=8'
 FONT3='Font Awesome 5 Free:style=Solid:size=8'
 FONT4='Font Awesome 5 Brands:size=8'
 
-# Colours
-eval $(grep -o -E 'base0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
-BACKGROUND=$base00
-BACKGROUND_ALT=$base01
-FOREGROUND=$base05
-FOREGROUND_ALT=$base06
-BLUE=$base0D
-GREEN=$base0B
-RED=$base08
-YELLOW=$base0A
+# Colours# Colours
+eval $(grep -o -E 'nord0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
+BACKGROUND=$nord00
+BACKGROUND_ALT=$nord01
+FOREGROUND=$nord05
+FOREGROUND_ALT=$nord06
+BLUE=$nord08
+GREEN=$nord0E
+RED=$nord0B
+YELLOW=$nord0D
