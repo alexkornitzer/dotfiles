@@ -11,14 +11,13 @@ fi
 [[ -d $HOME/.xkb ]] && xkbcomp -I$HOME/.xkb -R$HOME/.xkb keymap/custom $DISPLAY
 xrandr --dpi 192
 
-list=( $(ls -1 ${HOME}/.66/conf/boot-user) )
+list=( $(ls -1 /home/alex/.66/conf/svscan@alex) )
 for i in ${list[@]};do
-    var=$(<${HOME}/.66/conf/boot-user/${i})
+    var=$(</home/alex/.66/conf/svscan@alex/${i})
     for j in ${var[@]}; do
 		export ${j}
     done
 done
-
 
 66-all up
 
@@ -31,6 +30,3 @@ fi
 
 ## Select the session to start
 ${cmd} bspwm
-#${cmd} jwm
-#${cmd} openbox-session
-#${cmd} startkde

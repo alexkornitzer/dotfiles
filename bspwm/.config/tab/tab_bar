@@ -32,14 +32,14 @@ while
 do true; done < <(bspc subscribe node_activate node_add node_focus node_remove) | lemonbar \
     -a 32 \
     -n $2 \
-    -g "${G[1]}x48+${G[0]}+48" \
-    -o -10 \
+    -g "${G[1]}x32+${G[0]}+48" \
+    -o -1 \
     -f "$FONT1" \
-    -o -14 \
+    -o -2 \
     -f "$FONT2" \
-    -o -14 \
+    -o -2 \
     -f "$FONT3" \
-    -o -14 \
+    -o -2 \
     -f "$FONT4" \
     -F "$FOREGROUND" \
     -B "$BACKGROUND" \

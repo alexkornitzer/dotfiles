@@ -200,7 +200,7 @@ set expandtab
 set scrolloff=10
 
 " Turn on Omni completion
-set completeopt-=preview
+set completeopt-=longest,preview
 set completeopt+=menu,menuone,noinsert,noselect
 set shortmess+=c
 if has('patch-8.1.1902')
