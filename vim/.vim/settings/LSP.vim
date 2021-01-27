@@ -16,7 +16,6 @@ if executable('rust-analyzer')
       \ 'workspace_config': {},
       \ 'semantic_highlight': {},
       \ })
-  autocmd FileType rust setlocal omnifunc=lsp#complete
   function! s:rust_analyzer_apply_source_change(context)
       let l:command = get(a:context, 'command', {})
 
@@ -37,7 +36,6 @@ elseif executable('rls')
     \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
     \ 'whitelist': ['rust'],
     \ })
-  autocmd FileType rust setlocal omnifunc=lsp#complete
 endif
 
 if executable('elixir-ls')
@@ -46,7 +44,6 @@ if executable('elixir-ls')
     \ 'cmd': {server_info->['elixir-ls']},
     \ 'whitelist': ['elixir'],
     \ })
-  autocmd FileType elixir setlocal omnifunc=lsp#complete
 endif
 
 if executable('pyls')
@@ -55,7 +52,6 @@ if executable('pyls')
     \ 'cmd': {server_info->['pyls']},
     \ 'whitelist': ['python'],
     \ })
-  autocmd FileType python setlocal omnifunc=lsp#complete
 endif
 
 if executable('svelteserver')
@@ -65,7 +61,6 @@ if executable('svelteserver')
     \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
     \ 'whitelist': ['svelte'],
     \ })
-  autocmd FileType svelte setlocal omnifunc=lsp#complete
 endif
 
 if executable('vls')
@@ -75,5 +70,25 @@ if executable('vls')
     \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
     \ 'whitelist': ['vue'],
     \ })
-  autocmd FileType vue setlocal omnifunc=lsp#complete
 endif
+
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> <leader>gd <plug>(lsp-definition)
+    nmap <buffer> <leader>gr <plug>(lsp-references)
+    nmap <buffer> <leader>gi <plug>(lsp-implementation)
+    nmap <buffer> <leader>gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> <leader>ld <Plug>(lsp-document-diagnostic)
+    nmap <buffer> <leader>lk <Plug>(lsp-previous-diagnostic)
+    nmap <buffer> <leader>lj <Plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END

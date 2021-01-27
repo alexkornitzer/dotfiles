@@ -349,16 +349,7 @@ nmap gd         :ALEGoToDefinition<cr>
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :Rg<CR>
-
-" Map LSP - override ale when we use lsp
-augroup LspGroup
-  autocmd FileType python,rust    nmap <leader>ld  :LspDocumentDiagnostics<CR>
-  autocmd FileType python,rust    nmap <leader>lj  :LspNextDiagnostic<CR>
-  autocmd FileType python,rust    nmap <leader>lk  :LspPreviousDiagnostic<CR>
-  autocmd FileType python,rust    nmap K  :LspHover<CR>
-  autocmd FileType python,rust    nmap gd :LspDefinition<CR>
-augroup END
-
+    
 " Map Vimux
 nmap <leader>vi :VimuxInspectRunner<CR>
 nmap <leader>vl :VimuxRunLastCommand<CR>
