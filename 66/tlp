@@ -1,0 +1,14 @@
+[main]
+@type = oneshot 
+@description = "tlp daemon"
+@version = 0.1.0
+@user = ( root )
+@options = ( log )
+
+[start]
+@build = auto
+@execute = ( execl-cmdline -s { /usr/bin/tlp init start } )
+
+[stop]
+@build = auto
+@execute = ( execl-cmdline -s { /usr/bin/tlp init stop } )

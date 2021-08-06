@@ -1,0 +1,16 @@
+[main]
+@type = longrun
+@description = "vmware usb arbitrator daemon"
+@version = 0.1.0
+@user = ( root )
+@options = ( log env )
+@depends = ( vmware )
+
+[start]
+@build = auto
+@execute = ( 
+execl-cmdline -s { /usr/lib/vmware/bin/vmware-usbarbitrator ${cmd_args} } 
+)
+
+[environment]
+cmd_args=!-f

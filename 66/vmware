@@ -1,0 +1,21 @@
+[main]
+@type = oneshot 
+@description = "vmware daemon"
+@version = 0.1.0
+@user = ( root )
+@options = ( log )
+
+[start]
+@build = auto
+@execute = ( 
+ifelse { 
+	/etc/init.d/vmware start 
+}
+{ 66-echo vmware configured successfully }
+if { 66-echo vmware unable to configure vmware }
+exit 0
+)
+
+[stop]
+@build = auto
+@execute = ( execl-cmdline -s { /etc/init.d/vmware stop } )

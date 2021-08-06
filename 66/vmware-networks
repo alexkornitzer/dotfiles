@@ -1,0 +1,19 @@
+[main]
+@type = oneshot
+@description = "vmware networks daemon"
+@version = 0.1.0
+@user = ( root )
+@options = ( log )
+@depends = ( vmware )
+
+[start]
+@build = auto
+@execute = ( 
+execl-cmdline -s { /usr/bin/vmware-networks --start } 
+)
+
+[stop]
+@build = auto
+@execute = ( 
+execl-cmdline -s { /usr/bin/vmware-networks --stop } 
+)

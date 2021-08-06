@@ -1,0 +1,11 @@
+[main]
+@type = longrun
+@description = "iwd daemon"
+@version = 0.1.0
+@user = ( root )
+@options = ( log )
+@depends = ( dbus )
+
+[start]
+@build = auto
+@execute = ( execl-cmdline -s { /usr/lib/iwd/iwd } )
