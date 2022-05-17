@@ -57,8 +57,9 @@ function! InstallLSP(info)
     "endif
   endif
 endfunction
-Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp', { 'do': function('InstallLSP') }
+" LSP-ALE: Bridge between vim-lsp and ALE
+Plug 'rhysd/vim-lsp-ale'
 " MUComplete: Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
 " Stay: Make Vim persist editing state without fuss
@@ -117,6 +118,10 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 " Latex
 " Vimtex: A modern vim plugin for editing LaTeX files.
 Plug 'lervag/vimtex', { 'for': 'tex' }
+
+" SQL
+" DbExt: tailor as dynamic loaded plugin for dbext.vim, work with database and sql from within vim 
+Plug 'lymslive/dbext', { 'for': 'sql' }
 
 " Powershell
 " PS1: A Vim plugin for Windows PowerShell support
@@ -349,7 +354,7 @@ nmap gd         :ALEGoToDefinition<cr>
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :Rg<CR>
-    
+
 " Map Vimux
 nmap <leader>vi :VimuxInspectRunner<CR>
 nmap <leader>vl :VimuxRunLastCommand<CR>

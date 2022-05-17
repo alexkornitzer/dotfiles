@@ -47,7 +47,7 @@ let g:lightline.active = {
   \  'left': [ [ 'mode', 'paste' ],
   \            [ 'virtualenv', 'gitgutter', 'filename' ],
   \            [ 'spell' ] ],
-  \ 'right': [ [ 'lsp_errors', 'lsp_warnings', 'lsp_ok', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lessmess', 'lineinfo' ],
+  \ 'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok', 'lessmess', 'lineinfo' ],
   \            [ 'percent' ],
   \            [ 'tagbar', 'fileformat', 'fileencoding', 'filetype' ] ]
   \}
@@ -55,9 +55,9 @@ let g:lightline.tabline = {'left': [['tabs']], 'right': [['close']]}
 
 " Helper functions
 function! Git()
-  if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head') && fugitive#head() != ''
+  if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*FugitiveHead') && FugitiveHead() != ''
     let hunks = GitGutterGetHunkSummary()
-    return '+' . hunks[0] . ' ~' . hunks[1] . ' -' . hunks[2]  . ' ⎇ ' . fugitive#head()
+    return '+' . hunks[0] . ' ~' . hunks[1] . ' -' . hunks[2]  . ' ⎇ ' . FugitiveHead()
   endif
   return ''
 endfunction

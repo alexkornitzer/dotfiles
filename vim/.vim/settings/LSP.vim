@@ -1,6 +1,6 @@
 " General
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
+"let g:lsp_diagnostics_enabled = 1
+"let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_insert_text_enabled = 0
 let g:lsp_signs_enabled = 1
 let g:lsp_text_edit_enabled = 0
@@ -50,14 +50,17 @@ if executable('pyls')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'pyls',
     \ 'cmd': {server_info->['pyls']},
+    \ 'workspace_config': {'pyls':{'plugins': {'pylint': {'enabled': v:true, 'executable': 'pylint'}}}},
     \ 'whitelist': ['python'],
     \ })
 endif
 
-if executable('svelteserver')
+"\ 'cmd': {server_info->[&shell, &shellcmdflag, 'svelteserver --stdio']},
+"if executable('svelteserver')
+if executable('node_modules/svelte-language-server/bin/server.js')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'svelteserver',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'svelteserver --stdio']},
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'node_modules/svelte-language-server/bin/server.js --stdio']},
     \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
     \ 'whitelist': ['svelte'],
     \ })

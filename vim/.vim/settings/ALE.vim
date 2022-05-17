@@ -1,5 +1,5 @@
 " ALE
-let g:ale_set_highlights = 0
+"let g:ale_set_highlights = 0
 
 "
 " Checker specific
@@ -11,7 +11,7 @@ let g:ale_linters = {}
 let g:ale_fixers.elixir = ['mix_format']
 
 " YAML
-let g:ale_fixers.yaml = ['prettier']
+let g:ale_fixers.yaml = ['yamlfix']
 
 " Python
 let g:ale_fixers.python = ['black']
