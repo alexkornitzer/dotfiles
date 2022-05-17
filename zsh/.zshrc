@@ -9,6 +9,11 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Python
 export PATH="$PATH:$HOME/.local/bin"
 
+# Load in completions
+if [[ $OSTYPE =~ "darwin*" ]]; then
+  fpath=(/opt/local/share/zsh/site-functions $fpath)
+fi
+
 #-------------------------------------------------------------------------------
 # ZPlug
 #-------------------------------------------------------------------------------
@@ -34,6 +39,7 @@ zplug "lib/theme-and-appearance",   from:oh-my-zsh
 zplug "plugins/command-not-found",   from:oh-my-zsh
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/pass",   from:oh-my-zsh
+zplug "plugins/podman",   from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh
 #zplug "plugins/vi-mode",   from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
@@ -153,6 +159,11 @@ export PINENTRY_USER_DATA="USE_CURSES=1"
 # Add cargo
 #export PATH="${PATH}:${HOME}/.cargo/bin"
 export PATH="${HOME}/.cargo/bin:${PATH}"
+
+# Add python
+if [ `command -v 'python3'` ]; then
+  export PATH="${PATH}:`python3 -m site --user-base`/bin"
+fi
 
 # No I don't want a visible go folder...
 export GOPATH="${HOME}/.go"
