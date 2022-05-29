@@ -41,9 +41,9 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "~/.zsh/plugins/git-prompt", from:local
 
 # Dev Plugins
-zplug "plugins/cargo",   from:oh-my-zsh
 zplug "plugins/pip",   from:oh-my-zsh
 zplug "plugins/python",   from:oh-my-zsh
+zplug "plugins/rust",   from:oh-my-zsh
 zplug "plugins/virtualenv",   from:oh-my-zsh
 
 # Commands
@@ -151,7 +151,8 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export PINENTRY_USER_DATA="USE_CURSES=1"
 
 # Add cargo
-export PATH="${PATH}:${HOME}/.cargo/bin"
+#export PATH="${PATH}:${HOME}/.cargo/bin"
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 # No I don't want a visible go folder...
 export GOPATH="${HOME}/.go"
