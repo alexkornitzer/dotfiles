@@ -43,6 +43,7 @@ zplug "plugins/podman",   from:oh-my-zsh
 zplug "plugins/tmux",   from:oh-my-zsh
 #zplug "plugins/vi-mode",   from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
+zplug "catppuccin/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "~/.zsh/plugins/git-prompt", from:local
 
@@ -148,6 +149,11 @@ bindkey "\e[3~" delete-char
 source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
 source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 
+# Source in nvm
+if [ -f /opt/local/share/nvm/init-nvm.sh ]; then
+  source /opt/local/share/nvm/init-nvm.sh
+fi
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Exports
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,9 +203,9 @@ _gen_fzf_default_opts() {
   local color0F='#B48EAD'
 
   export FZF_DEFAULT_OPTS="
-    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color08
-    --color=fg:$color04,header:$color08,info:$color0D,pointer:$color0C
-    --color=marker:$color0E,fg+:$color06,prompt:$color09,hl+:$color08
+    --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD
+    --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 
+    --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD
   "
 }
 _gen_fzf_default_opts

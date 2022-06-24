@@ -1,6 +1,6 @@
 " LightLine
 let g:lightline = {
-  \   'colorscheme': 'nord',
+      \   'colorscheme': 'catppuccin',
   \ }
 
 " HACK: Incredible inefficient...

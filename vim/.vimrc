@@ -120,7 +120,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 
 " SQL
-" DbExt: tailor as dynamic loaded plugin for dbext.vim, work with database and sql from within vim 
+" DbExt: tailor as dynamic loaded plugin for dbext.vim, work with database and sql from within vim
 Plug 'lymslive/dbext', { 'for': 'sql' }
 
 " Powershell
@@ -155,6 +155,9 @@ Plug 'sindresorhus/focus', { 'rtp': 'vim' }
 " Nord: An arctic, north-bluish clean and elegant Vim theme
 Plug 'arcticicestudio/nord-vim'
 
+" Catppuccin: Soothing pastel theme for Vim
+Plug 'catppuccin/vim', {'as': 'catppuccin'}
+
 " End
 call plug#end()
 
@@ -188,7 +191,7 @@ set number
 
 " Set the background to dark and set the colour scheme
 set background=dark
-colorscheme nord
+colorscheme catppuccin_mocha
 
 " Map back space
 set backspace=indent,eol,start
