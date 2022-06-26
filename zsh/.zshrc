@@ -7,7 +7,11 @@ export LANG=en_GB.UTF-8
 # Macports
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Python
-export PATH="$PATH:$HOME/.local/bin"
+if [[ $OSTYPE =~ "darwin*" ]]; then
+  export PATH="$PATH:`python -m site --user-base`/bin"
+else
+  export PATH="$PATH:$HOME/.local/bin"
+fi
 
 # Load in completions
 if [[ $OSTYPE =~ "darwin*" ]]; then
