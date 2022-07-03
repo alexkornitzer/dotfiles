@@ -156,7 +156,7 @@ Plug 'sindresorhus/focus', { 'rtp': 'vim' }
 Plug 'arcticicestudio/nord-vim'
 
 " Catppuccin: Soothing pastel theme for Vim
-Plug 'catppuccin/vim', {'as': 'catppuccin'}
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 
 " End
 call plug#end()
