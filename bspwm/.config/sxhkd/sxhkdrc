@@ -12,7 +12,7 @@ super + alt + Escape
 
 # Terminal emulator
 super + Return
-  alacritty
+  kitty
 
 # Program launcher
 super + @space

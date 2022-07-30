@@ -5,9 +5,9 @@ GEOMETRY="x$HEIGHT+0+0"
 
 # Fonts
 FONT1="Noto Sans Mono:size=8"
-FONT2='Font Awesome 5 Free:style=Regular:size=8'
-FONT3='Font Awesome 5 Free:style=Solid:size=8'
-FONT4='Font Awesome 5 Brands:size=8'
+FONT2='Font Awesome 6 Free:style=Regular:size=8'
+FONT3='Font Awesome 6 Free:style=Solid:size=8'
+FONT4='Font Awesome 6 Brands:size=8'
 
 # Colours
 eval $(grep -o -E 'nord0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
