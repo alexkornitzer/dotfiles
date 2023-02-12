@@ -1,41 +1,57 @@
 Xft.dpi: 192
 
-#define nord00 #2E3440
-#define nord01 #3B4252
-#define nord02 #434C5E
-#define nord03 #4C566A
-#define nord04 #D8DEE9
-#define nord05 #E5E9F0
-#define nord06 #ECEFF4
-#define nord07 #8FBCBB
-#define nord08 #88C0D0
-#define nord09 #81A1C1
-#define nord0A #5E81AC
-#define nord0B #BF616A
-#define nord0C #D08770
-#define nord0D #EBCB8B
-#define nord0E #A3BE8C
-#define nord0F #B48EAD
+#define catppuccin00 #45475A
+#define catppuccin01 #F38BA8
+#define catppuccin02 #A6E3A1
+#define catppuccin03 #F9E2AF
+#define catppuccin04 #89B4FA
+#define catppuccin05 #F5C2E7
+#define catppuccin06 #94E2D5
+#define catppuccin07 #BAC2DE
+#define catppuccin08 #585B70
+#define catppuccin09 #F38BA8
+#define catppuccin0A #A6E3A1
+#define catppuccin0B #F9E2AF
+#define catppuccin0C #89B4FA
+#define catppuccin0D #F5C2E7
+#define catppuccin0E #94E2D5
+#define catppuccin0F #A6ADC8
 
-*.foreground:   nord04
-*.background:   nord00
-*.cursorColor:  nord04
-*fading: 35
-*fadeColor: nord03
+#define catppuccinFG #CDD6F4
+#define catppuccinBG #1E1E2E
 
-*.color0: nord01
-*.color1: nord0B
-*.color2: nord0E
-*.color3: nord0D
-*.color4: nord09
-*.color5: nord0F
-*.color6: nord08
-*.color7: nord05
-*.color8: nord03
-*.color9: nord0B
-*.color10: nord0E
-*.color11: nord0D
-*.color12: nord09
-*.color13: nord0F
-*.color14: nord07
-*.color15: nord06
+*background: catppuccinBG
+*foreground: catppuccinFG
+*cursorColor: catppuccinFG
+
+! black
+*color0: catppuccin00
+*color8: catppuccin08
+
+! red
+*color1: catppuccin01
+*color9: catppuccin09
+
+! green
+*color2: catppuccin02
+*color10: catppuccin0A
+
+! yellow
+*color3: catppuccin03
+*color11: catppuccin0B
+
+! blue
+*color4: catppuccin04
+*color12: catppuccin0C
+
+! magenta
+*color5: catppuccin05
+*color13: catppuccin0D
+
+! cyan
+*color6: catppuccin06
+*color14: catppuccin0E
+
+! white
+*color7: catppuccin07
+*color15: catppuccin0F

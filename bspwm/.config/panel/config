@@ -10,12 +10,14 @@ FONT3='Font Awesome 6 Free:style=Solid:size=8'
 FONT4='Font Awesome 6 Brands:size=8'
 
 # Colours
-eval $(grep -o -E 'nord0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
-BACKGROUND=$nord00
-BACKGROUND_ALT=$nord01
-FOREGROUND=$nord05
-FOREGROUND_ALT=$nord06
-BLUE=$nord08
-GREEN=$nord0E
-RED=$nord0B
-YELLOW=$nord0D
+eval $(grep -o -E 'catppuccin0[0-9|A-F] #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
+eval $(grep -o -E 'catppuccinBG #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
+eval $(grep -o -E 'catppuccinFG #[0-9|a-z|A-Z]*' ~/.Xresources | awk -F ' ' '{print $1"=\""$2"\""}')
+BACKGROUND=$catppuccinBG
+BACKGROUND_ALT=$catppuccin00
+FOREGROUND=$catppuccin07
+FOREGROUND_ALT=$catppuccin15
+BLUE=$catppuccin04
+GREEN=$catppuccin10
+RED=$catppuccin01
+YELLOW=$catppuccin03
