@@ -1,0 +1,152 @@
+* {
+    catppuccin0: #45475A;
+    catppuccin1: #F38BA8;
+    catppuccin2: #A6E3A1;
+    catppuccin3: #F9E2AF;
+    catppuccin4: #89B4FA;
+    catppuccin5: #F5C2E7;
+    catppuccin6: #94E2D5;
+    catppuccin7: #BAC2DE;
+    catppuccin8: #585B70;
+    catppuccin9: #F38BA8;
+    catppuccin10: #A6E3A1;
+    catppuccin11: #F9E2AF;
+    catppuccin12: #89B4FA;
+    catppuccin13: #F5C2E7;
+    catppuccin14: #94E2D5;
+    catppuccin15: #A6ADC8;
+
+    catppuccinBG: #1E1E2E;
+    catppuccinFG: #CDD6F4;
+
+    spacing: 2;
+    background-color: var(catppuccinBG);
+
+    background: var(catppuccinBG);
+    foreground: var(catppuccinFG);
+
+    normal-background: var(background);
+    normal-foreground: var(foreground);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    selected-normal-background: var(catppuccin4);
+    selected-normal-foreground: var(background);
+
+    active-background: var(background);
+    active-foreground: var(catppuccin10);
+    alternate-active-background: var(background);
+    alternate-active-foreground: var(catppuccin11);
+    selected-active-background: var(catppuccin11);
+    selected-active-foreground: var(background);
+
+    urgent-background: var(background);
+    urgent-foreground: var(catppuccin11);
+    alternate-urgent-background: var(background);
+    alternate-urgent-foreground: var(catppuccin12);
+    selected-urgent-background: var(catppuccin12);
+    selected-urgent-foreground: var(background);
+}
+element {
+    padding: 0px 0px 0px 7px;
+    spacing: 5px;
+    border:  0;
+    cursor:  pointer;
+}
+element normal.normal {
+    background-color: var(normal-background);
+    text-color: var(normal-foreground);
+}
+element normal.urgent {
+    background-color: var(urgent-background);
+    text-color: var(urgent-foreground);
+}
+element normal.active {
+    background-color: var(active-background);
+    text-color: var(active-foreground);
+}
+element selected.normal {
+    background-color: var(selected-normal-background);
+    text-color: var(selected-normal-foreground);
+}
+element selected.urgent {
+    background-color: var(selected-urgent-background);
+    text-color: var(selected-urgent-foreground);
+}
+element selected.active {
+    background-color: var(selected-active-background);
+    text-color: var(selected-active-foreground);
+}
+element alternate.normal {
+    background-color: var(alternate-normal-background);
+    text-color: var(alternate-normal-foreground);
+}
+element alternate.urgent {
+    background-color: var(alternate-urgent-background);
+    text-color: var(alternate-urgent-foreground);
+}
+element alternate.active {
+    background-color: var(alternate-active-background);
+    text-color: var(alternate-active-foreground);
+}
+element-text {
+    background-color: rgba(0, 0, 0, 0%);
+    text-color: inherit;
+    highlight: inherit;
+    cursor: inherit;
+}
+element-icon {
+    background-color: rgba(0, 0, 0, 0%);
+    size: 1.0000em;
+    text-color: inherit;
+    cursor: inherit;
+}
+window {
+    padding: 0;
+    border: 0;
+    background-color: var(background);
+}
+mainbox {
+    padding: 0;
+    border: 0;
+}
+message {
+    margin: 0px 7px;
+}
+textbox {
+    text-color: var(foreground);
+}
+listview {
+    margin: 0px 0px 5px;
+    scrollbar: true;
+    spacing: 2px;
+    fixed-height: 0;
+}
+scrollbar {
+    padding: 0;
+    handle-width: 14px;
+    border: 0;
+    handle-color: var(catppuccin0);
+}
+button {
+    spacing: 0;
+    text-color: var(normal-foreground);
+    cursor: pointer;
+}
+button selected {
+    background-color: var(selected-normal-background);
+    text-color: var(selected-normal-foreground);
+}
+inputbar {
+    padding: 7px;
+    margin: 7px;
+    spacing: 0;
+    text-color: var(normal-foreground);
+    background-color: var(catppuccin0);
+    children: [ entry ];
+}
+entry {
+    spacing: 0;
+    cursor: text;
+    text-color: var(normal-foreground);
+    background-color: var(catppuccin0);
+}

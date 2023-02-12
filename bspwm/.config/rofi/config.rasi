@@ -6,4 +6,4 @@ configuration {
   modi: "window,run,ssh,drun";
   drun-show-actions: true;
 }
-@theme "nord"
+@theme "catppuccin"
