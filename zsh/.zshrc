@@ -58,8 +58,8 @@ zplug "plugins/rust",   from:oh-my-zsh
 zplug "plugins/virtualenv",   from:oh-my-zsh
 
 # Commands
-zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
+#zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
+#zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
 
 # OS X
 if [[ $OSTYPE =~ "darwin*" ]]; then
@@ -150,8 +150,9 @@ bindkey "\e[3~" delete-char
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Source in fzf
-source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
-source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+fi
 
 # Source in nvm
 if [ -f /opt/local/share/nvm/init-nvm.sh ]; then
