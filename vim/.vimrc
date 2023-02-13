@@ -254,6 +254,7 @@ source $HOME/.vim/settings/ALE.vim                  " Plugin: ALE
 source $HOME/.vim/settings/Colorizer.vim            " Plugin: Colorizer
 source $HOME/.vim/settings/Echodoc.vim              " Plugin: Echodoc
 source $HOME/.vim/settings/FastFold.vim             " Plugin: FastFold
+source $HOME/.vim/settings/GitGutter.vim            " Plugin: GitGutter
 source $HOME/.vim/settings/Gutentags.vim            " Plugin: Gutentags
 source $HOME/.vim/settings/IndentLine.vim           " Plugin: IndentLine
 source $HOME/.vim/settings/Jedi.vim                 " Plugin: Jedi
