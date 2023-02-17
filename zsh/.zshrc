@@ -28,6 +28,8 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+zinit light zdharma-continuum/zinit-annex-patch-dl
+
 # Load Oh-My-Zsh Libraries but only the ones we want
 zi snippet OMZL::completion.zsh
 zi snippet OMZL::correction.zsh
@@ -69,8 +71,12 @@ zi snippet OMZP::rust
 zi snippet OMZP::virtualenv
 
 # Commands
-zi ice from"gh-r" as"program"
-zi light junegunn/fzf
+zinit ice as"command" from"gh-r" src'key-bindings.zsh' completions \
+      dl'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh;
+         https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh -> _fzf;
+         https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> $ZPFX/share/man/man1/fzf.1;
+         https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> $ZPFX/share/man/man1/fzf-tmux.1;'
+zinit light junegunn/fzf
 
 # OS X
 if [[ $OSTYPE =~ "darwin*" ]]; then
@@ -152,11 +158,6 @@ bindkey "\e[3~" delete-char
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Sources
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Source in fzf
-if [ -f ~/.fzf.zsh ]; then
-  source ~/.fzf.zsh
-fi
 
 # Source in nvm
 if [ -f /opt/local/share/nvm/init-nvm.sh ]; then
