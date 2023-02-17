@@ -19,67 +19,71 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
 fi
 
 #-------------------------------------------------------------------------------
-# ZPlug
+# Zinit
 #-------------------------------------------------------------------------------
 
 # Source in the package manager
-source ~/.zplug/init.zsh
-
-# Self manage
-zplug 'zplug/zplug', hook-build: 'zplug --self-manage'
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # Load Oh-My-Zsh Libraries but only the ones we want
-zplug "lib/completion",   from:oh-my-zsh
-zplug "lib/correction",   from:oh-my-zsh
-zplug "lib/git",   from:oh-my-zsh
-zplug "lib/grep",   from:oh-my-zsh
-zplug "lib/history",   from:oh-my-zsh
-zplug "lib/key-bindings",   from:oh-my-zsh
-zplug "lib/spectrum",   from:oh-my-zsh
-zplug "lib/termsupport",   from:oh-my-zsh
-zplug "lib/theme-and-appearance",   from:oh-my-zsh
+zi snippet OMZL::completion.zsh
+zi snippet OMZL::correction.zsh
+zi snippet OMZL::git.zsh
+zi snippet OMZL::grep.zsh
+zi snippet OMZL::history.zsh
+zi snippet OMZL::key-bindings.zsh
+zi snippet OMZL::spectrum.zsh
+zi snippet OMZL::termsupport.zsh
+zi snippet OMZL::theme-and-appearance.zsh
 
 ## General
-zplug "plugins/command-not-found",   from:oh-my-zsh
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/pass",   from:oh-my-zsh
-zplug "plugins/podman",   from:oh-my-zsh
-zplug "plugins/tmux",   from:oh-my-zsh
-#zplug "plugins/vi-mode",   from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions"
-zplug "catppuccin/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "~/.zsh/plugins/git-prompt", from:local
+zi snippet OMZP::command-not-found
+
+zi snippet OMZP::git
+
+zi ice as"completition"
+zi snippet OMZP::pass/_pass
+
+zi snippet OMZP::tmux
+
+zi light zsh-users/zsh-autosuggestions
+
+zi light catppuccin/zsh-syntax-highlighting
+
+zi light zsh-users/zsh-syntax-highlighting
+
+zi ice from"local"
+zi light ~/.zsh/plugins/git-prompt
 
 # Dev Plugins
-zplug "plugins/pip",   from:oh-my-zsh
-zplug "plugins/python",   from:oh-my-zsh
-zplug "plugins/rust",   from:oh-my-zsh
-zplug "plugins/virtualenv",   from:oh-my-zsh
+zi snippet OMZP::pip
+
+zi snippet OMZP::python
+
+zi ice git
+zi snippet OMZP::rust
+
+zi snippet OMZP::virtualenv
 
 # Commands
-#zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
-#zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
+zi ice from"gh-r" as"program"
+zi light junegunn/fzf
 
 # OS X
 if [[ $OSTYPE =~ "darwin*" ]]; then
-  zplug "plugins/macports",   from:oh-my-zsh
-  zplug "plugins/osx",   from:oh-my-zsh
+  zi snippet OMZP::macports
+
+  zi ice svn
+  zi snippet OMZP::macos
 fi
 
 # Load local themes
-zplug '~/.zsh/themes', from:local, as:theme
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-
-# Apply changes
-zplug load
+setopt promptsubst
+zi ice from"local" as"theme"
+zi light ~/.zsh/themes
 
 #-------------------------------------------------------------------------------
 # General ZSH Settings
@@ -209,7 +213,7 @@ _gen_fzf_default_opts() {
 
   export FZF_DEFAULT_OPTS="
     --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD
-    --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 
+    --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96
     --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD
   "
 }
