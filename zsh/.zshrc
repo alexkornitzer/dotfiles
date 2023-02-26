@@ -86,6 +86,11 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
   zi snippet OMZP::macos
 fi
 
+# Load completitions
+autoload -Uz compinit
+compinit
+zinit cdreplay -q
+
 # Load local themes
 setopt promptsubst
 zi ice from"local" as"theme"
