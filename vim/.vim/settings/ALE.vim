@@ -23,6 +23,9 @@ let g:ale_fixers.javascript = ['eslint']
 " Rust
 let g:ale_linters.rust = []  " NOTE: We use vim-lsp
 
+" Tex
+let g:ale_linters.tex = []  " NOTE: We use vim-lsp
+
 " Svelte
 let g:ale_fixers.svelte = ['eslint', 'prettier']
 let g:ale_linters.svelte = ['eslint']
