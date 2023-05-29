@@ -33,6 +33,7 @@ zinit light zdharma-continuum/zinit-annex-patch-dl
 # Load Oh-My-Zsh Libraries but only the ones we want
 zi snippet OMZL::completion.zsh
 zi snippet OMZL::correction.zsh
+zi snippet OMZL::functions.zsh
 zi snippet OMZL::git.zsh
 zi snippet OMZL::grep.zsh
 zi snippet OMZL::history.zsh
