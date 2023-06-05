@@ -48,7 +48,7 @@ function! InstallLSP(info)
   if a:info.status != 'unchanged' || a:info.force
     " PYLS
     if executable('pip')
-      execute '!python -m pip install --user python-lsp-server black pylint'
+      execute '!python -m pip install --user python-lsp-server black isort pyls-isort pylsp-rope python-lsp-black python-lsp-ruff rope ruff'
     endif
     " RLS
     " NOTE: Wait for rust-analyzer to hit stable
@@ -58,7 +58,7 @@ function! InstallLSP(info)
   endif
 endfunction
 Plug 'prabirshrestha/vim-lsp', { 'do': function('InstallLSP') }
-" LSP Settings: Auto configurations for Language Server for vim-lsp 
+" LSP Settings: Auto configurations for Language Server for vim-lsp
 Plug 'mattn/vim-lsp-settings'
 " LSP-ALE: Bridge between vim-lsp and ALE
 Plug 'rhysd/vim-lsp-ale'
