@@ -19,83 +19,62 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
 fi
 
 #-------------------------------------------------------------------------------
-# Zinit
+# Znap
 #-------------------------------------------------------------------------------
 
 # Source in the package manager
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
-
-zinit light zdharma-continuum/zinit-annex-patch-dl
+ZNAP_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/znap"
+[[ -r "${ZNAP_HOME}/znap/znap.zsh" ]] || git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git "$ZNAP_HOME/znap"
+source "${ZNAP_HOME}/znap/znap.zsh"
 
 # Load Oh-My-Zsh Libraries but only the ones we want
-zi snippet OMZL::completion.zsh
-zi snippet OMZL::correction.zsh
-zi snippet OMZL::functions.zsh
-zi snippet OMZL::git.zsh
-zi snippet OMZL::grep.zsh
-zi snippet OMZL::history.zsh
-zi snippet OMZL::key-bindings.zsh
-zi snippet OMZL::spectrum.zsh
-zi snippet OMZL::termsupport.zsh
-zi snippet OMZL::theme-and-appearance.zsh
+znap source ohmyzsh/ohmyzsh lib/completion.zsh
+znap source ohmyzsh/ohmyzsh lib/correction.zsh
+znap source ohmyzsh/ohmyzsh lib/functions.zsh
+znap source ohmyzsh/ohmyzsh lib/git.zsh
+znap source ohmyzsh/ohmyzsh lib/grep.zsh
+znap source ohmyzsh/ohmyzsh lib/history.zsh
+znap source ohmyzsh/ohmyzsh lib/key-bindings.zsh
+znap source ohmyzsh/ohmyzsh lib/spectrum.zsh
+znap source ohmyzsh/ohmyzsh lib/termsupport.zsh
+znap source ohmyzsh/ohmyzsh lib/theme-and-appearance.zsh
 
 ## General
-zi snippet OMZP::command-not-found
+znap source ohmyzsh/ohmyzsh plugins/command-not-found
+znap source ohmyzsh/ohmyzsh plugins/git
+znap source ohmyzsh/ohmyzsh plugins/tmux
 
-zi snippet OMZP::git
+znap source zsh-users/zsh-autosuggestions
+znap eval catppuccin-syntax-highlighting 'curl -fsSL https://raw.githubusercontent.com/catppuccin/zsh-syntax-highlighting/master/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh'
+znap source zsh-users/zsh-syntax-highlighting
 
-zi ice as"completition"
-zi snippet OMZP::pass/_pass
-
-zi snippet OMZP::tmux
-
-zi light zsh-users/zsh-autosuggestions
-
-zi light catppuccin/zsh-syntax-highlighting
-
-zi light zsh-users/zsh-syntax-highlighting
-
-zi ice from"local"
-zi light ~/.zsh/plugins/git-prompt
-
-# Dev Plugins
-zi snippet OMZP::pip
-
-zi snippet OMZP::python
-
-zi ice git
-zi snippet OMZP::rust
-
-zi snippet OMZP::virtualenv
-
-# Commands
-zinit ice as"command" from"gh-r" src'key-bindings.zsh' completions \
-      dl'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh;
-         https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh -> _fzf;
-         https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 -> $ZPFX/share/man/man1/fzf.1;
-         https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 -> $ZPFX/share/man/man1/fzf-tmux.1;'
-zinit light junegunn/fzf
+## Dev Plugins
+znap source ohmyzsh/ohmyzsh plugins/pip
+znap source ohmyzsh/ohmyzsh plugins/python
+znap source ohmyzsh/ohmyzsh plugins/rust
+znap source ohmyzsh/ohmyzsh plugins/virtualenv
 
 # OS X
 if [[ $OSTYPE =~ "darwin*" ]]; then
-  zi snippet OMZP::macports
-
-  zi ice svn
-  zi snippet OMZP::macos
+  znap source ohmyzsh/ohmyzsh plugins/macports
+  znap source ohmyzsh/ohmyzsh plugins/macos
 fi
 
-# Load completitions
-autoload -Uz compinit
-compinit
-zinit cdreplay -q
+# Commands
+znap source junegunn/fzf shell/{completion,key-bindings}.zsh
+${ZNAP_HOME}/junegunn/fzf/install --no-fish --no-bash --bin > /dev/null
 
-# Load local themes
-setopt promptsubst
-zi ice from"local" as"theme"
-zi light ~/.zsh/themes
+[[ -r "${ZNAP_HOME}/git-prompt" ]] || ln -s "${HOME}/.zsh/plugins/git-prompt" "${ZNAP_HOME}/git-prompt"
+source "${ZNAP_HOME}/git-prompt/git-prompt.plugin.zsh"
+
+[[ -r "${ZNAP_HOME}/jellybeans" ]] || ln -s "${HOME}/.zsh/themes" "${ZNAP_HOME}/jellybeans"
+znap prompt jellybeans
+
+# Completions
+znap function _rustup rustup   'eval "$(rustup completions zsh)"'
+compdef       _rustup rustup
+znap function _cargo cargo     'eval "$(rustup completions zsh cargo)"'
+compdef       _cargo cargo
 
 #-------------------------------------------------------------------------------
 # General ZSH Settings
