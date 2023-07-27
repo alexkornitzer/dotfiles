@@ -63,6 +63,7 @@ fi
 # Commands
 znap source junegunn/fzf shell/{completion,key-bindings}.zsh
 ${ZNAP_HOME}/junegunn/fzf/install --no-fish --no-bash --bin > /dev/null
+znap install junegunn/fzf
 
 [[ -r "${ZNAP_HOME}/git-prompt" ]] || ln -s "${HOME}/.zsh/plugins/git-prompt" "${ZNAP_HOME}/git-prompt"
 source "${ZNAP_HOME}/git-prompt/git-prompt.plugin.zsh"
