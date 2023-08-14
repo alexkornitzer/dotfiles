@@ -1,12 +1,20 @@
 " General
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_inlay_hints_enabled = 1
 let g:lsp_insert_text_enabled = 0
 let g:lsp_signs_enabled = 1
 let g:lsp_text_edit_enabled = 0
 
 
 let g:lsp_settings = {
+\   'rust-analyzer': {
+\     'initialization_options': {
+\       'check': {
+\         'command': 'clippy'
+\       }
+\     }
+\   },
 \   'texlab': {
 \     'workspace_config': {
 \       'texlab': {
@@ -32,6 +40,9 @@ let g:lsp_settings = {
 \     }
 \   }
 \ }
+
+highlight link lspInlayHintsType Comment
+highlight link lspInlayHintsParameter Comment
 
 if has('macunix')
   let g:lsp_settings['texlab']['workspace_config']['texlab']['forwardSearch']['executable'] = '/Applications/Skim.app/Contents/SharedSupport/displayline'
