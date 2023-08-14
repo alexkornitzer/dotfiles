@@ -49,7 +49,12 @@ znap eval catppuccin-syntax-highlighting 'curl -fsSL https://raw.githubuserconte
 znap source zsh-users/zsh-syntax-highlighting
 
 ## Dev Plugins
+znap source ohmyzsh/ohmyzsh plugins/docker
+znap source ohmyzsh/ohmyzsh plugins/docker-compose
+znap source ohmyzsh/ohmyzsh plugins/npm
+znap source ohmyzsh/ohmyzsh plugins/nvm
 znap source ohmyzsh/ohmyzsh plugins/pip
+znap source ohmyzsh/ohmyzsh plugins/poetry
 znap source ohmyzsh/ohmyzsh plugins/python
 znap source ohmyzsh/ohmyzsh plugins/rust
 znap source ohmyzsh/ohmyzsh plugins/virtualenv
@@ -58,6 +63,7 @@ znap source ohmyzsh/ohmyzsh plugins/virtualenv
 if [[ $OSTYPE =~ "darwin*" ]]; then
   znap source ohmyzsh/ohmyzsh plugins/macports
   znap source ohmyzsh/ohmyzsh plugins/macos
+  znap source ohmyzsh/ohmyzsh plugins/xcode
 fi
 
 # Commands
@@ -72,10 +78,10 @@ source "${ZNAP_HOME}/git-prompt/git-prompt.plugin.zsh"
 znap prompt jellybeans
 
 # Completions
-znap function _rustup rustup   'eval "$(rustup completions zsh)"'
-compdef       _rustup rustup
-znap function _cargo cargo     'eval "$(rustup completions zsh cargo)"'
-compdef       _cargo cargo
+znap fpath _rustup  'rustup completions zsh'
+znap fpath _cargo   'rustup completions zsh cargo'
+fpath+=( ~[ohmyzsh]/{ripgrep} )
+autoload -Uz compinit && compinit
 
 #-------------------------------------------------------------------------------
 # General ZSH Settings
