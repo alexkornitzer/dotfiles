@@ -27,6 +27,11 @@ ZNAP_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/znap"
 [[ -r "${ZNAP_HOME}/znap/znap.zsh" ]] || git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git "$ZNAP_HOME/znap"
 source "${ZNAP_HOME}/znap/znap.zsh"
 
+# HACK: Work around for loading completions from Oh-My-Zsh
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+mkdir -p "$ZSH_CACHE_DIR/completions"
+(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+
 # Load Oh-My-Zsh Libraries but only the ones we want
 znap source ohmyzsh/ohmyzsh lib/completion.zsh
 znap source ohmyzsh/ohmyzsh lib/correction.zsh
@@ -78,10 +83,9 @@ source "${ZNAP_HOME}/git-prompt/git-prompt.plugin.zsh"
 znap prompt jellybeans
 
 # Completions
-znap fpath _rustup  'rustup completions zsh'
-znap fpath _cargo   'rustup completions zsh cargo'
+#znap fpath _rustup  'rustup completions zsh'
+#znap fpath _cargo   'rustup completions zsh cargo'
 fpath+=( ~[ohmyzsh]/{ripgrep} )
-autoload -Uz compinit && compinit
 
 #-------------------------------------------------------------------------------
 # General ZSH Settings
