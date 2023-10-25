@@ -112,7 +112,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'AlexKornitzer/cocoa.vim', { 'for': ['objc', 'objc++'] }
 
 " Elixir: Vim configuration files for Elixir
-Plug 'elixir-editors/vim-elixir', { 'for': ['ex', 'exs', 'eex', 'leex'] }
+Plug 'elixir-editors/vim-elixir', { 'for': ['ex', 'exs', 'eex', 'heex', 'leex', 'sface'] }
 
 " Go: Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go'] }
@@ -133,8 +133,8 @@ Plug 'PProvost/vim-ps1', { 'for': ['ps1', 'ps1xml'] }
 " Rust: Vim configuration for Rust.
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'toml'] }
 
-" TOML: Vim syntax for TOML
-Plug 'cespare/vim-toml'
+" Terraform: basic vim/terraform integration
+Plug 'hashivim/vim-terraform', { 'for': ['tf'] }
 
 " Web
 " Javascript: Vastly improved Javascript indentation and syntax support in Vim.
@@ -341,6 +341,11 @@ augroup extended_todo
   au Syntax * syn match ExtendedTodo "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|HACK\|REVIEW\|XXX\):" containedin=.*Comment.*,vimCommentTitle
 augroup END
 hi def link ExtendedTodo Todo
+
+" FIXME: https://github.com/elixir-editors/vim-elixir/issues/562
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
 
 "-------------------------------------------------------------------------------
 " Custom Mappings
