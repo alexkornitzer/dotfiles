@@ -297,8 +297,6 @@ endif
 " Auto Commands
 "-------------------------------------------------------------------------------
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
-
 " Set MUcompleteNotify as it has not setting...
 autocmd VimEnter * if exists(':MUcompleteNotify') | call mucomplete#msg#set_notifications(1)
 

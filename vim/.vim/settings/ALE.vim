@@ -12,6 +12,7 @@ let g:ale_linters = {}
 
 " Elixir
 let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fixers.eelixir = ['mix_format']
 
 " YAML
 let g:ale_fixers.yaml = ['yamlfix']
