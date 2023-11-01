@@ -35,8 +35,71 @@ return {
       end,
     })
 
-    -- TODO: List more servers
-    require('lspconfig').rust_analyzer.setup({})
-    require('lspconfig').pylsp.setup({})
+    local on_attach = function(client, bufnr)
+      if client.server_capabilities.inlayHintProvider then
+        vim.lsp.buf.inlay_hint(bufnr, true)
+      end
+    end
+
+    require 'lspconfig'.elixirls.setup({
+      cmd = function()
+        if vim.fn.executable('elixir-ls') == 1 then
+          return 'elixir-ls'
+        end
+      end,
+      on_attach = on_attach
+    })
+    require 'lspconfig'.lua_ls.setup({
+      on_attach = on_attach,
+      on_init = function(client)
+        local path = client.workspace_folders[1].name
+        if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+          client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+            Lua = {
+              runtime = {
+                version = 'LuaJIT'
+              },
+              workspace = {
+                checkThirdParty = false,
+                library = {
+                  vim.env.VIMRUNTIME
+                }
+                -- library = vim.api.nvim_get_runtime_file("", true)
+              }
+            }
+          })
+
+          client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+        end
+        return true
+      end
+    })
+    require('lspconfig').pylsp.setup({
+      on_attach = on_attach,
+    })
+    -- NOTE: Disabled as we use 'rustaceanvim'
+    --require('lspconfig').rust_analyzer.setup({
+    --  settings = {
+    --    ['rust-analyzer'] = {
+    --      check = {
+    --        command = "clippy"
+    --      }
+    --    },
+    --  },
+    --})
+    require 'lspconfig'.svelte.setup({
+      on_attach = on_attach,
+    })
+    require 'lspconfig'.tailwindcss.setup({
+      on_attach = on_attach,
+      init_options = {
+        userLanguages = {
+          eelixir = "html-eex",
+        }
+      }
+    })
+    require 'lspconfig'.tsserver.setup({
+      on_attach = on_attach,
+    })
   end
 }

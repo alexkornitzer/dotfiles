@@ -28,7 +28,7 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
 -- Set completion
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noinsert,noselect"
 
 -- Turn on line numbers
 vim.opt.number = true

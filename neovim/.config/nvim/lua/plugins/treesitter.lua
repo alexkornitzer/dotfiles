@@ -3,8 +3,14 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   opts = {
-    -- TODO: List parsers
-    ensure_installed = {"ron", "rust", "toml"},
+    ensure_installed = {
+      "c",
+      "elixir",
+      "json",
+      "lua",
+      "rust",
+      "toml"
+    },
     auto_install = true,
     highlight = {
       enable = true,
