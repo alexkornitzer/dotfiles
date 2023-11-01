@@ -238,9 +238,15 @@ bindkey '^[j' traverse-upwards
 # Fixes
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# FIXME Needed to fix: https://github.com/zplug/zplug/issues/383
+# FIXME: Needed to fix: https://github.com/zplug/zplug/issues/383
 # Required removal of https://github.com/zplug/zplug/pull/355/files#diff-fb361a0797fa562c6352fa10675bfbaaR6
 setopt monitor
 
-# FIXME Needed to fix: https://github.com/zplug/zplug/issues/387
+# FIXME: Needed to fix: https://github.com/zplug/zplug/issues/387
 export PATH="${PATH}:${ZPLUG_BIN}"
+
+# FIXME: Hack until I add elixir-ls to macports
+export PATH="${PATH}:${HOME}/.local/share/vim-lsp-settings/servers/elixir-ls"
+
+# Local binaries
+export PATH="${PATH}:${HOME}/.local/bin"
