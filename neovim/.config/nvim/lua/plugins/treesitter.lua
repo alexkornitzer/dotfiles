@@ -9,7 +9,9 @@ return {
       "json",
       "lua",
       "rust",
-      "toml"
+      "svelte",
+      "toml",
+      "typescript"
     },
     auto_install = true,
     highlight = {

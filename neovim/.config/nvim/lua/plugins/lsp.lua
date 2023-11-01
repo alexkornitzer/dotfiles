@@ -41,12 +41,13 @@ return {
       end
     end
 
+    local elixir_path = nil
+    if vim.fn.executable('elixir-ls') == 1 then
+      elixir_path = {'elixir-ls'}
+    end
+
     require 'lspconfig'.elixirls.setup({
-      cmd = function()
-        if vim.fn.executable('elixir-ls') == 1 then
-          return 'elixir-ls'
-        end
-      end,
+      cmd = elixir_path,
       on_attach = on_attach
     })
     require 'lspconfig'.lua_ls.setup({
