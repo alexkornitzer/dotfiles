@@ -95,7 +95,10 @@ return {
       on_attach = on_attach,
       init_options = {
         userLanguages = {
+          elixir = "html-eex",
           eelixir = "html-eex",
+          eruby = 'erb',
+          heex = "phoenix-heex",
         }
       }
     })
