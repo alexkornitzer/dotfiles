@@ -125,7 +125,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Turn on spelling for certain filetypes
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "gitcommit", "markdown", "tex" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true

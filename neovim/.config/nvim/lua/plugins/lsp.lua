@@ -43,7 +43,7 @@ return {
 
     local elixir_path = nil
     if vim.fn.executable('elixir-ls') == 1 then
-      elixir_path = {'elixir-ls'}
+      elixir_path = { 'elixir-ls' }
     end
 
     require 'lspconfig'.elixirls.setup({
@@ -100,6 +100,44 @@ return {
           eruby = 'erb',
           heex = "phoenix-heex",
         }
+      }
+    })
+    local forwardSearch = { executable = '', args = {} }
+    if vim.loop.os_uname().sysname == "Darwin" then
+      forwardSearch = {
+        executable = '/Applications/Skim.app/Contents/SharedSupport/displayline',
+        args = { "-g", "%l", "%p", "%f" }
+      }
+    end
+    require 'lspconfig'.texlab.setup({
+      on_attach = on_attach,
+      settings = {
+        texlab = {
+          auxDirectory = ".",
+          bibtexFormatter = "texlab",
+          build = {
+            args = {
+              "-pdf",
+              "-interaction=nonstopmode",
+              "-synctex=1",
+              "-pv",
+              "%f"
+            },
+            executable = "latexmk",
+            forwardSearchAfter = true,
+            onSave = true
+          },
+          chktex = {
+            onOpenAndSave = true
+          },
+          diagnosticsDelay = 300,
+          formatterLineLength = 80,
+          forwardSearch = forwardSearch,
+          latexFormatter = "latexindent",
+          latexindent = {
+            modifyLineBreaks = false
+          }
+        },
       }
     })
     require 'lspconfig'.tsserver.setup({
