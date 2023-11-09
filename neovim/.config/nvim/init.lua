@@ -25,7 +25,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 -- Sync clipboard with system
-vim.opt.clipboard = "unnamedplus"
+--vim.opt.clipboard = "unnamedplus"
 
 -- Set completion
 vim.opt.completeopt = "menu,menuone,noinsert,noselect"
@@ -102,16 +102,17 @@ vim.keymap.set('', '<leader>fc', [[/\v^[<\|=>]{7}( .*\|$)<CR>]], opts)
 vim.keymap.set('n', '<leader>jt', '<Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>', opts)
 
 -- Window Keymap
-vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+-- NOTE: Handled by tmux.nvim
+--vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+--vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+--vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+--vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Buffer keymap
-vim.keymap.set("n", "<C-H>", "<C-W><C-H>", opts)
-vim.keymap.set("n", "<C-J>", "<C-W><C-J>", opts)
-vim.keymap.set("n", "<C-K>", "<C-W><C-K>", opts)
-vim.keymap.set("n", "<C-L>", "<C-W><C-L>", opts)
+--vim.keymap.set("n", "<C-H>", "<C-W><C-H>", opts)
+--vim.keymap.set("n", "<C-J>", "<C-W><C-J>", opts)
+--vim.keymap.set("n", "<C-K>", "<C-W><C-K>", opts)
+--vim.keymap.set("n", "<C-L>", "<C-W><C-L>", opts)
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
