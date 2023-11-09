@@ -138,11 +138,3 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
-
--- Restore intro screen
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'VeryLazy',
-  callback = function()
-    vim.cmd.intro()
-  end,
-})
