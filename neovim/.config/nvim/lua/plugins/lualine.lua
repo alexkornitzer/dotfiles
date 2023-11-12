@@ -3,11 +3,11 @@ return {
   "nvim-lualine/lualine.nvim",
   opts = {
     options = {
-      component_separators = {left = '|', right = '|'},
+      component_separators = { left = '|', right = '|' },
       section_separators = '',
     },
     sections = {
-      lualine_a = {'mode'},
+      lualine_a = { 'mode' },
       lualine_b = {
         {
           'branch',
@@ -28,11 +28,11 @@ return {
         },
         {
           'diagnostics',
-          sources = {'nvim_lsp'},
-          symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'}
+          sources = { 'nvim_lsp' },
+          symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' }
         }
       },
-      lualine_c = {'filename'},
+      lualine_c = { 'filename' },
       lualine_x = {
         'encoding',
         {
@@ -45,13 +45,14 @@ return {
         },
         'filetype'
       },
-      lualine_y = {'progress'},
-      lualine_z = {'location'}
+      lualine_y = { 'progress' },
+      lualine_z = { 'location' }
     },
     tabline = {
       lualine_a = {
         {
           'tabs',
+          max_length = vim.o.columns,
           mode = 2
         }
       },
