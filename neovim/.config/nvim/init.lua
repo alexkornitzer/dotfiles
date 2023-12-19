@@ -27,6 +27,9 @@ vim.opt.termguicolors = true
 -- Sync clipboard with system
 --vim.opt.clipboard = "unnamedplus"
 
+-- Disable mouse
+vim.opt.mouse = ""
+
 -- Set completion
 vim.opt.completeopt = "menu,menuone,noinsert,noselect"
 
@@ -96,7 +99,7 @@ require("lazy").setup("plugins", {
 local opts = { silent = true, noremap = true }
 
 -- Find merge conflict markers
-vim.keymap.set('', '<leader>fc', [[/\v^[<\|=>]{7}( .*\|$)<CR>]], opts)
+vim.keymap.set('', '<leader>fc', [[/\v^[<\|=>]{7}<CR>]], opts)
 
 -- Run python's jtool and set the filetype
 vim.keymap.set('n', '<leader>jt', '<Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>', opts)
