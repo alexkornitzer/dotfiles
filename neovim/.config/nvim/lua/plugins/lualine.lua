@@ -34,6 +34,16 @@ return {
       },
       lualine_c = { 'filename' },
       lualine_x = {
+        function()
+          local venv = vim.env.VIRTUAL_ENV
+          if venv then
+            local params = {}
+            string.gsub(venv, '[^' .. '/' .. ']+', function(w) table.insert(params, w) end)
+            return params[#params]
+          else
+            return
+          end
+        end,
         'encoding',
         {
           'fileformat',
