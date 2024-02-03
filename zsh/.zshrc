@@ -155,6 +155,11 @@ bindkey "\e[3~" delete-char
 # Sources
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Source in direnv
+if [ `command -v 'direnv'` ]; then
+  eval "$(direnv hook zsh)"
+fi
+
 # Source in nvm
 if [ -f /opt/local/share/nvm/init-nvm.sh ]; then
   source /opt/local/share/nvm/init-nvm.sh

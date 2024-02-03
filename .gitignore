@@ -7,4 +7,5 @@ vim/.vim/.netrwhist
 vim/.vim/ycm_extra_conf.pyc
 .DS_Store
 *.sw*
+zsh/**/*.zwc
 __pycache__
