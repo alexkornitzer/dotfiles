@@ -49,6 +49,9 @@ return {
     require 'lspconfig'.biome.setup({
       on_attach = on_attach,
     })
+    require 'lspconfig'.clangd.setup({
+      on_attach = on_attach,
+    })
     require 'lspconfig'.elixirls.setup({
       cmd = elixir_path,
       on_attach = on_attach
@@ -77,6 +80,10 @@ return {
         end
         return true
       end
+    })
+    require('lspconfig').omnisharp.setup({
+      cmd = { "omnisharp" },
+      on_attach = on_attach,
     })
     require('lspconfig').pylsp.setup({
       on_attach = on_attach,
