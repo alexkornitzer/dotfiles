@@ -11,7 +11,7 @@ return {
   config = function(_, opts)
     local ft = require('guard.filetype')
 
-    ft('javascript,typescript'):fmt('prettier'):lint('eslint')
+    ft('javascript,typescript'):fmt('prettier')
 
     require('guard').setup(opts)
   end
