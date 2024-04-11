@@ -39,3 +39,5 @@ ohmyzsh/ohmyzsh path:plugins/macos kind:fpath conditional:is-macos
 ohmyzsh/ohmyzsh path:plugins/xcode conditional:is-macos
 
 junegunn/fzf kind:clone post:run_fzf_postinstaller
+
+zshzoo/completion
