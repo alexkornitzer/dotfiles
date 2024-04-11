@@ -19,73 +19,31 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
 fi
 
 #-------------------------------------------------------------------------------
-# Znap
+# Antidote
 #-------------------------------------------------------------------------------
 
+# Helpers
+
+is-macos() {
+  [[ $OSTYPE == darwin* ]]
+}
+
+run_fzf_postinstaller() {
+  if [[ ! -f "${XDG_CONFIG_HOME:=$HOME/.config}"/fzf/fzf.zsh ]]; then
+    $(antidote path junegunn/fzf)/install --xdg --all
+  fi
+}
+
 # Source in the package manager
-ZNAP_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/znap"
-[[ -r "${ZNAP_HOME}/znap/znap.zsh" ]] || git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git "$ZNAP_HOME/znap"
-source "${ZNAP_HOME}/znap/znap.zsh"
+ANTIDOTE_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/antidote"
+[[ -r "${ANTIDOTE_HOME}/antidote.zsh" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git ${ANTIDOTE_HOME}
+source "${ANTIDOTE_HOME}/antidote.zsh"
 
-# HACK: Work around for loading completions from Oh-My-Zsh
-ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
-mkdir -p "$ZSH_CACHE_DIR/completions"
-(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+# Load plugins from ~/.zsh_plugins.txt
+antidote load
 
-# Load Oh-My-Zsh Libraries but only the ones we want
-znap source ohmyzsh/ohmyzsh lib/completion.zsh
-znap source ohmyzsh/ohmyzsh lib/correction.zsh
-znap source ohmyzsh/ohmyzsh lib/functions.zsh
-znap source ohmyzsh/ohmyzsh lib/git.zsh
-znap source ohmyzsh/ohmyzsh lib/grep.zsh
-znap source ohmyzsh/ohmyzsh lib/history.zsh
-znap source ohmyzsh/ohmyzsh lib/key-bindings.zsh
-znap source ohmyzsh/ohmyzsh lib/spectrum.zsh
-znap source ohmyzsh/ohmyzsh lib/termsupport.zsh
-znap source ohmyzsh/ohmyzsh lib/theme-and-appearance.zsh
-
-## General
-znap source ohmyzsh/ohmyzsh plugins/command-not-found
-znap source ohmyzsh/ohmyzsh plugins/git
-znap source ohmyzsh/ohmyzsh plugins/tmux
-
-znap source zsh-users/zsh-autosuggestions
-znap eval catppuccin-syntax-highlighting 'curl -fsSL https://raw.githubusercontent.com/catppuccin/zsh-syntax-highlighting/master/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh'
-znap source zsh-users/zsh-syntax-highlighting
-
-## Dev Plugins
-znap source ohmyzsh/ohmyzsh plugins/docker
-znap source ohmyzsh/ohmyzsh plugins/docker-compose
-znap source ohmyzsh/ohmyzsh plugins/npm
-znap source ohmyzsh/ohmyzsh plugins/nvm
-znap source ohmyzsh/ohmyzsh plugins/pip
-znap source ohmyzsh/ohmyzsh plugins/poetry
-znap source ohmyzsh/ohmyzsh plugins/python
-znap source ohmyzsh/ohmyzsh plugins/rust
-znap source ohmyzsh/ohmyzsh plugins/virtualenv
-
-# OS X
-if [[ $OSTYPE =~ "darwin*" ]]; then
-  znap source ohmyzsh/ohmyzsh plugins/macports
-  znap source ohmyzsh/ohmyzsh plugins/macos
-  znap source ohmyzsh/ohmyzsh plugins/xcode
-fi
-
-# Commands
-znap source junegunn/fzf shell/{completion,key-bindings}.zsh
-${ZNAP_HOME}/junegunn/fzf/install --no-fish --no-bash --bin > /dev/null
-znap install junegunn/fzf
-
-[[ -r "${ZNAP_HOME}/git-prompt" ]] || ln -s "${HOME}/.zsh/plugins/git-prompt" "${ZNAP_HOME}/git-prompt"
-source "${ZNAP_HOME}/git-prompt/git-prompt.plugin.zsh"
-
-[[ -r "${ZNAP_HOME}/jellybeans" ]] || ln -s "${HOME}/.zsh/themes" "${ZNAP_HOME}/jellybeans"
-znap prompt jellybeans
-
-# Completions
-#znap fpath _rustup  'rustup completions zsh'
-#znap fpath _cargo   'rustup completions zsh cargo'
-fpath+=( ~[ohmyzsh]/{ripgrep} )
+source "${HOME}/.zsh/plugins/git-prompt/git-prompt.plugin.zsh"
+source "${HOME}/.zsh/themes/jellybeans.zsh-theme"
 
 #-------------------------------------------------------------------------------
 # General ZSH Settings
@@ -247,11 +205,8 @@ bindkey '^[j' traverse-upwards
 # Required removal of https://github.com/zplug/zplug/pull/355/files#diff-fb361a0797fa562c6352fa10675bfbaaR6
 setopt monitor
 
-# FIXME: Needed to fix: https://github.com/zplug/zplug/issues/387
-export PATH="${PATH}:${ZPLUG_BIN}"
-
-# FIXME: Hack until I add elixir-ls to macports
-export PATH="${PATH}:${HOME}/.local/share/vim-lsp-settings/servers/elixir-ls"
-
 # Local binaries
 export PATH="${PATH}:${HOME}/.local/bin"
+
+# opam configuration
+[[ ! -r /Users/alex.kornitzer/.opam/opam-init/init.zsh ]] || source /Users/alex.kornitzer/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
