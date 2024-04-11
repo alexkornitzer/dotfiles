@@ -21,7 +21,7 @@ is-macos() {
 
 run_fzf_postinstaller() {
   if [[ ! -f "${XDG_CONFIG_HOME:=$HOME/.config}"/fzf/fzf.zsh ]]; then
-    $(antidote path junegunn/fzf)/install --xdg --all
+    $(antidote path junegunn/fzf)/install --xdg --no-bash --no-fish --all
   fi
 }
 
@@ -131,6 +131,7 @@ if [ `command -v 'thefuck'` ]; then
 fi
 
 # Setup FZF
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 _gen_fzf_default_opts() {
   local color00='#2E3440'
   local color01='#3B4252'
@@ -174,7 +175,3 @@ traverse-upwards() {
 }
 zle -N traverse-upwards{,}
 bindkey '^[j' traverse-upwards
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Fixes
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
