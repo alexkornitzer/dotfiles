@@ -25,7 +25,7 @@ zsh-users/zsh-syntax-highlighting
 ## Dev Plugins
 ohmyzsh/ohmyzsh path:plugins/docker kind:fpath
 ohmyzsh/ohmyzsh path:plugins/docker-compose
-ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/npm kind:fpath
 ohmyzsh/ohmyzsh path:plugins/nvm
 ohmyzsh/ohmyzsh path:plugins/pip kind:fpath
 ohmyzsh/ohmyzsh path:plugins/poetry kind:fpath
