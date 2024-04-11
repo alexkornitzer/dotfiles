@@ -201,12 +201,5 @@ bindkey '^[j' traverse-upwards
 # Fixes
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# FIXME: Needed to fix: https://github.com/zplug/zplug/issues/383
-# Required removal of https://github.com/zplug/zplug/pull/355/files#diff-fb361a0797fa562c6352fa10675bfbaaR6
-setopt monitor
-
 # Local binaries
 export PATH="${PATH}:${HOME}/.local/bin"
-
-# opam configuration
-[[ ! -r /Users/alex.kornitzer/.opam/opam-init/init.zsh ]] || source /Users/alex.kornitzer/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
