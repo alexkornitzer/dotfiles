@@ -4,15 +4,6 @@
 
 export LANG=en_GB.UTF-8
 
-# Macports
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Python
-if [[ $OSTYPE =~ "darwin*" ]]; then
-  export PATH="$PATH:`python -m site --user-base`/bin"
-else
-  export PATH="$PATH:$HOME/.local/bin"
-fi
-
 # Load in completions
 if [[ $OSTYPE =~ "darwin*" ]]; then
   fpath=(/opt/local/share/zsh/site-functions $fpath)
@@ -35,7 +26,7 @@ run_fzf_postinstaller() {
 }
 
 # Source in the package manager
-ANTIDOTE_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/antidote"
+ANTIDOTE_HOME="${ZDOTDIR:-$HOME}/.antidote"
 [[ -r "${ANTIDOTE_HOME}/antidote.zsh" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git ${ANTIDOTE_HOME}
 source "${ANTIDOTE_HOME}/antidote.zsh"
 
@@ -131,19 +122,6 @@ fi
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export PINENTRY_USER_DATA="USE_CURSES=1"
 
-# Add cargo
-#export PATH="${PATH}:${HOME}/.cargo/bin"
-export PATH="${HOME}/.cargo/bin:${PATH}"
-
-# Add python
-if [ `command -v 'python3'` ]; then
-  export PATH="${PATH}:`python3 -m site --user-base`/bin"
-fi
-
-# No I don't want a visible go folder...
-export GOPATH="${HOME}/.go"
-export PATH="${PATH}:${GOPATH}/bin"
-
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -200,6 +178,3 @@ bindkey '^[j' traverse-upwards
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Fixes
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Local binaries
-export PATH="${PATH}:${HOME}/.local/bin"
