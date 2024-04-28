@@ -68,6 +68,7 @@ function precmd() {
 }
 
 zmodload -F zsh/datetime p:EPOCHSECONDS
+autoload -U add-zsh-hook
 add-zsh-hook precmd precmd
 add-zsh-hook preexec preexec
 
