@@ -8,13 +8,13 @@
 # Globals
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}git:["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[white]%}]"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_BRANCH="%F{#9399B2}"
 
-ZSH_THEME_VIRTUALENV_PREFIX="%{$fg[white]%}virtualenv:[%{$fg[green]%}"
+ZSH_THEME_VIRTUALENV_PREFIX="%{$fg[white]%}virtualenv:[%F{#9399B2}"
 ZSH_THEME_VIRTUALENV_SUFFIX="%{$fg[white]%}]"
 
 # Locals
-local user='%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}'
+local user='%F{#9399B2}%n%F{#9399B2}@%m%{$reset_color%}'
 local pwd='%{$fg[blue]%}%~%{$reset_color%}'
 local return_status=" %(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 local git_branch=' $(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
