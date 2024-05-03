@@ -20,8 +20,10 @@ is-macos() {
 }
 
 run_fzf_postinstaller() {
-  if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ]]; then
+  if [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ]]; then
     $(antidote path junegunn/fzf)/install --xdg --no-bash --no-fish --all
+  else
+    $(antidote path junegunn/fzf)/install --bin
   fi
 }
 
