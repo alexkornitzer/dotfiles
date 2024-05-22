@@ -35,29 +35,17 @@ return {
       end,
     })
 
-    local on_attach = function(client, bufnr)
-      if client.server_capabilities.inlayHintProvider then
-        vim.lsp.buf.inlay_hint(bufnr, true)
-      end
-    end
-
     local elixir_path = nil
     if vim.fn.executable('elixir-ls') == 1 then
       elixir_path = { 'elixir-ls' }
     end
 
-    require 'lspconfig'.biome.setup({
-      on_attach = on_attach,
-    })
-    require 'lspconfig'.clangd.setup({
-      on_attach = on_attach,
-    })
+    require 'lspconfig'.biome.setup({})
+    require 'lspconfig'.clangd.setup({})
     require 'lspconfig'.elixirls.setup({
       cmd = elixir_path,
-      on_attach = on_attach
     })
     require 'lspconfig'.lua_ls.setup({
-      on_attach = on_attach,
       on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -83,11 +71,8 @@ return {
     })
     require('lspconfig').omnisharp.setup({
       cmd = { "omnisharp" },
-      on_attach = on_attach,
     })
-    require('lspconfig').pylsp.setup({
-      on_attach = on_attach,
-    })
+    require('lspconfig').pylsp.setup({})
     -- NOTE: Disabled as we use 'rustaceanvim'
     --require('lspconfig').rust_analyzer.setup({
     --  settings = {
@@ -98,11 +83,8 @@ return {
     --    },
     --  },
     --})
-    require 'lspconfig'.svelte.setup({
-      on_attach = on_attach,
-    })
+    require 'lspconfig'.svelte.setup({})
     require 'lspconfig'.tailwindcss.setup({
-      on_attach = on_attach,
       init_options = {
         userLanguages = {
           elixir = "html-eex",
@@ -120,7 +102,6 @@ return {
       }
     end
     require 'lspconfig'.texlab.setup({
-      on_attach = on_attach,
       settings = {
         texlab = {
           auxDirectory = ".",
@@ -150,8 +131,6 @@ return {
         },
       }
     })
-    require 'lspconfig'.zls.setup({
-      on_attach = on_attach,
-    })
+    require 'lspconfig'.zls.setup({})
   end
 }
