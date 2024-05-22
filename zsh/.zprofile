@@ -14,5 +14,7 @@ fi
 export GOPATH="${HOME}/.go"
 export PATH="${PATH}:${GOPATH}/bin"
 
+export TFENV_CONFIG_DIR="${HOME}/.tfenv"
+
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
