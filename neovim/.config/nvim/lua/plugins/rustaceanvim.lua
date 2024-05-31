@@ -3,11 +3,6 @@ return {
   ft = { 'rust' },
   opts = {
     server = {
-      on_attach = function(client, bufnr)
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.buf.inlay_hint(bufnr, true)
-        end
-      end,
       settings = {
         ['rust-analyzer'] = {
           check = {
