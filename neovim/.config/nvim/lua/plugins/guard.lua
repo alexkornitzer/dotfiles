@@ -12,6 +12,11 @@ return {
     local ft = require('guard.filetype')
 
     ft('javascript,typescript'):fmt('prettier')
+    ft('yaml'):fmt({
+      cmd = 'yamlfix',
+      args = { '-' },
+      stdin = true,
+    })
 
     require('guard').setup(opts)
   end
