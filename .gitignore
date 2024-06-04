@@ -1,4 +1,6 @@
 # Things to ignore
+tmux/.tmux/plugins/*
+!tmux/.tmux/plugins/tpm
 vim/.vim/autoload/plug.vim
 vim/.vim/autoload/plug.vim.old
 vim/.vim/plugged/
