@@ -16,7 +16,7 @@ return {
       cmd = 'yamlfix',
       args = { '-' },
       stdin = true,
-    })
+    }):env({ YAMLFIX_SECTION_WHITELINES = "1" })
 
     require('guard').setup(opts)
   end
