@@ -1,0 +1,28 @@
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+extend-select = ["ALL"]
+ignore = [
+  "ANN101",
+  "ANN102",
+  "C901",
+  "COM812",
+  "D100",
+  "D103",
+  "E999",
+  "ERA001",
+  "FIX001",
+  "FIX002",
+  "FIX003",
+  "FIX004",
+  "ISC001",
+  "PLR0912",
+  "PLR0913",
+  "T201",
+  "TD001",
+  "TD002",
+  "TD003"
+]
+pydocstyle = { convention = 'google' }
