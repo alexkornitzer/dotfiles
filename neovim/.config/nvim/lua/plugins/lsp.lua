@@ -72,7 +72,30 @@ return {
     require('lspconfig').omnisharp.setup({
       cmd = { "omnisharp" },
     })
-    require('lspconfig').pylsp.setup({})
+    require('lspconfig').pylsp.setup({
+      settings = {
+        pylsp = {
+          plugins = {
+            autopep8 = {
+              enabled = false
+            },
+            mccabe = {
+              enabled = false
+            },
+            pycodestyle = {
+              enabled = false
+            },
+            pyflakes = {
+              enabled = false
+            },
+            yapf = {
+              enabled = false
+            }
+          }
+        }
+      }
+    })
+    require('lspconfig').ruff_lsp.setup({})
     -- NOTE: Disabled as we use 'rustaceanvim'
     --require('lspconfig').rust_analyzer.setup({
     --  settings = {

@@ -28,8 +28,6 @@ return {
           "-U",
           "pylsp-mypy",
           "pylsp-rope",
-          "python-lsp-isort",
-          "python-lsp-ruff",
         }
 
         require("plenary.job")
