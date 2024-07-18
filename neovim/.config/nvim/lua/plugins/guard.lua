@@ -11,6 +11,15 @@ return {
   config = function(_, opts)
     local ft = require('guard.filetype')
 
+    ft("python"):fmt({
+      fn = function(buf,range)
+        vim.lsp.buf.format({
+          buffer = buf,
+          range = range,
+          async = true,
+          name = "ruff_lsp",
+        }) end
+    })
     ft('javascript,typescript'):fmt('prettier')
     ft('yaml'):fmt({
       cmd = 'yamlfix',

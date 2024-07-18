@@ -79,6 +79,9 @@ return {
             autopep8 = {
               enabled = false
             },
+            flake8 = {
+              enabled = false
+            },
             mccabe = {
               enabled = false
             },
@@ -86,6 +89,9 @@ return {
               enabled = false
             },
             pyflakes = {
+              enabled = false
+            },
+            pylint = {
               enabled = false
             },
             yapf = {
