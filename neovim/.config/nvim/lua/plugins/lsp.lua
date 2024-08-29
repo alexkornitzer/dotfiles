@@ -133,6 +133,7 @@ return {
         args = { "-g", "%l", "%p", "%f" }
       }
     end
+    require 'lspconfig'.terraformls.setup({})
     require 'lspconfig'.texlab.setup({
       settings = {
         texlab = {
