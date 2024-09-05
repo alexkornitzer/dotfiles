@@ -2,14 +2,16 @@
 
 # Notes:
 # This theme relies on the following oh-my-zsh plugins:
-# 1. vi-mode
-# 2. git-prompt
+# 1. terraform
+# 2. virtualenv
 
 # Globals
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}git:["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[white]%}]"
 ZSH_THEME_GIT_PROMPT_BRANCH="%F{#9399B2}"
 
+ZSH_THEME_TF_PROMPT_PREFIX="%{$fg[white]%}terraform:[%F{#9399B2}"
+ZSH_THEME_TF_PROMPT_SUFFIX="%{$fg[white]%}]"
 ZSH_THEME_VIRTUALENV_PREFIX="%{$fg[white]%}virtualenv:[%F{#9399B2}"
 ZSH_THEME_VIRTUALENV_SUFFIX="%{$fg[white]%}]"
 
@@ -21,7 +23,6 @@ local git_branch=' $(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$rese
 local exec_time='%{$fg[yellow]%}${human_exec_time}%{$reset_color%}'
 
 # Functions
-MODE_INDICATOR="%{$fg_bold[blue]%} [% NORMAL]% %{$reset_color%}"
 function virtualenv_prompt_info_wrap() {
   [[ -n ${VIRTUAL_ENV} ]] || return
   echo " %{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
@@ -75,7 +76,7 @@ add-zsh-hook preexec preexec
 # Prompt
 function build_rprompt() {
   local lprompt="${user} ${pwd}"
-  local rprompt="$(virtualenv_prompt_info_wrap)$(git_super_status)"
+  local rprompt="$(virtualenv_prompt_info_wrap)$(tf_prompt_info)$(git_super_status)"
   local left_len=$(prompt-length $lprompt)
   local right_len=$(prompt-length $rprompt)
   local fill=$((COLUMNS - left_len - right_len))

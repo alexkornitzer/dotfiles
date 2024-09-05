@@ -31,6 +31,7 @@ ohmyzsh/ohmyzsh path:plugins/poetry kind:fpath
 ohmyzsh/ohmyzsh path:plugins/python
 ohmyzsh/ohmyzsh path:plugins/rust kind:fpath
 ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath
+ohmyzsh/ohmyzsh path:plugins/terraform
 ohmyzsh/ohmyzsh path:plugins/virtualenv
 
 ohmyzsh/ohmyzsh path:plugins/iterm2 conditional:is-macos

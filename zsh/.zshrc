@@ -177,3 +177,5 @@ traverse-upwards() {
 }
 zle -N traverse-upwards{,}
 bindkey '^[j' traverse-upwards
+
+export YAMLFIX_SECTION_WHITELINES=1
