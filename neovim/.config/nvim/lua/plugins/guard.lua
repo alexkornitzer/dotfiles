@@ -4,11 +4,7 @@ return {
   dependencies = {
     "nvimdev/guard-collection",
   },
-  opts = {
-    fmt_on_save = true,
-    lsp_as_default_formatter = true,
-  },
-  config = function(_, opts)
+  config = function(_, _)
     local ft = require('guard.filetype')
 
     ft("python"):fmt({
@@ -28,6 +24,10 @@ return {
       stdin = true,
     }):env({ YAMLFIX_SECTION_WHITELINES = '1' })
 
-    require('guard').setup(opts)
+    vim.g.guard_config = {
+      fmt_on_save = true,
+      lsp_as_default_formatter = true,
+      save_on_fmt = true,
+    }
   end
 }
