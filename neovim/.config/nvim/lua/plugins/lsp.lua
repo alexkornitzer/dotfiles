@@ -35,6 +35,9 @@ return {
         vim.keymap.set('n', '<leader>i', function()
           vim.lsp.buf.code_action { context = { only = { "source.organizeImports" } }, apply = true }
         end, opts)
+        vim.keymap.set('n', '<leader>ih', function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, opts)
       end,
     })
 
@@ -48,7 +51,8 @@ return {
     require 'lspconfig'.elixirls.setup({
       cmd = elixir_path,
     })
-    require 'lspconfig'.gopls.setup({})
+    local cfg = require 'go.lsp'.config()
+    require('lspconfig').gopls.setup(cfg)
     require 'lspconfig'.lua_ls.setup({
       on_init = function(client)
         local path = client.workspace_folders[1].name
