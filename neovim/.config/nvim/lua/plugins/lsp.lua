@@ -51,8 +51,7 @@ return {
     require 'lspconfig'.elixirls.setup({
       cmd = elixir_path,
     })
-    local cfg = require 'go.lsp'.config()
-    require('lspconfig').gopls.setup(cfg)
+    require('lspconfig').gopls.setup({})
     require 'lspconfig'.lua_ls.setup({
       on_init = function(client)
         local path = client.workspace_folders[1].name
