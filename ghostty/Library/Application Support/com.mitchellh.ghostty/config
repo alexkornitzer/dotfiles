@@ -1,0 +1,10 @@
+font-family = "Monaco"
+font-size = 9
+
+initial-window = false
+
+shell-integration = zsh
+
+theme = "catppuccin-mocha"
+
+keybind = global:ctrl+`=toggle_quick_terminal
