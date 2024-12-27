@@ -13,7 +13,7 @@ return {
           buffer = buf,
           range = range,
           async = true,
-          name = "ruff_lsp",
+          name = "ruff",
         })
       end
     })

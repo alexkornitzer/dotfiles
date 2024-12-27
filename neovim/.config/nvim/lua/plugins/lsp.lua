@@ -1,6 +1,7 @@
 -- Nvim-LSP: Quickstart configs for Nvim LSP
 return {
   "neovim/nvim-lspconfig",
+  priority = 99,
   config = function(_, opts)
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -108,7 +109,7 @@ return {
         }
       }
     })
-    require('lspconfig').ruff_lsp.setup({})
+    require('lspconfig').ruff.setup({})
     -- NOTE: Disabled as we use 'rustaceanvim'
     --require('lspconfig').rust_analyzer.setup({
     --  settings = {
