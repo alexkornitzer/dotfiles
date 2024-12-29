@@ -5,6 +5,9 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Local binaries
 export PATH="${PATH}:${HOME}/.local/bin"
 
+# Add Ghostty
+export PATH="${PATH}:/Applications/Ghostty.app/Contents/MacOS"
+
 # Add python
 if [ `command -v 'python3'` ]; then
   export PATH="${PATH}:`python3 -m site --user-base`/bin"
