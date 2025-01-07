@@ -111,6 +111,11 @@ if [ `command -v 'direnv'` ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# Source in jj completions
+if [ `command -v 'jj'` ]; then
+  source <(jj util completion zsh)
+fi
+
 # Source in nvm
 if [ -f /opt/local/share/nvm/init-nvm.sh ]; then
   source /opt/local/share/nvm/init-nvm.sh
@@ -119,6 +124,11 @@ fi
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Exports
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Neovim
+if [ `command -v 'nvim'` ]; then
+  export EDITOR="nvim"
+fi
 
 # Pass - password-store
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
