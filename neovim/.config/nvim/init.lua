@@ -21,6 +21,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Options
 --
 
+-- Round windows
+vim.o.winborder = 'rounded'
+
 -- Enable true colour support
 vim.opt.termguicolors = true
 
@@ -147,5 +150,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*.*" },
   callback = function()
     vim.api.nvim_exec('silent! normal! g`"zv', false)
+  end,
+})
+
+-- Set tabs for some file types
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gdscript" },
+  callback = function()
+    vim.opt.expandtab = false
   end,
 })
