@@ -61,7 +61,7 @@ for st in status:
         if re.search('Initial commit on', st[2]):
             branch = st[2].split(' ')[-1]
         elif re.search('no branch', st[2]):  # detached status
-            branch = get_tagname_or_hash()
+            branch = get_tagname_or_hash().split(",")[0]
         elif len(st[2].strip().split('...')) == 1:
             branch = st[2].strip()
         else:
