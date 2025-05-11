@@ -1,0 +1,12 @@
+# Set default text editor
+e cfg.editor=nvim
+
+# 24-bit true colours
+e scr.color=3
+
+# Set to fancy fonts
+e scr.utf8=true
+e scr.utf8.curvy=true
+
+# Disable mouse scrolling, to stop click bug
+e scr.wheel=0
