@@ -47,14 +47,10 @@ return {
       elixir_path = { 'elixir-ls' }
     end
 
-    require 'lspconfig'.biome.setup({})
-    require 'lspconfig'.clangd.setup({})
-    require 'lspconfig'.elixirls.setup({
+    vim.lsp.config('elixirls', {
       cmd = elixir_path,
     })
-    require('lspconfig').gdscript.setup({})
-    require('lspconfig').gopls.setup({})
-    require 'lspconfig'.lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -78,10 +74,10 @@ return {
         return true
       end
     })
-    require('lspconfig').omnisharp.setup({
+    vim.lsp.config('omnisharp', {
       cmd = { "omnisharp" },
     })
-    require('lspconfig').pylsp.setup({
+    vim.lsp.config('pylsp', {
       settings = {
         pylsp = {
           plugins = {
@@ -110,19 +106,7 @@ return {
         }
       }
     })
-    require('lspconfig').ruff.setup({})
-    -- NOTE: Disabled as we use 'rustaceanvim'
-    --require('lspconfig').rust_analyzer.setup({
-    --  settings = {
-    --    ['rust-analyzer'] = {
-    --      check = {
-    --        command = "clippy"
-    --      }
-    --    },
-    --  },
-    --})
-    require 'lspconfig'.svelte.setup({})
-    require 'lspconfig'.tailwindcss.setup({
+    vim.lsp.config('tailwindcss', {
       init_options = {
         userLanguages = {
           elixir = "html-eex",
@@ -132,6 +116,19 @@ return {
         }
       }
     })
+
+    vim.lsp.enable('biome')
+    vim.lsp.enable('clangd')
+    vim.lsp.enable('elixirls')
+    vim.lsp.enable('gdscript')
+    vim.lsp.enable('gopls')
+    vim.lsp.enable('lua_ls')
+    vim.lsp.enable('omnisharp')
+    vim.lsp.enable('pylsp')
+    vim.lsp.enable('ruff')
+    vim.lsp.enable('svelte')
+    vim.lsp.enable('tailwindcss')
+
     local forwardSearch = { executable = '', args = {} }
     if vim.loop.os_uname().sysname == "Darwin" then
       forwardSearch = {

@@ -18,11 +18,8 @@ return {
       end
     })
     ft('javascript,typescript'):fmt('prettier')
-    ft('yaml'):fmt({
-      cmd = 'yamlfix',
-      args = { '-' },
-      stdin = true,
-    }):env({ YAMLFIX_SECTION_WHITELINES = '1' })
+    ft('json'):fmt('jq')
+    ft('yaml'):fmt('yamlfix'):env({ YAMLFIX_SECTION_WHITELINES = '1' })
 
     vim.g.guard_config = {
       fmt_on_save = true,
