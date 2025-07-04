@@ -116,19 +116,6 @@ return {
         }
       }
     })
-
-    vim.lsp.enable('biome')
-    vim.lsp.enable('clangd')
-    vim.lsp.enable('elixirls')
-    vim.lsp.enable('gdscript')
-    vim.lsp.enable('gopls')
-    vim.lsp.enable('lua_ls')
-    vim.lsp.enable('omnisharp')
-    vim.lsp.enable('pylsp')
-    vim.lsp.enable('ruff')
-    vim.lsp.enable('svelte')
-    vim.lsp.enable('tailwindcss')
-
     local forwardSearch = { executable = '', args = {} }
     if vim.loop.os_uname().sysname == "Darwin" then
       forwardSearch = {
@@ -136,8 +123,7 @@ return {
         args = { "-g", "%l", "%p", "%f" }
       }
     end
-    require 'lspconfig'.terraformls.setup({})
-    require 'lspconfig'.texlab.setup({
+    vim.lsp.config('textlab', {
       settings = {
         texlab = {
           auxDirectory = ".",
@@ -167,7 +153,7 @@ return {
         },
       }
     })
-    require 'lspconfig'.zls.setup({
+    vim.lsp.config('zls', {
       settings = {
         zls = {
           enable_build_on_save = true,
@@ -175,5 +161,20 @@ return {
         }
       }
     })
+
+    vim.lsp.enable('biome')
+    vim.lsp.enable('clangd')
+    vim.lsp.enable('elixirls')
+    vim.lsp.enable('gdscript')
+    vim.lsp.enable('gopls')
+    vim.lsp.enable('lua_ls')
+    vim.lsp.enable('omnisharp')
+    vim.lsp.enable('pylsp')
+    vim.lsp.enable('ruff')
+    vim.lsp.enable('svelte')
+    vim.lsp.enable('tailwindcss')
+    vim.lsp.enable('terraformls')
+    vim.lsp.enable('texlab')
+    vim.lsp.enable('zls')
   end
 }
