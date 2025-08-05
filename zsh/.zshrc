@@ -130,9 +130,10 @@ if [ `command -v 'nvim'` ]; then
   export EDITOR="nvim"
 fi
 
-# Pass - password-store
-export PASSWORD_STORE_ENABLE_EXTENSIONS=true
-export PINENTRY_USER_DATA="USE_CURSES=1"
+# Use 1Password SSH authentication socket
+if [ -e "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
+  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
