@@ -16,7 +16,7 @@ ZSH_THEME_VIRTUALENV_PREFIX="%{$fg[white]%}virtualenv:[%F{#9399B2}"
 ZSH_THEME_VIRTUALENV_SUFFIX="%{$fg[white]%}]"
 
 # Locals
-local user='%F{#F2CDCD}%n%F{#F2CDCD}@%m%{$reset_color%}'
+local user='%{$fg[white]%}%n%{$fg[white]%}@%m%{$reset_color%}'
 local pwd='%{$fg[blue]%}%~%{$reset_color%}'
 local return_status=" %(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 local git_branch=' $(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}'
@@ -82,5 +82,5 @@ function build_rprompt() {
   local fill=$((COLUMNS - left_len - right_len))
   echo ${(l:$fill:)}${rprompt}${hack}
 }
-PROMPT="${user} ${pwd}"'$(build_rprompt)'$'\n'"%{$fg[magenta]%}❯%{$reset_color%} "
+PROMPT="${user} ${pwd}"'$(build_rprompt)'$'\n'"%F{#8cb6ff}❯%{$reset_color%} "
 RPROMPT="${return_status}${exec_time}"

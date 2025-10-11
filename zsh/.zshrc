@@ -145,31 +145,6 @@ fi
 
 # Setup FZF
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-_gen_fzf_default_opts() {
-  local color00='#2E3440'
-  local color01='#3B4252'
-  local color02='#434C5E'
-  local color03='#4C566A'
-  local color04='#D8DEE9'
-  local color05='#E5E9F0'
-  local color06='#ECEFF4'
-  local color07='#8FBCBB'
-  local color08='#88C0D0'
-  local color09='#81A1C1'
-  local color0A='#5E81AC'
-  local color0B='#BF616A'
-  local color0C='#D08770'
-  local color0D='#EBCB8B'
-  local color0E='#A3BE8C'
-  local color0F='#B48EAD'
-
-  export FZF_DEFAULT_OPTS="
-    --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD
-    --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96
-    --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD
-  "
-}
-_gen_fzf_default_opts
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 if whence -cp 'rg' > /dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!{.git/*}'"
