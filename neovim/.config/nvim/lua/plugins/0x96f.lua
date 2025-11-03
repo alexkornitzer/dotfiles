@@ -1,11 +1,12 @@
 -- Catppuccin: Soothing pastel theme for Vim
 return {
-  'edeneast/nightfox.nvim',
-  name = 'nightfox',
+  'filipjanevski/0x96f.nvim',
+  name = '0x96f',
   branch = 'main',
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme("carbonfox")
+    require("0x96f").setup()
+    vim.cmd.colorscheme("0x96f")
   end
 }
