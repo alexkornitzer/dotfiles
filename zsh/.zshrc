@@ -146,7 +146,7 @@ fi
 # Setup FZF
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-export FZF_DEFAULT_OPTS='--color=bg+:#3a363a,bg:#262427,spinner:#49cae4,hl:#49cae4,fg:#fcfcfa,header:#1c1b1c,info:#5f5f5f,pointer:#49cae4,marker:#49cae4,fg+:#fcfcfa,prompt:#49cae4,hl+:#49cae4'
+export FZF_DEFAULT_OPTS='--color=bg+:#25211f,bg:#1b1917,spinner:#de6e7c,hl:#b279a7,fg:#fcfcfa,header:#1b1917,info:#5f5f5f,pointer:#ff666d,marker:#de6e7c,fg+:#fcfcfa,prompt:#888f93,hl+:#b279a7'
 if whence -cp 'rg' > /dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!{.git/*}'"
 fi

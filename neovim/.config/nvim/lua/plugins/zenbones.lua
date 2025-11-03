@@ -1,12 +1,12 @@
 -- Catppuccin: Soothing pastel theme for Vim
 return {
-  'filipjanevski/0x96f.nvim',
-  name = '0x96f',
+  'zenbones-theme/zenbones.nvim',
+  name = 'Zenbones',
   branch = 'main',
+  dependencies = "rktjmp/lush.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("0x96f").setup()
-    vim.cmd.colorscheme("0x96f")
+    vim.cmd.colorscheme('zenbones')
   end
 }

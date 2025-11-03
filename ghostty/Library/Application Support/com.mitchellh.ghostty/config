@@ -7,6 +7,6 @@ initial-window = false
 
 shell-integration = zsh
 
-theme = 0x96f
+theme = Zenbones Dark
 
 keybind = global:ctrl+`=toggle_quick_terminal
