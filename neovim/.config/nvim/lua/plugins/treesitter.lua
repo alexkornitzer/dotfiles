@@ -11,13 +11,16 @@ return {
       "rust",
       "svelte",
       "toml",
-      "typescript"
+      "typescript",
+      "zig"
     },
     auto_install = true,
     highlight = {
       enable = true,
     },
-    indent = { enable = true },
+    indent = {
+      enable = true,
+    },
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -31,8 +34,9 @@ return {
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
 
-    vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.opt.foldenable = false
+    vim.wo.foldenable = false
+    -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    -- vim.wo.foldmethod = 'expr'
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end
 }

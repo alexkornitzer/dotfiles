@@ -68,6 +68,8 @@ function precmd() {
 	unset cmd_timestamp
 }
 
+autoload -Uz promptinit && promptinit
+autoload -U colors && colors
 zmodload -F zsh/datetime p:EPOCHSECONDS
 autoload -U add-zsh-hook
 add-zsh-hook precmd precmd

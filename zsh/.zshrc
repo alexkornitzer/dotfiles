@@ -128,6 +128,7 @@ fi
 # Neovim
 if [ `command -v 'nvim'` ]; then
   export EDITOR="nvim"
+  export VISUAL="nvim"
 fi
 
 # Use 1Password SSH authentication socket
