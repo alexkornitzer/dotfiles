@@ -153,6 +153,23 @@ return {
         },
       }
     })
+    vim.lsp.config("yamlls", {
+      root_markers = { ".git", ".yamlls.json" },
+      on_init = function(client)
+        if client.workspace_folders then
+          local path = client.workspace_folders[1].name
+          local file = io.open(path .. "/.yamlls.json", "r")
+          if file then
+            local buf = file:read('*a')
+            local settings = vim.json.decode(buf)
+            client.settings = vim.tbl_deep_extend('force', client.config.settings, settings)
+            file:close()
+          end
+        end
+        client.notify('workspace/didChangeConfiguration')
+        return true
+      end
+    })
     vim.lsp.config('zls', {
       settings = {
         zls = {
@@ -167,6 +184,7 @@ return {
     vim.lsp.enable('expert')
     vim.lsp.enable('gdscript')
     vim.lsp.enable('gopls')
+    vim.lsp.enable('elp')
     vim.lsp.enable('lua_ls')
     vim.lsp.enable('omnisharp')
     vim.lsp.enable('pylsp')

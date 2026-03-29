@@ -7,6 +7,11 @@ return {
   config = function(_, _)
     local ft = require('guard.filetype')
 
+    ft('erlang'):fmt({
+      cmd = 'erlfmt',
+      args = {"-"},
+      stdin = true,
+    })
     ft('javascript,typescript'):fmt('prettier')
     ft('json'):fmt('jq')
     ft("python"):fmt('ruff')
