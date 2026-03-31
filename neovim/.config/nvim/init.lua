@@ -1,23 +1,4 @@
 --
--- Lazy Plugin Manager
---
-
--- Bootstrap Lazy
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-
---
 -- Options
 --
 
@@ -60,38 +41,20 @@ vim.opt.grepprg = "rg --vimgrep"
 
 
 --
--- Plugins
+-- Plugin
 --
 
--- Load Plugins
-require("lazy").setup("plugins", {
-  ui = {
-    icons = {
-      cmd = "",
-      config = "",
-      event = "",
-      ft = "",
-      init = "",
-      import = "",
-      keys = "",
-      lazy = "",
-      loaded = "●",
-      not_loaded = "○",
-      plugin = "",
-      runtime = "",
-      require = "",
-      source = "",
-      start = "",
-      task = "✔ ",
-      list = {
-        "●",
-        "➜",
-        "★",
-        "‒",
-      },
-    },
-  }
-})
+vim.api.nvim_create_user_command('PClean', function()
+  local unused = vim.iter(vim.pack.get())
+      :filter(function(x) return not x.active end)
+      :map(function(x) return x.spec.name end)
+      :totable()
+  vim.pack.del(unused)
+end, {})
+
+vim.api.nvim_create_user_command('PUpdate', function()
+  vim.pack.update()
+end, {})
 
 
 --
