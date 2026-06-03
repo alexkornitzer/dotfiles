@@ -165,7 +165,7 @@ vim.lsp.config("yamlls", {
         file:close()
       end
     end
-    client.notify('workspace/didChangeConfiguration')
+    client:notify('workspace/didChangeConfiguration')
     return true
   end
 })
